@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _190320_Banishment移植
-{
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
+namespace _190320_Banishment移植 {
+    public partial class MainForm : Form {
+        public MainForm() {
             InitializeComponent();
+        }
+
+        private void main_runBtn_Click(object sender, EventArgs e) {
+
         }
     }
 }

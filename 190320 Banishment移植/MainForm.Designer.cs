@@ -1,6 +1,6 @@
 ﻿namespace _190320_Banishment移植
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -28,13 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.main_runBtn = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // main_runBtn
+            // 
+            this.main_runBtn.Location = new System.Drawing.Point(635, 194);
+            this.main_runBtn.Name = "main_runBtn";
+            this.main_runBtn.Size = new System.Drawing.Size(107, 37);
+            this.main_runBtn.TabIndex = 0;
+            this.main_runBtn.Text = "开始执行";
+            this.main_runBtn.UseVisualStyleBackColor = true;
+            this.main_runBtn.Click += new System.EventHandler(this.main_runBtn_Click);
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Controls.Add(this.main_runBtn);
+            this.Name = "MainForm";
+            this.Text = "Banishment C#";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button main_runBtn;
     }
 }
 
