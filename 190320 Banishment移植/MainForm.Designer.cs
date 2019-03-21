@@ -23,28 +23,29 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MainTab = new System.Windows.Forms.TabControl();
             this.tabPageMain = new System.Windows.Forms.TabPage();
             this.MainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.MainBtnRun = new System.Windows.Forms.Button();
-            this.groupBoxController = new System.Windows.Forms.GroupBox();
-            this.MainController = new System.Windows.Forms.ListBox();
+            this.MainGroupBoxController = new System.Windows.Forms.GroupBox();
             this.tabPageUser = new System.Windows.Forms.TabPage();
             this.tabPageAnnounce = new System.Windows.Forms.TabPage();
             this.tabPageSettings = new System.Windows.Forms.TabPage();
             this.tabPageAbout = new System.Windows.Forms.TabPage();
             this.MainPicBoxRikka = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.MainGrid = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MainController = new System.Windows.Forms.TextBox();
             this.MainTab.SuspendLayout();
             this.tabPageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer)).BeginInit();
             this.MainSplitContainer.Panel2.SuspendLayout();
             this.MainSplitContainer.SuspendLayout();
-            this.groupBoxController.SuspendLayout();
+            this.MainGroupBoxController.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainPicBoxRikka)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // MainTab
@@ -63,7 +64,7 @@
             // tabPageMain
             // 
             this.tabPageMain.Controls.Add(this.MainSplitContainer);
-            this.tabPageMain.Controls.Add(this.groupBoxController);
+            this.tabPageMain.Controls.Add(this.MainGroupBoxController);
             this.tabPageMain.Location = new System.Drawing.Point(4, 25);
             this.tabPageMain.Name = "tabPageMain";
             this.tabPageMain.Padding = new System.Windows.Forms.Padding(3);
@@ -80,7 +81,7 @@
             // 
             // MainSplitContainer.Panel2
             // 
-            this.MainSplitContainer.Panel2.Controls.Add(this.dataGridView1);
+            this.MainSplitContainer.Panel2.Controls.Add(this.MainGrid);
             this.MainSplitContainer.Panel2.Controls.Add(this.MainPicBoxRikka);
             this.MainSplitContainer.Panel2.Controls.Add(this.MainBtnRun);
             this.MainSplitContainer.Size = new System.Drawing.Size(858, 414);
@@ -97,26 +98,16 @@
             this.MainBtnRun.Text = "开始执行";
             this.MainBtnRun.UseVisualStyleBackColor = true;
             // 
-            // groupBoxController
+            // MainGroupBoxController
             // 
-            this.groupBoxController.Controls.Add(this.MainController);
-            this.groupBoxController.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBoxController.Location = new System.Drawing.Point(3, 417);
-            this.groupBoxController.Name = "groupBoxController";
-            this.groupBoxController.Size = new System.Drawing.Size(858, 166);
-            this.groupBoxController.TabIndex = 3;
-            this.groupBoxController.TabStop = false;
-            this.groupBoxController.Text = "控制台";
-            // 
-            // MainController
-            // 
-            this.MainController.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainController.FormattingEnabled = true;
-            this.MainController.ItemHeight = 15;
-            this.MainController.Location = new System.Drawing.Point(3, 21);
-            this.MainController.Name = "MainController";
-            this.MainController.Size = new System.Drawing.Size(852, 142);
-            this.MainController.TabIndex = 0;
+            this.MainGroupBoxController.Controls.Add(this.MainController);
+            this.MainGroupBoxController.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.MainGroupBoxController.Location = new System.Drawing.Point(3, 417);
+            this.MainGroupBoxController.Name = "MainGroupBoxController";
+            this.MainGroupBoxController.Size = new System.Drawing.Size(858, 166);
+            this.MainGroupBoxController.TabIndex = 3;
+            this.MainGroupBoxController.TabStop = false;
+            this.MainGroupBoxController.Text = "控制台";
             // 
             // tabPageUser
             // 
@@ -164,18 +155,18 @@
             this.MainPicBoxRikka.TabIndex = 3;
             this.MainPicBoxRikka.TabStop = false;
             // 
-            // dataGridView1
+            // MainGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MainGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 72);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(206, 295);
-            this.dataGridView1.TabIndex = 4;
+            this.MainGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainGrid.Location = new System.Drawing.Point(0, 72);
+            this.MainGrid.Name = "MainGrid";
+            this.MainGrid.RowHeadersVisible = false;
+            this.MainGrid.RowTemplate.Height = 27;
+            this.MainGrid.Size = new System.Drawing.Size(206, 295);
+            this.MainGrid.TabIndex = 4;
             // 
             // Column1
             // 
@@ -189,12 +180,26 @@
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
+            // MainController
+            // 
+            this.MainController.AcceptsReturn = true;
+            this.MainController.BackColor = System.Drawing.SystemColors.Window;
+            this.MainController.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainController.Location = new System.Drawing.Point(3, 21);
+            this.MainController.Multiline = true;
+            this.MainController.Name = "MainController";
+            this.MainController.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.MainController.Size = new System.Drawing.Size(852, 142);
+            this.MainController.TabIndex = 1;
+            this.MainController.WordWrap = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 639);
             this.Controls.Add(this.MainTab);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Banishment C#";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -203,9 +208,10 @@
             this.MainSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer)).EndInit();
             this.MainSplitContainer.ResumeLayout(false);
-            this.groupBoxController.ResumeLayout(false);
+            this.MainGroupBoxController.ResumeLayout(false);
+            this.MainGroupBoxController.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainPicBoxRikka)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -220,11 +226,11 @@
         private System.Windows.Forms.TabPage tabPageAbout;
         private System.Windows.Forms.SplitContainer MainSplitContainer;
         private System.Windows.Forms.Button MainBtnRun;
-        private System.Windows.Forms.GroupBox groupBoxController;
-        private System.Windows.Forms.ListBox MainController;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox MainGroupBoxController;
+        private System.Windows.Forms.DataGridView MainGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.PictureBox MainPicBoxRikka;
+        public System.Windows.Forms.TextBox MainController;
     }
 }
