@@ -15,10 +15,6 @@ namespace _190320_Banishment移植 {
             InitializeMainBrowser();
         }
 
-        private void MainForm_Load(object sender, EventArgs e) {
-
-        }
-
         private void InitializeMainBrowser() {
             var settings = new CefSettings {
                 Locale = "zh-CN",
@@ -27,7 +23,7 @@ namespace _190320_Banishment移植 {
             };
             Cef.Initialize(settings);
             MainWeb = new ChromiumWebBrowser("https://pc.xuexi.cn/points/login.html?ref=https://www.xuexi.cn/");
-            MainSplitContainer.Panel1.Controls.Add(MainWeb);
+            MainSplitContainer1.Panel1.Controls.Add(MainWeb);
             MainWeb.Dock = DockStyle.Fill;
             Log.I("ChromiumWebBrowser is loaded.");
         }

@@ -84,8 +84,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseLib.cs" />
-    <Compile Include="Log.cs" />
+    <Compile Include="BaseLib\BaseLib.cs" />
+    <Compile Include="BaseLib\Const.cs" />
+    <Compile Include="BaseLib\Log.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +130,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MainIcon360.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NetWork\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
