@@ -26,31 +26,31 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MainTab = new System.Windows.Forms.TabControl();
             this.tabPageMain = new System.Windows.Forms.TabPage();
-            this.tabPageUser = new System.Windows.Forms.TabPage();
-            this.tabPageAnnounce = new System.Windows.Forms.TabPage();
-            this.tabPageSettings = new System.Windows.Forms.TabPage();
-            this.tabPageAbout = new System.Windows.Forms.TabPage();
             this.MainSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.MainGroupBoxController = new System.Windows.Forms.GroupBox();
-            this.MainController = new System.Windows.Forms.TextBox();
             this.MainSplitContainer1 = new System.Windows.Forms.SplitContainer();
             this.MainGrid = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MainPicBoxRikka = new System.Windows.Forms.PictureBox();
             this.MainBtnRun = new System.Windows.Forms.Button();
+            this.MainGroupBoxController = new System.Windows.Forms.GroupBox();
+            this.MainController = new System.Windows.Forms.TextBox();
+            this.tabPageUser = new System.Windows.Forms.TabPage();
+            this.tabPageAnnounce = new System.Windows.Forms.TabPage();
+            this.tabPageSettings = new System.Windows.Forms.TabPage();
+            this.tabPageAbout = new System.Windows.Forms.TabPage();
             this.MainTab.SuspendLayout();
             this.tabPageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer)).BeginInit();
             this.MainSplitContainer.Panel1.SuspendLayout();
             this.MainSplitContainer.Panel2.SuspendLayout();
             this.MainSplitContainer.SuspendLayout();
-            this.MainGroupBoxController.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer1)).BeginInit();
             this.MainSplitContainer1.Panel2.SuspendLayout();
             this.MainSplitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainPicBoxRikka)).BeginInit();
+            this.MainGroupBoxController.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainTab
@@ -80,43 +80,6 @@
             this.tabPageMain.Text = "主页";
             this.tabPageMain.UseVisualStyleBackColor = true;
             // 
-            // tabPageUser
-            // 
-            this.tabPageUser.Location = new System.Drawing.Point(4, 25);
-            this.tabPageUser.Name = "tabPageUser";
-            this.tabPageUser.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUser.Size = new System.Drawing.Size(888, 610);
-            this.tabPageUser.TabIndex = 1;
-            this.tabPageUser.Text = "个人中心";
-            this.tabPageUser.UseVisualStyleBackColor = true;
-            // 
-            // tabPageAnnounce
-            // 
-            this.tabPageAnnounce.Location = new System.Drawing.Point(4, 25);
-            this.tabPageAnnounce.Name = "tabPageAnnounce";
-            this.tabPageAnnounce.Size = new System.Drawing.Size(888, 610);
-            this.tabPageAnnounce.TabIndex = 2;
-            this.tabPageAnnounce.Text = "公告";
-            this.tabPageAnnounce.UseVisualStyleBackColor = true;
-            // 
-            // tabPageSettings
-            // 
-            this.tabPageSettings.Location = new System.Drawing.Point(4, 25);
-            this.tabPageSettings.Name = "tabPageSettings";
-            this.tabPageSettings.Size = new System.Drawing.Size(888, 610);
-            this.tabPageSettings.TabIndex = 3;
-            this.tabPageSettings.Text = "设置";
-            this.tabPageSettings.UseVisualStyleBackColor = true;
-            // 
-            // tabPageAbout
-            // 
-            this.tabPageAbout.Location = new System.Drawing.Point(4, 25);
-            this.tabPageAbout.Name = "tabPageAbout";
-            this.tabPageAbout.Size = new System.Drawing.Size(888, 610);
-            this.tabPageAbout.TabIndex = 4;
-            this.tabPageAbout.Text = "关于";
-            this.tabPageAbout.UseVisualStyleBackColor = true;
-            // 
             // MainSplitContainer
             // 
             this.MainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -134,30 +97,6 @@
             this.MainSplitContainer.Size = new System.Drawing.Size(882, 604);
             this.MainSplitContainer.SplitterDistance = 408;
             this.MainSplitContainer.TabIndex = 4;
-            // 
-            // MainGroupBoxController
-            // 
-            this.MainGroupBoxController.Controls.Add(this.MainController);
-            this.MainGroupBoxController.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainGroupBoxController.Location = new System.Drawing.Point(0, 0);
-            this.MainGroupBoxController.Name = "MainGroupBoxController";
-            this.MainGroupBoxController.Size = new System.Drawing.Size(882, 192);
-            this.MainGroupBoxController.TabIndex = 4;
-            this.MainGroupBoxController.TabStop = false;
-            this.MainGroupBoxController.Text = "控制台";
-            // 
-            // MainController
-            // 
-            this.MainController.AcceptsReturn = true;
-            this.MainController.BackColor = System.Drawing.SystemColors.Window;
-            this.MainController.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainController.Location = new System.Drawing.Point(3, 21);
-            this.MainController.Multiline = true;
-            this.MainController.Name = "MainController";
-            this.MainController.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.MainController.Size = new System.Drawing.Size(876, 168);
-            this.MainController.TabIndex = 1;
-            this.MainController.WordWrap = false;
             // 
             // MainSplitContainer1
             // 
@@ -217,6 +156,68 @@
             this.MainBtnRun.TabIndex = 2;
             this.MainBtnRun.Text = "开始执行";
             this.MainBtnRun.UseVisualStyleBackColor = true;
+            this.MainBtnRun.Click += new System.EventHandler(this.MainBtnRun_Click);
+            // 
+            // MainGroupBoxController
+            // 
+            this.MainGroupBoxController.Controls.Add(this.MainController);
+            this.MainGroupBoxController.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainGroupBoxController.Location = new System.Drawing.Point(0, 0);
+            this.MainGroupBoxController.Name = "MainGroupBoxController";
+            this.MainGroupBoxController.Size = new System.Drawing.Size(882, 192);
+            this.MainGroupBoxController.TabIndex = 4;
+            this.MainGroupBoxController.TabStop = false;
+            this.MainGroupBoxController.Text = "控制台";
+            // 
+            // MainController
+            // 
+            this.MainController.AcceptsReturn = true;
+            this.MainController.BackColor = System.Drawing.SystemColors.Window;
+            this.MainController.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainController.Location = new System.Drawing.Point(3, 21);
+            this.MainController.Multiline = true;
+            this.MainController.Name = "MainController";
+            this.MainController.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.MainController.Size = new System.Drawing.Size(876, 168);
+            this.MainController.TabIndex = 1;
+            this.MainController.WordWrap = false;
+            // 
+            // tabPageUser
+            // 
+            this.tabPageUser.Location = new System.Drawing.Point(4, 25);
+            this.tabPageUser.Name = "tabPageUser";
+            this.tabPageUser.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageUser.Size = new System.Drawing.Size(888, 610);
+            this.tabPageUser.TabIndex = 1;
+            this.tabPageUser.Text = "个人中心";
+            this.tabPageUser.UseVisualStyleBackColor = true;
+            // 
+            // tabPageAnnounce
+            // 
+            this.tabPageAnnounce.Location = new System.Drawing.Point(4, 25);
+            this.tabPageAnnounce.Name = "tabPageAnnounce";
+            this.tabPageAnnounce.Size = new System.Drawing.Size(888, 610);
+            this.tabPageAnnounce.TabIndex = 2;
+            this.tabPageAnnounce.Text = "公告";
+            this.tabPageAnnounce.UseVisualStyleBackColor = true;
+            // 
+            // tabPageSettings
+            // 
+            this.tabPageSettings.Location = new System.Drawing.Point(4, 25);
+            this.tabPageSettings.Name = "tabPageSettings";
+            this.tabPageSettings.Size = new System.Drawing.Size(888, 610);
+            this.tabPageSettings.TabIndex = 3;
+            this.tabPageSettings.Text = "设置";
+            this.tabPageSettings.UseVisualStyleBackColor = true;
+            // 
+            // tabPageAbout
+            // 
+            this.tabPageAbout.Location = new System.Drawing.Point(4, 25);
+            this.tabPageAbout.Name = "tabPageAbout";
+            this.tabPageAbout.Size = new System.Drawing.Size(888, 610);
+            this.tabPageAbout.TabIndex = 4;
+            this.tabPageAbout.Text = "关于";
+            this.tabPageAbout.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -227,20 +228,19 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Banishment C#";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.MainTab.ResumeLayout(false);
             this.tabPageMain.ResumeLayout(false);
             this.MainSplitContainer.Panel1.ResumeLayout(false);
             this.MainSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer)).EndInit();
             this.MainSplitContainer.ResumeLayout(false);
-            this.MainGroupBoxController.ResumeLayout(false);
-            this.MainGroupBoxController.PerformLayout();
             this.MainSplitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer1)).EndInit();
             this.MainSplitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainPicBoxRikka)).EndInit();
+            this.MainGroupBoxController.ResumeLayout(false);
+            this.MainGroupBoxController.PerformLayout();
             this.ResumeLayout(false);
 
         }

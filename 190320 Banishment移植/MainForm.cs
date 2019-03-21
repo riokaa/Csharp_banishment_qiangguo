@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using _190320_Banishment移植.BaseLib;
 using CefSharp;
 using CefSharp.WinForms;
 
@@ -29,6 +30,10 @@ namespace _190320_Banishment移植 {
         }
         private void InitializeMainController() {
             MainController.Text = "Banishment Version 3.0 Alpha.";
+        }
+
+        private void MainBtnRun_Click(object sender, EventArgs e) {
+
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace _190320_Banishment移植 {
+namespace _190320_Banishment移植.BaseLib {
     public class Log {
         public static void D(string log) {
             string output = string.Format("{0} [debug] : {1}", BaseLib.getCurrentTime(), log);
