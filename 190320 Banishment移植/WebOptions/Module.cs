@@ -6,11 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace _190320_Banishment移植.WebOption {
-    class Module {
+    class WebGetScore {
 
-        public void WebGetScore() {
-            Log.I("Web get score.");
-            MainForm.self.MainWeb.Load(Const.urlQGMyPoints);
+        public static void Start() {
+            Log.I("Web getting score.");
+            var MainWeb = MainForm.self.MainWeb;
+            MainWeb.Load(Const.urlQGMyPoints);
+            MainWeb.FrameLoadEnd += (sender, args) => {
+                if (args.Frame.IsMain) {
+                    Log.I("Web getting score: page loaded.");
+                    MainWeb.GetBrowser().MainFrame.GetSourceAsync().ContinueWith(taskHtml => {
+                        Log.I("Html: " + taskHtml);
+                    });
+                }
+            };
         }
     }
 }

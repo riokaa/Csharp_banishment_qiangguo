@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 using _190320_Banishment移植.BaseLib;
+using _190320_Banishment移植.WebOption;
 using CefSharp;
 using CefSharp.WinForms;
 
@@ -26,14 +28,15 @@ namespace _190320_Banishment移植 {
             MainWeb = new ChromiumWebBrowser("https://pc.xuexi.cn/points/login.html?ref=https://www.xuexi.cn/");
             MainSplitContainer1.Panel1.Controls.Add(MainWeb);
             MainWeb.Dock = DockStyle.Fill;
-            Log.I("ChromiumWebBrowser is loaded.");
+            Log.I("ChromiumWebBrowser loaded.");
         }
         private void InitializeMainController() {
             MainController.Text = "Banishment Version 3.0 Alpha.";
         }
 
         private void MainBtnRun_Click(object sender, EventArgs e) {
-
+            Thread thread = new Thread(WebGetScore.Start);
+            thread.Start();
         }
     }
 }
