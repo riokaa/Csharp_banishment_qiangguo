@@ -21,9 +21,10 @@ namespace _190320_Banishment移植.WebOptions {
             }
         }
     }
+
     /// <summary>
     /// 在自己窗口打开链接(_blank时不弹出新窗口)
-    /// ChromiumWebBrowser初始化时执行 browser.LifeSpanHandler = new OpenPageSelf();即可
+    /// ChromiumWebBrowser初始化时执行 browser.LifeSpanHandler = new OpenPageSelf(); 即可
     /// </summary>
     internal class OpenPageSelf : ILifeSpanHandler {
         public bool DoClose(IWebBrowser browserControl, IBrowser browser) {

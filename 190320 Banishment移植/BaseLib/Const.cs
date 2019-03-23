@@ -15,6 +15,7 @@ namespace _190320_Banishment移植.BaseLib {
         public static bool settingsAutoShutdown = false;
         public static string urlAnnounce = @"http://verify.rayiooo.top/index.php?m=applib&c=appweb&open_new=&a=new_list&list=10001";
         public static string urlPay = @"http://verify.rayiooo.top/index.php?m=applib&c=appweb&a=new_info&id=83";
+        public static string urlVideoList = @"http://api.rayiooo.top/banishment/getVideoList.php";
         public static string urlQGLearnTV = @"https://www.xuexi.cn/4426aa87b0b64ac671c96379a3a8bd26/db086044562a57b441c24f2af1c8e101.html";
         public static string urlQGMain = @"https://www.xuexi.cn/";
         public static string urlQGMyPoints = @"https://pc.xuexi.cn/points/my-points.html";

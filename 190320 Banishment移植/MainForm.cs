@@ -26,12 +26,13 @@ namespace _190320_Banishment移植 {
                 MultiThreadedMessageLoop = true
             };
             Cef.Initialize(settings);
-            MainWeb = new ChromiumWebBrowser("https://pc.xuexi.cn/points/login.html?ref=https://www.xuexi.cn/");
-            MainWeb.Dock = DockStyle.Fill;
-            MainWeb.LifeSpanHandler = new OpenPageSelf();
+            MainWeb = new ChromiumWebBrowser("https://pc.xuexi.cn/points/login.html?ref=https://www.xuexi.cn/") {
+                Dock = DockStyle.Fill,
+                LifeSpanHandler = new OpenPageSelf()
+            };
+            MainWeb.FrameLoadEnd += InitializeMainBrowserEndingEvent;
             MainSplitContainer1.Panel1.Controls.Add(MainWeb);
             Log.I("ChromiumWebBrowser loaded.");
-            MainWeb.FrameLoadEnd += InitializeMainBrowserEndingEvent;
         }
         private void InitializeMainBrowserEndingEvent(object sender, FrameLoadEndEventArgs e) {
             if (e.Frame.IsMain) {
@@ -43,13 +44,13 @@ namespace _190320_Banishment移植 {
             Log.I("Banishment Version 3.0 Alpha.");
         }
         private void InitializeMainGrid() {
-            MainGrid.Rows.Add("每日签到", "");
-            MainGrid.Rows.Add("文章阅读数", "未");
-            MainGrid.Rows.Add("视频观看数", "");
-            MainGrid.Rows.Add("文章阅读时长", "加");
-            MainGrid.Rows.Add("视频观看时长", "");
-            MainGrid.Rows.Add("今日总积分", "载");
-            MainGrid.Rows.Add("可用积分", "");
+            MainGrid.Rows.Add("每日签到", "未加载");
+            MainGrid.Rows.Add("文章阅读数", "未加载");
+            MainGrid.Rows.Add("视频观看数", "未加载");
+            MainGrid.Rows.Add("文章阅读时长", "未加载");
+            MainGrid.Rows.Add("视频观看时长", "未加载");
+            MainGrid.Rows.Add("今日总积分", "未加载");
+            MainGrid.Rows.Add("可用积分", "未加载");
         }
 
         private void MainBtnRun_Click(object sender, EventArgs e) {
