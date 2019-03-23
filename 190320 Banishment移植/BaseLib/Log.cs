@@ -43,11 +43,15 @@ namespace _190320_Banishment移植.BaseLib {
             if (controller.InvokeRequired) {
                 controller.Invoke(new Action(() => {
                     controller.Text = output.ToString();
-                    controller.ScrollToCaret();
+                    controller.Focus();//获取焦点
+                    controller.Select(controller.TextLength, 0);//光标定位到文本最后
+                    controller.ScrollToCaret();//滚动到光标处
                 }));
             } else {
                 controller.Text = output.ToString();
-                controller.ScrollToCaret();
+                controller.Focus();//获取焦点
+                controller.Select(controller.TextLength, 0);//光标定位到文本最后
+                controller.ScrollToCaret();//滚动到光标处
             }
         }
     }

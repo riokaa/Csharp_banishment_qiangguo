@@ -67,7 +67,7 @@
             this.MainTab.Multiline = true;
             this.MainTab.Name = "MainTab";
             this.MainTab.SelectedIndex = 0;
-            this.MainTab.Size = new System.Drawing.Size(896, 639);
+            this.MainTab.Size = new System.Drawing.Size(910, 645);
             this.MainTab.TabIndex = 1;
             // 
             // tabPageMain
@@ -76,7 +76,7 @@
             this.tabPageMain.Location = new System.Drawing.Point(4, 25);
             this.tabPageMain.Name = "tabPageMain";
             this.tabPageMain.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMain.Size = new System.Drawing.Size(888, 610);
+            this.tabPageMain.Size = new System.Drawing.Size(902, 616);
             this.tabPageMain.TabIndex = 0;
             this.tabPageMain.Text = "主页";
             this.tabPageMain.UseVisualStyleBackColor = true;
@@ -95,8 +95,8 @@
             // MainSplitContainer.Panel2
             // 
             this.MainSplitContainer.Panel2.Controls.Add(this.MainGroupBoxController);
-            this.MainSplitContainer.Size = new System.Drawing.Size(882, 604);
-            this.MainSplitContainer.SplitterDistance = 408;
+            this.MainSplitContainer.Size = new System.Drawing.Size(896, 610);
+            this.MainSplitContainer.SplitterDistance = 426;
             this.MainSplitContainer.TabIndex = 4;
             // 
             // MainSplitContainer1
@@ -111,8 +111,8 @@
             this.MainSplitContainer1.Panel2.Controls.Add(this.MainGrid);
             this.MainSplitContainer1.Panel2.Controls.Add(this.MainPicBoxRikka);
             this.MainSplitContainer1.Panel2.Controls.Add(this.MainBtnRun);
-            this.MainSplitContainer1.Size = new System.Drawing.Size(882, 408);
-            this.MainSplitContainer1.SplitterDistance = 684;
+            this.MainSplitContainer1.Size = new System.Drawing.Size(896, 426);
+            this.MainSplitContainer1.SplitterDistance = 694;
             this.MainSplitContainer1.TabIndex = 6;
             // 
             // MainGrid
@@ -130,7 +130,7 @@
             this.MainGrid.ReadOnly = true;
             this.MainGrid.RowHeadersVisible = false;
             this.MainGrid.RowTemplate.Height = 27;
-            this.MainGrid.Size = new System.Drawing.Size(194, 289);
+            this.MainGrid.Size = new System.Drawing.Size(198, 307);
             this.MainGrid.TabIndex = 4;
             // 
             // Column1
@@ -150,16 +150,16 @@
             this.MainPicBoxRikka.Dock = System.Windows.Forms.DockStyle.Top;
             this.MainPicBoxRikka.Location = new System.Drawing.Point(0, 0);
             this.MainPicBoxRikka.Name = "MainPicBoxRikka";
-            this.MainPicBoxRikka.Size = new System.Drawing.Size(194, 72);
+            this.MainPicBoxRikka.Size = new System.Drawing.Size(198, 72);
             this.MainPicBoxRikka.TabIndex = 3;
             this.MainPicBoxRikka.TabStop = false;
             // 
             // MainBtnRun
             // 
             this.MainBtnRun.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.MainBtnRun.Location = new System.Drawing.Point(0, 361);
+            this.MainBtnRun.Location = new System.Drawing.Point(0, 379);
             this.MainBtnRun.Name = "MainBtnRun";
-            this.MainBtnRun.Size = new System.Drawing.Size(194, 47);
+            this.MainBtnRun.Size = new System.Drawing.Size(198, 47);
             this.MainBtnRun.TabIndex = 2;
             this.MainBtnRun.Text = "开始执行";
             this.MainBtnRun.UseVisualStyleBackColor = true;
@@ -171,7 +171,7 @@
             this.MainGroupBoxController.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainGroupBoxController.Location = new System.Drawing.Point(0, 0);
             this.MainGroupBoxController.Name = "MainGroupBoxController";
-            this.MainGroupBoxController.Size = new System.Drawing.Size(882, 192);
+            this.MainGroupBoxController.Size = new System.Drawing.Size(896, 180);
             this.MainGroupBoxController.TabIndex = 4;
             this.MainGroupBoxController.TabStop = false;
             this.MainGroupBoxController.Text = "控制台";
@@ -185,7 +185,7 @@
             this.MainController.Multiline = true;
             this.MainController.Name = "MainController";
             this.MainController.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.MainController.Size = new System.Drawing.Size(876, 168);
+            this.MainController.Size = new System.Drawing.Size(890, 156);
             this.MainController.TabIndex = 1;
             // 
             // tabPageUser
@@ -228,16 +228,16 @@
             // MainProgressBar
             // 
             this.MainProgressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.MainProgressBar.Location = new System.Drawing.Point(0, 338);
+            this.MainProgressBar.Location = new System.Drawing.Point(0, 356);
             this.MainProgressBar.Name = "MainProgressBar";
-            this.MainProgressBar.Size = new System.Drawing.Size(194, 23);
+            this.MainProgressBar.Size = new System.Drawing.Size(198, 23);
             this.MainProgressBar.TabIndex = 5;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 639);
+            this.ClientSize = new System.Drawing.Size(910, 645);
             this.Controls.Add(this.MainTab);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
