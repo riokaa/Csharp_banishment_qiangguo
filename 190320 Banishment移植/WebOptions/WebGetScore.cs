@@ -1,6 +1,5 @@
 ﻿using _190320_Banishment移植.BaseLib;
 using CefSharp;
-using CefSharp.WinForms;
 using HtmlAgilityPack;
 using System;
 using System.Text.RegularExpressions;
@@ -55,12 +54,18 @@ namespace _190320_Banishment移植.WebOptions {
                     match = Regex.Match(totalNode.InnerText, @"今日累积积分([0-9]+)");
                     if (match.Groups.Count > 0) {
                         MainForm.self.MainGrid.Rows[5].Cells[1].Value = string.Format("{0}分", match.Groups[1]);
+                        Log.I(string.Format("今日累计积分：{0}分。", match.Groups[1]));
                     }
                     match = Regex.Match(totalNode.InnerText, @"可用积分([0-9]+)");
                     if (match.Groups.Count > 0) {
                         MainForm.self.MainGrid.Rows[6].Cells[1].Value = string.Format("{0}分", match.Groups[1]);
                     }
                 }
+            }
+            if(MainForm.self.mainThread.ThreadState == ThreadState.Suspended) {
+#pragma warning disable CS0618 // 类型或成员已过时
+                MainForm.self.mainThread.Resume();
+#pragma warning restore CS0618 // 类型或成员已过时
             }
         }
     }

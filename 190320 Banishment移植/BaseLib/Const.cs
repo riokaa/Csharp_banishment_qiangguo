@@ -1,8 +1,5 @@
-﻿using System;
+﻿using _190320_Banishment移植.WebOptions;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _190320_Banishment移植.BaseLib {
     class Const {
@@ -19,6 +16,7 @@ namespace _190320_Banishment移植.BaseLib {
         public static string urlQGLearnTV = @"https://www.xuexi.cn/4426aa87b0b64ac671c96379a3a8bd26/db086044562a57b441c24f2af1c8e101.html";
         public static string urlQGMain = @"https://www.xuexi.cn/";
         public static string urlQGMyPoints = @"https://pc.xuexi.cn/points/my-points.html";
+        public static List<WebVideoObject> videoList;
         public static string version = "v3.0.0";
         public static string versionDate = "2019.3.21";
     }

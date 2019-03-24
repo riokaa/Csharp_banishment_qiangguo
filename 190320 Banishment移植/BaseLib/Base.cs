@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace _190320_Banishment移植.BaseLib {
     class Base {
         public static string GetCurrentTime() {
-            return DateTime.Now.ToLocalTime().ToString();
+            return DateTime.Now.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss");
         }
 
         public static string GetMac() {

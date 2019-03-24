@@ -28,6 +28,7 @@
             this.tabPageMain = new System.Windows.Forms.TabPage();
             this.MainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.MainSplitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.MainProgressBar = new System.Windows.Forms.ProgressBar();
             this.MainGrid = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,7 +40,6 @@
             this.tabPageAnnounce = new System.Windows.Forms.TabPage();
             this.tabPageSettings = new System.Windows.Forms.TabPage();
             this.tabPageAbout = new System.Windows.Forms.TabPage();
-            this.MainProgressBar = new System.Windows.Forms.ProgressBar();
             this.MainTab.SuspendLayout();
             this.tabPageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer)).BeginInit();
@@ -115,6 +115,14 @@
             this.MainSplitContainer1.SplitterDistance = 694;
             this.MainSplitContainer1.TabIndex = 6;
             // 
+            // MainProgressBar
+            // 
+            this.MainProgressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.MainProgressBar.Location = new System.Drawing.Point(0, 356);
+            this.MainProgressBar.Name = "MainProgressBar";
+            this.MainProgressBar.Size = new System.Drawing.Size(198, 23);
+            this.MainProgressBar.TabIndex = 5;
+            // 
             // MainGrid
             // 
             this.MainGrid.AllowUserToAddRows = false;
@@ -130,6 +138,7 @@
             this.MainGrid.ReadOnly = true;
             this.MainGrid.RowHeadersVisible = false;
             this.MainGrid.RowTemplate.Height = 27;
+            this.MainGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.MainGrid.Size = new System.Drawing.Size(198, 307);
             this.MainGrid.TabIndex = 4;
             // 
@@ -193,7 +202,7 @@
             this.tabPageUser.Location = new System.Drawing.Point(4, 25);
             this.tabPageUser.Name = "tabPageUser";
             this.tabPageUser.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUser.Size = new System.Drawing.Size(888, 610);
+            this.tabPageUser.Size = new System.Drawing.Size(902, 616);
             this.tabPageUser.TabIndex = 1;
             this.tabPageUser.Text = "个人中心";
             this.tabPageUser.UseVisualStyleBackColor = true;
@@ -202,7 +211,7 @@
             // 
             this.tabPageAnnounce.Location = new System.Drawing.Point(4, 25);
             this.tabPageAnnounce.Name = "tabPageAnnounce";
-            this.tabPageAnnounce.Size = new System.Drawing.Size(888, 610);
+            this.tabPageAnnounce.Size = new System.Drawing.Size(902, 616);
             this.tabPageAnnounce.TabIndex = 2;
             this.tabPageAnnounce.Text = "公告";
             this.tabPageAnnounce.UseVisualStyleBackColor = true;
@@ -211,7 +220,7 @@
             // 
             this.tabPageSettings.Location = new System.Drawing.Point(4, 25);
             this.tabPageSettings.Name = "tabPageSettings";
-            this.tabPageSettings.Size = new System.Drawing.Size(888, 610);
+            this.tabPageSettings.Size = new System.Drawing.Size(902, 616);
             this.tabPageSettings.TabIndex = 3;
             this.tabPageSettings.Text = "设置";
             this.tabPageSettings.UseVisualStyleBackColor = true;
@@ -220,18 +229,10 @@
             // 
             this.tabPageAbout.Location = new System.Drawing.Point(4, 25);
             this.tabPageAbout.Name = "tabPageAbout";
-            this.tabPageAbout.Size = new System.Drawing.Size(888, 610);
+            this.tabPageAbout.Size = new System.Drawing.Size(902, 616);
             this.tabPageAbout.TabIndex = 4;
             this.tabPageAbout.Text = "关于";
             this.tabPageAbout.UseVisualStyleBackColor = true;
-            // 
-            // MainProgressBar
-            // 
-            this.MainProgressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.MainProgressBar.Location = new System.Drawing.Point(0, 356);
-            this.MainProgressBar.Name = "MainProgressBar";
-            this.MainProgressBar.Size = new System.Drawing.Size(198, 23);
-            this.MainProgressBar.TabIndex = 5;
             // 
             // MainForm
             // 
@@ -274,8 +275,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.PictureBox MainPicBoxRikka;
-        private System.Windows.Forms.Button MainBtnRun;
         public System.Windows.Forms.DataGridView MainGrid;
         public System.Windows.Forms.ProgressBar MainProgressBar;
+        public System.Windows.Forms.Button MainBtnRun;
     }
 }

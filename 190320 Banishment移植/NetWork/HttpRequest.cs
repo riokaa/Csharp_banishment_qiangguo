@@ -43,23 +43,6 @@ namespace _190320_Banishment移植.NetWork {
         }
 
         /// <summary>
-        /// Http Get Request Async
-        /// </summary>
-        /// <param name="url"></param>
-        public static async void GetAsync(string url) {
-            string strGetResponse = string.Empty;
-            try {
-                var getRequest = CreateHttpRequest(url, "GET");
-                var getResponse = await getRequest.GetResponseAsync() as HttpWebResponse;
-                strGetResponse = GetHttpResponse(getResponse, "GET");
-            } catch (Exception ex) {
-                strGetResponse = ex.Message;
-            }
-            Console.WriteLine("reslut:" + strGetResponse);
-            return strGetResponse;
-        }
-
-        /// <summary>
         /// Http Post Request
         /// </summary>
         /// <param name="url"></param>
@@ -75,26 +58,6 @@ namespace _190320_Banishment移植.NetWork {
                 strPostReponse = ex.Message;
             }
             return strPostReponse;
-        }
-
-        /// <summary>
-        /// Http Post Request Async
-        /// </summary>
-        /// <param name="url"></param>
-        /// <param name="postJsonData"></param>
-        public static async void PostAsync(string url, string postData) {
-            string strPostReponse = string.Empty;
-            try {
-                var postRequest = CreateHttpRequest(url, "POST", postData);
-                var postResponse = await postRequest.GetResponseAsync() as HttpWebResponse;
-                strPostReponse = GetHttpResponse(postResponse, "POST");
-            } catch (Exception ex) {
-                strPostReponse = ex.Message;
-            }
-            if (strPostReponse != "true") {
-                Console.WriteLine("--> reslut : " + strPostReponse);
-                Console.WriteLine(postData);
-            }
         }
 
         private static HttpWebRequest CreateHttpRequest(string url, string requestType, params object[] strJson) {

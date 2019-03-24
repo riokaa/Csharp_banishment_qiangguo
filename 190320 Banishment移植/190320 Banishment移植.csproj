@@ -94,7 +94,6 @@
   <ItemGroup>
     <Compile Include="BaseLib\Base.cs" />
     <Compile Include="BaseLib\Const.cs" />
-    <Compile Include="BaseLib\JsonTableHelper.cs" />
     <Compile Include="BaseLib\Log.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -102,6 +101,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Logic.cs" />
     <Compile Include="NetWork\Bsphp.cs" />
     <Compile Include="NetWork\BsphpConst.cs" />
     <Compile Include="NetWork\HttpRequest.cs" />
