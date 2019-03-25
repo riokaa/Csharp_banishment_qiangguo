@@ -12,14 +12,17 @@ namespace _190320_Banishment移植 {
         public static MainForm self;
         public ChromiumWebBrowser MainWeb;
         public Mutex mainThreadSuspendMutex = new Mutex(false, "mainThreadSuspendMutex");
-        public Thread mainThread;
+        public Thread threadMain;
+        public Thread threadProMouseMove;
+        public Thread threadProScroll;
 
         public MainForm() {
-            MainForm.self = this;
+            self = this;
             InitializeComponent();
             InitializeMainController();
             InitializeMainGrid();
             InitializeMainBrowser();
+            InitializeThreads();
         }
 
         private void InitializeMainBrowser() {
@@ -40,7 +43,7 @@ namespace _190320_Banishment移植 {
         private void InitializeMainBrowserEndingEvent(object sender, FrameLoadEndEventArgs e) {
             if (e.Frame.IsMain) {
                 MainWeb.FrameLoadEnd -= InitializeMainBrowserEndingEvent; //only trigger once
-                WebLib.ScrollTo(360, 950);
+                WebLib.ScrollTo(355, 960);
             }
         }
         private void InitializeMainController() {
@@ -55,20 +58,30 @@ namespace _190320_Banishment移植 {
             MainGrid.Rows.Add("今日总积分", "未加载");
             MainGrid.Rows.Add("可用积分", "未加载");
         }
+        private void InitializeThreads() {
+            threadProMouseMove = new Thread(WebAction.ProMouseMove);
+            threadProScroll = new Thread(WebAction.ProScroll);
+        }
 
         private void MainBtnRun_Click(object sender, EventArgs e) {
             MainBtnRun.Enabled = false; //灰化按钮
             if (MainBtnRun.Text.Equals("开始执行")) {
                 MainBtnRun.Text = "停止执行"; //at the begin
-                mainThread = new Thread(Logic.Start);
-                mainThread.Start();
+                threadMain = new Thread(Logic.Start);
+                threadMain.Start();
             } else if (MainBtnRun.Text.Equals("停止执行")) {
                 mainThreadSuspendMutex.WaitOne();
-                mainThread.Abort();
+                threadMain.Abort();
                 mainThreadSuspendMutex.ReleaseMutex();
                 MainBtnRun.Text = "开始执行"; //at the end
             }
             MainBtnRun.Enabled = true; //复活按钮
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e) => Environment.Exit(0);
+
+        private void MainForm_Load(object sender, EventArgs e) {
+
         }
     }
 }

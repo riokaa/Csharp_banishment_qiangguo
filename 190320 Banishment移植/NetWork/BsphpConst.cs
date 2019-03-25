@@ -20,8 +20,5 @@ namespace _190320_Banishment移植.NetWork {
         public static string pwd = "";
         public static string vipDate = "";
         public static bool vip = false;  //是否是vip
-        public BS() {
-            Bsphp.UpdateSeSSL();
-        }
     }
 }

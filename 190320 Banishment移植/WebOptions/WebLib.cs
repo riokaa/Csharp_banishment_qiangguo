@@ -8,10 +8,19 @@ using CefSharp.WinForms;
 
 namespace _190320_Banishment移植.WebOptions {
     class WebLib {
-        public static void ScrollTo(int x, int y) {
+        /// <summary>
+        /// 光滑的网页滚动操作
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="mode">0:绝对滚动;1:相对滚动</param>
+        public static void ScrollTo(int x, int y, int mode = 0) {
             StringBuilder js = new StringBuilder();
             var browser = MainForm.self.MainWeb;
-            js.AppendFormat("window.scrollTo({0}, {1});", x, y);
+            if (mode == 0)
+                js.AppendFormat("window.scrollTo({{left:{0},top:{1},behavior:\"smooth\"}});", x, y);
+            else
+                js.AppendFormat("window.scrollTo({{left:document.documentElement.scrollLeft+{0},top:document.documentElement.scrollTop+{1},behavior:\"smooth\"}});", x, y);
             if (browser.InvokeRequired) {
                 browser.Invoke(new Action(() => {
                     browser.GetBrowser().MainFrame.EvaluateScriptAsync(js.ToString());

@@ -11,42 +11,53 @@ namespace _190320_Banishment移植.Modules {
     /// 控制逻辑
     /// </summary>
     class Logic {
+        public static Mutex mutex;
+
         public static void Start() {
             Log.I("Main thread: begin.");
+            mutex = MainForm.self.mainThreadSuspendMutex;
             Const.videoList = new List<WebVideoObject>();
             new Thread(WebGetVideoList.Start); //获取视频列表分发
+#pragma warning disable CS0618 // 类型或成员已过时
             while (true) {
                 if (BS.vip) {
 
                 } else {
 
                 }
+                mutex.WaitOne(); //互斥请求挂起的mutex
                 WebGetScore.Start();
-                MainForm.self.mainThreadSuspendMutex.WaitOne(); //互斥请求挂起的mutex
-#pragma warning disable CS0618 // 类型或成员已过时
                 Thread.CurrentThread.Suspend();
-#pragma warning restore CS0618 // 类型或成员已过时
-                MainForm.self.mainThreadSuspendMutex.ReleaseMutex(); //挂起结束后释放mutex
+                mutex.ReleaseMutex(); //挂起结束后释放mutex
                 if (Const.score[3] < Const.scoreMax[3]) { //文章学习时长（优先时长）
-
+                    mutex.WaitOne();
+                    ReadArticle.mode = "flush time";
+                    ReadArticle.Start();
+                    Thread.CurrentThread.Suspend();
+                    mutex.ReleaseMutex();
                 }else if(Const.score[4] < Const.scoreMax[4]) { //视频学习时长
 
                 }else if(Const.score[1] < Const.scoreMax[1]) { //阅读文章
-
-                }else if(Const.score[2] < Const.scoreMax[2]) { //观看视频
+                    mutex.WaitOne();
+                    ReadArticle.mode = "flush amount";
+                    ReadArticle.Start();
+                    Thread.CurrentThread.Suspend();
+                    mutex.ReleaseMutex();
+                } else if(Const.score[2] < Const.scoreMax[2]) { //观看视频
 
                 } else {
                     break;
                 }
                 Thread.Sleep(1000);
             }
+#pragma warning restore CS0618 // 类型或成员已过时
             Log.I("恭喜您！今日网页端任务已全部完成。");
             MainForm.self.MainBtnRun.Invoke(new Action(() => {
                 MainForm.self.MainBtnRun.Text = "开始执行";
             }));
             if (Const.settingsAutoClose) {
                 Log.I("即将执行自动关闭程序操作。");
-                Process.GetCurrentProcess().Kill();
+                Environment.Exit(0);
             }
             if (Const.settingsAutoShutdown) {
                 Log.I("10秒后将执行自动关机操作。");

@@ -243,6 +243,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Banishment C#";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.MainTab.ResumeLayout(false);
             this.tabPageMain.ResumeLayout(false);
             this.MainSplitContainer.Panel1.ResumeLayout(false);

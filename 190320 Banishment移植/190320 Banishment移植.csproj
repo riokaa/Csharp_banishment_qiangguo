@@ -58,6 +58,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>MainIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CefSharp, Version=71.0.2.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -102,11 +105,13 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Logic.cs" />
+    <Compile Include="Modules\ReadArticle.cs" />
     <Compile Include="NetWork\Bsphp.cs" />
     <Compile Include="NetWork\BsphpConst.cs" />
     <Compile Include="NetWork\HttpRequest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebOptions\WebAction.cs" />
     <Compile Include="WebOptions\WebGetVideoList.cs" />
     <Compile Include="WebOptions\WebLib.cs" />
     <Compile Include="WebOptions\WebGetScore.cs" />
@@ -146,7 +151,9 @@
   <ItemGroup>
     <None Include="Resources\MainIcon360.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="MainIcon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

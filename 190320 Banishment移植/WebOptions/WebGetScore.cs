@@ -17,12 +17,14 @@ namespace _190320_Banishment移植.WebOptions {
             if (e.Frame.IsMain) {
                 var MainWeb = MainForm.self.MainWeb;
                 MainWeb.FrameLoadEnd -= EndingEventAsync; //only trigger once
-                Log.D("Web getting score: page loaded.");
-                Thread.Sleep(1000);
+                Log.D("WebGetScore: page loaded.");
+                Thread.Sleep(3000);
+
                 //: get html
                 string html = await MainWeb.GetBrowser().MainFrame.GetSourceAsync();
                 var htmlDoc = new HtmlDocument();
                 htmlDoc.LoadHtml(html);
+
                 //: analyze daily scores in html
                 HtmlNodeCollection scoreNodes = htmlDoc.DocumentNode.SelectNodes(@"//div[@class='my-points-card-text']");
                 if (scoreNodes != null && scoreNodes.Count > 0) {
@@ -47,6 +49,7 @@ namespace _190320_Banishment移植.WebOptions {
                         progressBar.Value = 100 * sum / 31;
                     }
                 }
+
                 //: analyze total score
                 HtmlNode totalNode = htmlDoc.DocumentNode.SelectSingleNode(@"//div[@class='my-points-block']");
                 if (totalNode != null) {
@@ -61,11 +64,13 @@ namespace _190320_Banishment移植.WebOptions {
                         MainForm.self.MainGrid.Rows[6].Cells[1].Value = string.Format("{0}分", match.Groups[1]);
                     }
                 }
-            }
-            if(MainForm.self.mainThread.ThreadState == ThreadState.Suspended) {
+
+                //: ending option
+                if (MainForm.self.threadMain.ThreadState == ThreadState.Suspended) {
 #pragma warning disable CS0618 // 类型或成员已过时
-                MainForm.self.mainThread.Resume();
+                    MainForm.self.threadMain.Resume();
 #pragma warning restore CS0618 // 类型或成员已过时
+                }
             }
         }
     }
