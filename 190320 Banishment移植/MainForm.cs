@@ -9,11 +9,9 @@ using System.Windows.Forms;
 
 namespace _190320_Banishment移植 {
     public partial class MainForm : Form {
-        public static MainForm self;
         public ChromiumWebBrowser MainWeb;
-        public Thread threadMain;
-        public Thread threadProMouseMove;
-        public Thread threadProScroll;
+        public static MainForm self;
+        public ThreadsController threadController;
 
         public MainForm() {
             self = this;
@@ -58,18 +56,18 @@ namespace _190320_Banishment移植 {
             MainGrid.Rows.Add("可用积分", "未加载");
         }
         private void InitializeThreads() {
-            threadProMouseMove = new Thread(WebAction.ProMouseMove);
-            threadProScroll = new Thread(WebAction.ProScroll);
+            threadController = new ThreadsController();
         }
 
         private void MainBtnRun_Click(object sender, EventArgs e) {
             MainBtnRun.Enabled = false; //灰化按钮
             if (MainBtnRun.Text.Equals("开始执行")) {
                 MainBtnRun.Text = "停止执行"; //at the begin
-                threadMain = new Thread(Logic.Start);
-                threadMain.Start();
+                threadController.ThreadMainStart();
             } else if (MainBtnRun.Text.Equals("停止执行")) {
-                threadMain.Abort();
+                threadController.ThreadMainAbort();
+                threadController.ThreadProMouseMoveSuspend();
+                threadController.ThreadProScrollSuspend();
                 MainBtnRun.Text = "开始执行"; //at the end
             }
             MainBtnRun.Enabled = true; //复活按钮

@@ -39,6 +39,14 @@ namespace _190320_Banishment移植.Modules {
                 Thread.Sleep(1000);
             return html;
         }
+        protected void BrowserWaitLoad() {
+            Thread.Sleep(1000);
+            var browser = MainForm.self.MainWeb;
+            browser.FrameLoadEnd += LoadEndEventAsync;
+            while (!_pageIsLoaded)
+                Thread.Sleep(1000);
+            return;
+        }
         protected void BrowserLoad(string url) {
             var browser = MainForm.self.MainWeb;
             browser.Load(url);

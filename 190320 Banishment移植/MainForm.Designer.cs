@@ -40,6 +40,7 @@
             this.tabPageAnnounce = new System.Windows.Forms.TabPage();
             this.tabPageSettings = new System.Windows.Forms.TabPage();
             this.tabPageAbout = new System.Windows.Forms.TabPage();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.MainTab.SuspendLayout();
             this.tabPageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer)).BeginInit();
@@ -280,5 +281,6 @@
         public System.Windows.Forms.DataGridView MainGrid;
         public System.Windows.Forms.ProgressBar MainProgressBar;
         public System.Windows.Forms.Button MainBtnRun;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

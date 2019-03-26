@@ -98,6 +98,7 @@
     <Compile Include="BaseLib\Base.cs" />
     <Compile Include="BaseLib\Const.cs" />
     <Compile Include="BaseLib\Log.cs" />
+    <Compile Include="BaseLib\ThreadsController.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

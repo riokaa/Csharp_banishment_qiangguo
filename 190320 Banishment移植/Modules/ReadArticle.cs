@@ -20,10 +20,9 @@ namespace _190320_Banishment移植.Modules {
         public void Start() {
             //: load page
             Log.I("Reading article.");
+            Log.I("ReadArticle: page loading...");
             BrowserLoad(Const.urlQGMain);
-
             Log.D("ReadArticle: page loaded.");
-            Thread.Sleep(3000);
 
             //: get html and article titles
             string html = BrowserGetHtml();
@@ -31,6 +30,10 @@ namespace _190320_Banishment移植.Modules {
             htmlDoc.LoadHtml(html);
             HtmlNodeCollection nodes = htmlDoc.DocumentNode.SelectNodes(@"//div[@class='screen']//div[@class='word-item'][string-length()>10]");
             Log.I(string.Format("ReadArticle: {0} articles found.", nodes.Count));
+            if(nodes.Count == 0) {
+                Log.E("出问题了：没有获取到文章们！");
+                return;
+            }
             //foreach (HtmlNode n in nodes) {
             //    Log.I(n.InnerText);
             //}
@@ -45,7 +48,7 @@ namespace _190320_Banishment移植.Modules {
             sb.AppendLine("getElementTitleEqualsTo(\"" + selected.InnerText + "\").click();");
             BrowserEvaluateScript(sb.ToString());
             Log.I(string.Format("Loading article randomly... [@title='{0}']", selected.InnerText));
-            Thread.Sleep(2000);
+            BrowserWaitLoad();
 
             //: sleep until read complete
             int readTime = 60000 * _random.Next(4, 7);
@@ -53,6 +56,8 @@ namespace _190320_Banishment移植.Modules {
                 if (BS.vip) {
                     readTime = readTime * _random.Next(60, 150) / 100;
                 }
+                //if (Const.debug)
+                //    readTime = 3000;
             } else if (_mode.Equals("flush amount")) {
                 readTime = 60000;
                 if (BS.vip) {
@@ -63,22 +68,11 @@ namespace _190320_Banishment移植.Modules {
             }
             Log.I("开始执行阅读 - " + (readTime / 60000.0) + " - 分钟。");
             Log.I("Banishment this world!");
-            switch (MainForm.self.threadProScroll.ThreadState) {
-                case ThreadState.Unstarted:
-                    MainForm.self.threadProScroll.Start();
-                    break;
-                case ThreadState.Suspended:
-#pragma warning disable CS0618 // 类型或成员已过时
-                    MainForm.self.threadProScroll.Resume();
-#pragma warning restore CS0618 // 类型或成员已过时
-                    break;
-            }
+
+            //: sleep
+            MainForm.self.threadController.ThreadProScrollResume();
             Thread.Sleep(readTime); //睡觉
-            if (MainForm.self.threadProScroll.ThreadState == ThreadState.Running) {
-#pragma warning disable CS0618 // 类型或成员已过时
-                MainForm.self.threadProScroll.Suspend();
-#pragma warning restore CS0618 // 类型或成员已过时
-            }
+            MainForm.self.threadController.ThreadProScrollSuspend();
 
             //: ending option
             Log.I("Article reading complete.");
