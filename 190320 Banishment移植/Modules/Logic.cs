@@ -15,19 +15,19 @@ namespace _190320_Banishment移植.Modules {
         public static void Start() {
             Log.I("Main thread: begin.");
             Const.videoList = new List<WebVideoObject>();
-            new Thread(WebGetVideoList.Start); //获取视频列表分发
+            new Thread(WebGetVideoList.Start).Start(); //获取视频列表分发
             while (true) {
                 if (BS.vip) {
-
+                    MainForm.self.threadController.ThreadProMouseMoveResume();
                 } else {
-
+                    MainForm.self.threadController.ThreadProMouseMoveSuspend();
                 }
                 new GetScore().Start();
                 if (Const.score[3] < Const.scoreMax[3]) { //文章学习时长（优先时长）
-                    //if(Const.debug)
-                    //    new WatchVideo("flush time").Start();
+                    if (Const.debug)
+                        new WatchVideo("flush time").Start();
                     new ReadArticle("flush time").Start();
-                }else if(Const.score[4] < Const.scoreMax[4]) { //视频学习时长
+                } else if(Const.score[4] < Const.scoreMax[4]) { //视频学习时长
                     new WatchVideo("flush time").Start();
                 } else if(Const.score[1] < Const.scoreMax[1]) { //阅读文章
                     new ReadArticle("flush amount").Start();

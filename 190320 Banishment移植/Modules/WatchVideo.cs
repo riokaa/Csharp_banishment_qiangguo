@@ -36,8 +36,8 @@ namespace _190320_Banishment移植.Modules {
                 if (BS.vip) {
                     watchTime = watchTime * _random.Next(60, 150) / 100;
                 }
-                //if (Const.debug)
-                //    watchTime = 3000;
+                if (Const.debug)
+                    watchTime = 3000;
             } else if (_mode.Equals("flush amount")) {
                 watchTime = 60000;
                 if (BS.vip) {
@@ -89,7 +89,6 @@ namespace _190320_Banishment移植.Modules {
                     break;
             }
             BrowserEvaluateScript(sb.ToString());
-            Thread.Sleep(3000);
             BrowserWaitLoad();
 
             //: select video randomly

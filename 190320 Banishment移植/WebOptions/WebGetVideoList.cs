@@ -18,8 +18,10 @@ namespace _190320_Banishment移植.WebOptions {
             });
             if (!videoListResp.message.Equals("ok")) {
                 Log.W("WebGetVideoList: 获取视频列表失败: wrong response message!");
+                return;
             }
-            Log.I("WebGetVideoList: video list got.");
+            Const.videoList = videoListResp.data;
+            Log.I(string.Format("WebGetVideoList: 获取视频列表成功。 [@count={0}]", Const.videoList.Count));
         }
     }
     class WebVideoListObject {

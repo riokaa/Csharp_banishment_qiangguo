@@ -27,10 +27,23 @@ namespace _190320_Banishment移植.BaseLib {
             }
         }
         public void ThreadProMouseMoveResume() {
-            //TODO
+            switch (threadProMouseMove.ThreadState) {
+                case ThreadState.Unstarted:
+                    threadProMouseMove.Start();
+                    break;
+                case ThreadState.Suspended:
+#pragma warning disable CS0618 // 类型或成员已过时
+                    threadProMouseMove.Resume();
+#pragma warning restore CS0618 // 类型或成员已过时
+                    break;
+            }
         }
         public void ThreadProMouseMoveSuspend() {
-            //TODO
+            if (threadProMouseMove.ThreadState == ThreadState.WaitSleepJoin || threadProMouseMove.ThreadState == ThreadState.Running) {
+#pragma warning disable CS0618 // 类型或成员已过时
+                threadProMouseMove.Suspend();
+#pragma warning restore CS0618 // 类型或成员已过时
+            }
         }
         public void ThreadProScrollResume() {
             switch (threadProScroll.ThreadState) {

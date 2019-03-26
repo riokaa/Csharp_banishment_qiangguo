@@ -20,6 +20,7 @@ namespace _190320_Banishment移植 {
             InitializeMainGrid();
             InitializeMainBrowser();
             InitializeThreads();
+            InitializeUI();
         }
 
         private void InitializeMainBrowser() {
@@ -44,7 +45,7 @@ namespace _190320_Banishment移植 {
             }
         }
         private void InitializeMainController() {
-            Log.I("Banishment Version 3.0 Alpha.");
+            Log.I(string.Format("Banishment Version {0}.", Const.version));
         }
         private void InitializeMainGrid() {
             MainGrid.Rows.Add("每日签到", "未加载");
@@ -57,6 +58,14 @@ namespace _190320_Banishment移植 {
         }
         private void InitializeThreads() {
             threadController = new ThreadsController();
+            if (Const.debug) {
+                Log.I("当前是 Debug 模式。");
+                Log.I("当前是 Debug 模式。");
+                Log.I("当前是 Debug 模式。");
+            }
+        }
+        private void InitializeUI() {
+            this.Text = string.Format("Banishment C#  {0}", Const.version);
         }
 
         private void MainBtnRun_Click(object sender, EventArgs e) {
