@@ -11,7 +11,6 @@ namespace _190320_Banishment移植 {
     public partial class MainForm : Form {
         public static MainForm self;
         public ChromiumWebBrowser MainWeb;
-        public Mutex mainThreadSuspendMutex = new Mutex(false, "mainThreadSuspendMutex");
         public Thread threadMain;
         public Thread threadProMouseMove;
         public Thread threadProScroll;
@@ -70,9 +69,7 @@ namespace _190320_Banishment移植 {
                 threadMain = new Thread(Logic.Start);
                 threadMain.Start();
             } else if (MainBtnRun.Text.Equals("停止执行")) {
-                mainThreadSuspendMutex.WaitOne();
                 threadMain.Abort();
-                mainThreadSuspendMutex.ReleaseMutex();
                 MainBtnRun.Text = "开始执行"; //at the end
             }
             MainBtnRun.Enabled = true; //复活按钮

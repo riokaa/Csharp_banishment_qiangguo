@@ -105,7 +105,9 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Logic.cs" />
+    <Compile Include="Modules\OptionOnBrowser.cs" />
     <Compile Include="Modules\ReadArticle.cs" />
+    <Compile Include="Modules\WatchVideo.cs" />
     <Compile Include="NetWork\Bsphp.cs" />
     <Compile Include="NetWork\BsphpConst.cs" />
     <Compile Include="NetWork\HttpRequest.cs" />
@@ -114,7 +116,7 @@
     <Compile Include="WebOptions\WebAction.cs" />
     <Compile Include="WebOptions\WebGetVideoList.cs" />
     <Compile Include="WebOptions\WebLib.cs" />
-    <Compile Include="WebOptions\WebGetScore.cs" />
+    <Compile Include="Modules\GetScore.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
