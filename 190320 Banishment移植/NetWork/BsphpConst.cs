@@ -1,11 +1,11 @@
-﻿using _190320_Banishment移植.BaseLib;
+﻿using Banishment.BaseLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _190320_Banishment移植.NetWork {
+namespace Banishment.NetWork {
     class BS {
         public static string reqUrl = @"http://verify.rayiooo.top/AppEn.php?appid=10000000&m=a1a7c60094c319355377aa90defb0d01";  //api请求url
         public static string reqUrlCoode = @"http://verify.rayiooo.top/index.php?m=coode&sessl=";

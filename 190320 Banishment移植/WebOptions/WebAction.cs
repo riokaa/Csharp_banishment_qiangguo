@@ -1,8 +1,8 @@
-﻿using _190320_Banishment移植.NetWork;
+﻿using Banishment.NetWork;
 using System;
 using System.Threading;
 
-namespace _190320_Banishment移植.WebOptions {
+namespace Banishment.WebOptions {
     class WebAction {
         public static void ProMouseMove() {
             //TODO

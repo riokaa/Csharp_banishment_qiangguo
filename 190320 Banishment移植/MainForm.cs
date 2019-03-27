@@ -1,13 +1,11 @@
-﻿using _190320_Banishment移植.BaseLib;
-using _190320_Banishment移植.Modules;
-using _190320_Banishment移植.WebOptions;
+﻿using Banishment.BaseLib;
+using Banishment.WebOptions;
 using CefSharp;
 using CefSharp.WinForms;
 using System;
-using System.Threading;
 using System.Windows.Forms;
 
-namespace _190320_Banishment移植 {
+namespace Banishment {
     public partial class MainForm : Form {
         public ChromiumWebBrowser MainWeb;
         public static MainForm self;
@@ -46,6 +44,7 @@ namespace _190320_Banishment移植 {
         }
         private void InitializeMainController() {
             Log.I(string.Format("Banishment Version {0}.", Const.version));
+            Log.W("此版本为测试版，不检测更新，新版本请关注v2.0.2版本公告栏。");
         }
         private void InitializeMainGrid() {
             MainGrid.Rows.Add("每日签到", "未加载");

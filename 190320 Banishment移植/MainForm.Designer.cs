@@ -1,4 +1,4 @@
-﻿namespace _190320_Banishment移植 {
+﻿namespace Banishment {
     partial class MainForm {
         /// <summary>
         /// Required designer variable.

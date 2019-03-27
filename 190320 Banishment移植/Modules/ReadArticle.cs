@@ -1,12 +1,12 @@
-﻿using _190320_Banishment移植.BaseLib;
-using _190320_Banishment移植.NetWork;
+﻿using Banishment.BaseLib;
+using Banishment.NetWork;
 using CefSharp;
 using HtmlAgilityPack;
 using System;
 using System.Text;
 using System.Threading;
 
-namespace _190320_Banishment移植.Modules {
+namespace Banishment.Modules {
     class ReadArticle : OptionOnBrowser {
         private string _mode; //刷时间模式和刷数量模式
         private Random _random;

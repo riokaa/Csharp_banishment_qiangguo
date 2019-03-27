@@ -1,11 +1,11 @@
-﻿using _190320_Banishment移植.BaseLib;
+﻿using Banishment.BaseLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _190320_Banishment移植.NetWork {
+namespace Banishment.NetWork {
     class Bsphp {
 
         public static string UpdateSeSSL() {

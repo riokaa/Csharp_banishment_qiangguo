@@ -3,7 +3,7 @@ using System.Text;
 using CefSharp;
 using CefSharp.WinForms;
 
-namespace _190320_Banishment移植.WebOptions {
+namespace Banishment.WebOptions {
     class WebLib {
         /// <summary>
         /// 光滑的网页滚动操作

@@ -2,7 +2,7 @@
 using System.Text;
 using System.Windows.Forms;
 
-namespace _190320_Banishment移植.BaseLib {
+namespace Banishment.BaseLib {
     public class Log {
         public static StringBuilder output = new StringBuilder();
         public static void D(string log) {

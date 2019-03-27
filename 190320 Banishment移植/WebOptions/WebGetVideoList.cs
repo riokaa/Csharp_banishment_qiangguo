@@ -1,9 +1,9 @@
-﻿using _190320_Banishment移植.BaseLib;
-using _190320_Banishment移植.NetWork;
+﻿using Banishment.BaseLib;
+using Banishment.NetWork;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace _190320_Banishment移植.WebOptions {
+namespace Banishment.WebOptions {
     class WebGetVideoList {
         public static void Start() {
             Log.D("WebGetVideoList: getting video list from server.");

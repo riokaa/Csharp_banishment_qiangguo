@@ -1,7 +1,7 @@
-﻿using _190320_Banishment移植.WebOptions;
+﻿using Banishment.WebOptions;
 using System.Collections.Generic;
 
-namespace _190320_Banishment移植.BaseLib {
+namespace Banishment.BaseLib {
     class Const {
         public static string aesKey = "4e72acd42edcb859ec49f60fd1106a50";
         public static string author = "板";

@@ -1,8 +1,8 @@
-﻿using _190320_Banishment移植.Modules;
-using _190320_Banishment移植.WebOptions;
+﻿using Banishment.Modules;
+using Banishment.WebOptions;
 using System.Threading;
 
-namespace _190320_Banishment移植.BaseLib {
+namespace Banishment.BaseLib {
     public class ThreadsController {
         private Thread threadMain;
         private Thread threadProMouseMove;

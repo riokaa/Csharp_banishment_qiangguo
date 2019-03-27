@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace _190320_Banishment移植.Modules {
+namespace Banishment.Modules {
     /// <summary>
     /// 封装异步执行的浏览器载入、获取源码、执行js功能，使之可以同步调用
     /// </summary>

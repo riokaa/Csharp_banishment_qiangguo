@@ -1,12 +1,12 @@
-﻿using _190320_Banishment移植.BaseLib;
-using _190320_Banishment移植.NetWork;
-using _190320_Banishment移植.WebOptions;
+﻿using Banishment.BaseLib;
+using Banishment.NetWork;
+using Banishment.WebOptions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 
-namespace _190320_Banishment移植.Modules {
+namespace Banishment.Modules {
     /// <summary>
     /// 控制逻辑
     /// </summary>

@@ -1,11 +1,11 @@
-﻿using _190320_Banishment移植.BaseLib;
+﻿using Banishment.BaseLib;
 using CefSharp;
 using HtmlAgilityPack;
 using System;
 using System.Text.RegularExpressions;
 using System.Threading;
 
-namespace _190320_Banishment移植.Modules {
+namespace Banishment.Modules {
     class GetScore : OptionOnBrowser {
 
         public GetScore() {
