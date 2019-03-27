@@ -10,14 +10,29 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0AFFF854-981C-4E3F-82D0-8FDE5F57C088}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>_190320_Banishment移植</RootNamespace>
-    <AssemblyName>190320 Banishment移植</AssemblyName>
+    <RootNamespace>Banishment</RootNamespace>
+    <AssemblyName>Banishment</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -58,6 +73,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>MainIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CefSharp, Version=71.0.2.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -70,6 +88,14 @@
     <Reference Include="CefSharp.WinForms, Version=71.0.2.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\x86\Debug\CefSharp.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.0.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.0\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -84,16 +110,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseLib.cs" />
-    <Compile Include="Log.cs" />
+    <Compile Include="BaseLib\Base.cs" />
+    <Compile Include="BaseLib\Const.cs" />
+    <Compile Include="BaseLib\Log.cs" />
+    <Compile Include="BaseLib\ThreadsController.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Logic.cs" />
+    <Compile Include="Modules\OptionOnBrowser.cs" />
+    <Compile Include="Modules\ReadArticle.cs" />
+    <Compile Include="Modules\WatchVideo.cs" />
+    <Compile Include="NetWork\Bsphp.cs" />
+    <Compile Include="NetWork\BsphpConst.cs" />
+    <Compile Include="NetWork\HttpRequest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebOptions\WebAction.cs" />
+    <Compile Include="WebOptions\WebGetVideoList.cs" />
+    <Compile Include="WebOptions\WebLib.cs" />
+    <Compile Include="Modules\GetScore.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +168,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MainIcon360.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MainIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
