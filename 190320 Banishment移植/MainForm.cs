@@ -27,6 +27,7 @@ namespace Banishment {
                 AcceptLanguageList = "zh-CN",
                 MultiThreadedMessageLoop = true
             };
+            settings.CefCommandLineArgs.Add("disable-gpu", "1");
             Cef.Initialize(settings);
             MainWeb = new ChromiumWebBrowser("https://pc.xuexi.cn/points/login.html?ref=https://www.xuexi.cn/") {
                 Dock = DockStyle.Fill,
@@ -65,6 +66,8 @@ namespace Banishment {
         }
         private void InitializeUI() {
             this.Text = string.Format("Banishment C#  {0}", Const.version);
+            this.MainSplitContainer.SplitterDistance = (int)(MainSplitContainer.Height * 0.75);
+            this.MainSplitContainer1.SplitterDistance = (int)(MainSplitContainer1.Width * 0.75);
         }
 
         private void MainBtnRun_Click(object sender, EventArgs e) {

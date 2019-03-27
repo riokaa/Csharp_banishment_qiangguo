@@ -113,15 +113,16 @@
             this.MainSplitContainer1.Panel2.Controls.Add(this.MainPicBoxRikka);
             this.MainSplitContainer1.Panel2.Controls.Add(this.MainBtnRun);
             this.MainSplitContainer1.Size = new System.Drawing.Size(896, 426);
-            this.MainSplitContainer1.SplitterDistance = 694;
+            this.MainSplitContainer1.SplitterDistance = 672;
             this.MainSplitContainer1.TabIndex = 6;
+            this.MainSplitContainer1.TabStop = false;
             // 
             // MainProgressBar
             // 
             this.MainProgressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.MainProgressBar.Location = new System.Drawing.Point(0, 356);
             this.MainProgressBar.Name = "MainProgressBar";
-            this.MainProgressBar.Size = new System.Drawing.Size(198, 23);
+            this.MainProgressBar.Size = new System.Drawing.Size(220, 23);
             this.MainProgressBar.TabIndex = 5;
             // 
             // MainGrid
@@ -140,7 +141,7 @@
             this.MainGrid.RowHeadersVisible = false;
             this.MainGrid.RowTemplate.Height = 27;
             this.MainGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.MainGrid.Size = new System.Drawing.Size(198, 307);
+            this.MainGrid.Size = new System.Drawing.Size(220, 307);
             this.MainGrid.TabIndex = 4;
             // 
             // Column1
@@ -160,7 +161,7 @@
             this.MainPicBoxRikka.Dock = System.Windows.Forms.DockStyle.Top;
             this.MainPicBoxRikka.Location = new System.Drawing.Point(0, 0);
             this.MainPicBoxRikka.Name = "MainPicBoxRikka";
-            this.MainPicBoxRikka.Size = new System.Drawing.Size(198, 72);
+            this.MainPicBoxRikka.Size = new System.Drawing.Size(220, 72);
             this.MainPicBoxRikka.TabIndex = 3;
             this.MainPicBoxRikka.TabStop = false;
             // 
@@ -169,7 +170,7 @@
             this.MainBtnRun.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.MainBtnRun.Location = new System.Drawing.Point(0, 379);
             this.MainBtnRun.Name = "MainBtnRun";
-            this.MainBtnRun.Size = new System.Drawing.Size(198, 47);
+            this.MainBtnRun.Size = new System.Drawing.Size(220, 47);
             this.MainBtnRun.TabIndex = 2;
             this.MainBtnRun.Text = "开始执行";
             this.MainBtnRun.UseVisualStyleBackColor = true;
