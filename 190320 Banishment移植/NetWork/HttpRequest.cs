@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -27,10 +28,10 @@ namespace Banishment.NetWork {
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
-        public static string Get(string url) {
+        public static string Get(string url, Dictionary<string, string> param = null) {
             string strGetResponse = string.Empty;
             try {
-                var getRequest = CreateHttpRequest(url, "GET");
+                var getRequest = CreateHttpRequest(url, "GET", param);
                 var getResponse = getRequest.GetResponse() as HttpWebResponse;
                 strGetResponse = GetHttpResponse(getResponse, "GET");
             } catch (Exception ex) {
@@ -57,6 +58,18 @@ namespace Banishment.NetWork {
             return strPostReponse;
         }
 
+        public static string Post(string url, Dictionary<string, string> param = null) {
+            string strPostReponse = string.Empty;
+            try {
+                var postRequest = CreateHttpRequest(url, "POST", param);
+                var postResponse = postRequest.GetResponse() as HttpWebResponse;
+                strPostReponse = GetHttpResponse(postResponse, "POST");
+            } catch (Exception ex) {
+                strPostReponse = ex.Message;
+            }
+            return strPostReponse;
+        }
+
         private static HttpWebRequest CreateHttpRequest(string url, string requestType, params object[] strJson) {
             HttpWebRequest request = null;
             const string get = "GET";
@@ -66,6 +79,33 @@ namespace Banishment.NetWork {
             }
             if (string.Equals(requestType, post, StringComparison.OrdinalIgnoreCase)) {
                 request = CreatePostHttpWebRequest(url, strJson[0].ToString());
+            }
+            return request;
+        }
+        private static HttpWebRequest CreateHttpRequest(string url, string requestType, Dictionary<string, string> param = null) {
+            HttpWebRequest request = null;
+            const string get = "GET";
+            const string post = "POST";
+            if (string.Equals(requestType, get, StringComparison.OrdinalIgnoreCase)) {
+                if(param != null) {
+                    List<string> paramList = new List<string>();
+                    foreach (var item in param) {
+                        paramList.Add(string.Format("{0}={1}", item.Key, item.Value));
+                    }
+                    url = url + "?" +string.Join("&", paramList.ToArray());
+                }
+                request = CreateGetHttpWebRequest(url);
+            }
+            if (string.Equals(requestType, post, StringComparison.OrdinalIgnoreCase)) {
+                string data = string.Empty;
+                if(param != null) {
+                    List<string> paramList = new List<string>();
+                    foreach(var item in param) {
+                        paramList.Add(string.Format("{0}={1}", item.Key, item.Value));
+                    }
+                    data = string.Join("&", paramList.ToArray());
+                }
+                request = CreatePostHttpWebRequest(url, data);
             }
             return request;
         }

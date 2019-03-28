@@ -1,7 +1,6 @@
 ﻿using Banishment.BaseLib;
 using Banishment.NetWork;
 using Banishment.WebOptions;
-using CefSharp;
 using HtmlAgilityPack;
 using System;
 using System.Text;
@@ -31,7 +30,7 @@ namespace Banishment.Modules {
             }
 
             //: sleep until read complete
-            int watchTime = 60000 * _random.Next(7, 10);
+            int watchTime = 60000 * 3;
             if (_mode.Equals("flush time")) {
                 if (BS.vip) {
                     watchTime = watchTime * _random.Next(60, 150) / 100;

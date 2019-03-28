@@ -5,7 +5,7 @@ namespace Banishment.BaseLib {
     class Const {
         public static string aesKey = "4e72acd42edcb859ec49f60fd1106a50";
         public static string author = "板";
-        public static bool debug = false;
+        public static bool debug = true;
         public static int[] score = new int[5] { 0, 0, 0, 0, 0 };
         public static int[] scoreMax = new int[5] { 1, 6, 6, 8, 10 };
         public static bool settingsAutoClose = false;

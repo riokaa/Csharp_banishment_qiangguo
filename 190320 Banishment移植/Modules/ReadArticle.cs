@@ -51,7 +51,7 @@ namespace Banishment.Modules {
             BrowserWaitLoad();
 
             //: sleep until read complete
-            int readTime = 60000 * _random.Next(4, 7);
+            int readTime = 60000 * 2;
             if (_mode.Equals("flush time")) {
                 if (BS.vip) {
                     readTime = readTime * _random.Next(60, 150) / 100;
