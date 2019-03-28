@@ -40,6 +40,9 @@ namespace Banishment.NetWork {
 
             //: verify data safe
 
+
+            //: wrong return temp
+            return "";
         }
 
         public static string UpdateSeSSL() {
