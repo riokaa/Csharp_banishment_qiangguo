@@ -13,7 +13,7 @@ namespace Banishment.BaseLib {
                 NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
                 foreach (NetworkInterface ni in interfaces) {
                     string mac = BitConverter.ToString(ni.GetPhysicalAddress().GetAddressBytes());
-                    Log.D("Mac address got: " + mac);
+                    Log.D("Base.GetMac.mac: " + mac);
                     return mac;
                 }
             } catch (Exception) {
@@ -30,7 +30,12 @@ namespace Banishment.BaseLib {
 
         public static string MD5(string str) {
             System.Security.Cryptography.MD5 md5Hasher = System.Security.Cryptography.MD5.Create();
-            return Convert.ToBase64String(md5Hasher.ComputeHash(Encoding.UTF8.GetBytes(str)));
+            byte[] data = md5Hasher.ComputeHash(Encoding.UTF8.GetBytes(str));
+            StringBuilder sBuilder = new StringBuilder();
+            for (int i = 0; i < data.Length; i++) {
+                sBuilder.Append(data[i].ToString("x2"));
+            }
+            return sBuilder.ToString();
         }
     }
 }

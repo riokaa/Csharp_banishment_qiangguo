@@ -3,7 +3,7 @@ using Banishment.NetWork;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Banishment.WebOptions {
+namespace Banishment.Modules {
     class WebGetVideoList {
         public static void Start() {
             Log.D("WebGetVideoList: getting video list from server.");

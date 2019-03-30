@@ -57,12 +57,13 @@ namespace Banishment {
             MainGrid.Rows.Add("可用积分", "未加载");
         }
         private void InitializeThreads() {
-            threadController = new ThreadsController();
             if (Const.debug) {
                 Log.I("当前是 Debug 模式。");
                 Log.I("当前是 Debug 模式。");
                 Log.I("当前是 Debug 模式。");
             }
+            threadController = new ThreadsController();
+            threadController.ThreadCheckUpdateStart();
         }
         private void InitializeUI() {
             this.Text = string.Format("Banishment C#  {0}", Const.version);
