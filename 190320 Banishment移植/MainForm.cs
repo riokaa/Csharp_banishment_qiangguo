@@ -21,6 +21,9 @@ namespace Banishment {
             InitializeUI();
         }
 
+        /// <summary>
+        /// 浏览器初始化
+        /// </summary>
         private void InitializeMainBrowser() {
             var settings = new CefSettings {
                 Locale = "zh-CN",
@@ -43,10 +46,23 @@ namespace Banishment {
                 WebLib.ScrollTo(355, 960);
             }
         }
+        /// <summary>
+        /// 控制台输出初始化
+        /// </summary>
         private void InitializeMainController() {
+            if (Const.debug) {
+                Log.I("当前是 Debug 模式。");
+                Log.I("当前是 Debug 模式。");
+                Log.I("当前是 Debug 模式。");
+            }
             Log.I(string.Format("Banishment Version {0}.", Const.version));
             Log.W("此版本为测试版，不检测更新，新版本请关注v2.0.2版本公告栏。");
+            Log.I("使用方式：扫码登陆后开始执行。");
+            Log.I("本软件『完全可以免费使用』。");
         }
+        /// <summary>
+        /// 积分表格初始化
+        /// </summary>
         private void InitializeMainGrid() {
             MainGrid.Rows.Add("每日签到", "未加载");
             MainGrid.Rows.Add("文章阅读数", "未加载");
@@ -56,21 +72,27 @@ namespace Banishment {
             MainGrid.Rows.Add("今日总积分", "未加载");
             MainGrid.Rows.Add("可用积分", "未加载");
         }
+        /// <summary>
+        /// 线程控制器初始化
+        /// </summary>
         private void InitializeThreads() {
-            if (Const.debug) {
-                Log.I("当前是 Debug 模式。");
-                Log.I("当前是 Debug 模式。");
-                Log.I("当前是 Debug 模式。");
-            }
             threadController = new ThreadsController();
             threadController.ThreadCheckUpdateStart();
         }
+        /// <summary>
+        /// UI初始化
+        /// </summary>
         private void InitializeUI() {
             this.Text = string.Format("Banishment C#  {0}", Const.version);
             this.MainSplitContainer.SplitterDistance = (int)(MainSplitContainer.Height * 0.75);
             this.MainSplitContainer1.SplitterDistance = (int)(MainSplitContainer1.Width * 0.75);
         }
 
+        /// <summary>
+        /// 开始执行事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainBtnRun_Click(object sender, EventArgs e) {
             MainBtnRun.Enabled = false; //灰化按钮
             if (MainBtnRun.Text.Equals("开始执行")) {

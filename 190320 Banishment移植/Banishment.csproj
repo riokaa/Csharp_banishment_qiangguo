@@ -141,6 +141,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\CheckVersion.cs" />
+    <Compile Include="Modules\BsphpMod.cs" />
     <Compile Include="Modules\Logic.cs" />
     <Compile Include="Modules\OptionOnBrowser.cs" />
     <Compile Include="Modules\ReadArticle.cs" />
