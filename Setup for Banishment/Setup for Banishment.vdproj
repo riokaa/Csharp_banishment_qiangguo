@@ -370,7 +370,19 @@
         "Entry"
         {
         "MsmKey" = "8:_B61BF825E194096AB442D0F721FA3C6B"
+        "OwnerKey" = "8:_4268AABD178A8084B83A64092C67DAC0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B61BF825E194096AB442D0F721FA3C6B"
         "OwnerKey" = "8:_F59A5D4508714EA09EB41C97C5537A5A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B61BF825E194096AB442D0F721FA3C6B"
+        "OwnerKey" = "8:_6034CE28616DD200680722B041D93322"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -383,18 +395,6 @@
         {
         "MsmKey" = "8:_B61BF825E194096AB442D0F721FA3C6B"
         "OwnerKey" = "8:_9CD5B20B19FB4C95B0E3E90AC911AAC1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B61BF825E194096AB442D0F721FA3C6B"
-        "OwnerKey" = "8:_4268AABD178A8084B83A64092C67DAC0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B61BF825E194096AB442D0F721FA3C6B"
-        "OwnerKey" = "8:_6034CE28616DD200680722B041D93322"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -496,6 +496,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6034CE28616DD200680722B041D93322"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_9CD5B20B19FB4C95B0E3E90AC911AAC1"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -526,19 +532,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6153D0A8713E96F75777A59F89297711"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6034CE28616DD200680722B041D93322"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_B61BF825E194096AB442D0F721FA3C6B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6153D0A8713E96F75777A59F89297711"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -559,6 +559,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -575,6 +583,27 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 和 x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Visual.C++.14.0.x86"
+                    {
+                    "Name" = "8:Visual C++ \"14\" 运行时库(x86)"
+                    "ProductCode" = "8:Microsoft.Visual.C++.14.0.x86"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -1535,11 +1564,6 @@
             "AssemblyAsmDisplayName" = "8:HtmlAgilityPack, Version=1.11.0.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_822FD86FE09D1482F57B647D1DF61183"
-                    {
-                    "Name" = "8:HtmlAgilityPack.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:HtmlAgilityPack.dll"
             "TargetName" = "8:"

@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Banishment {
     public partial class MainForm : Form {
+        WebBrowser browserAnnounce;
         public ChromiumWebBrowser MainWeb;
         public static MainForm self;
         public ThreadsController threadController;
@@ -37,7 +38,7 @@ namespace Banishment {
                 LifeSpanHandler = new OpenPageSelf()
             };
             MainWeb.FrameLoadEnd += InitializeMainBrowserEndingEvent;
-            MainSplitContainer1.Panel1.Controls.Add(MainWeb);
+            MainSplitter1.Panel1.Controls.Add(MainWeb);
             Log.I("ChromiumWebBrowser loaded.");
         }
         private void InitializeMainBrowserEndingEvent(object sender, FrameLoadEndEventArgs e) {
@@ -84,8 +85,9 @@ namespace Banishment {
         /// </summary>
         private void InitializeUI() {
             this.Text = string.Format("Banishment C#  {0}", Const.version);
-            this.MainSplitContainer.SplitterDistance = (int)(MainSplitContainer.Height * 0.75);
-            this.MainSplitContainer1.SplitterDistance = (int)(MainSplitContainer1.Width * 0.75);
+            this.MainSplitter.SplitterDistance = (int)(MainSplitter.Height * 0.75);
+            this.MainSplitter1.SplitterDistance = (int)(MainSplitter1.Width * 0.75);
+            this.UserSplitter.SplitterDistance = (int)(UserSplitter.Width * 0.33);
         }
 
         /// <summary>
@@ -107,10 +109,36 @@ namespace Banishment {
             MainBtnRun.Enabled = true; //复活按钮
         }
 
+        /// <summary>
+        /// 程序关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e) => Environment.Exit(0);
 
         private void MainForm_Load(object sender, EventArgs e) {
 
+        }
+
+        /// <summary>
+        /// 公告页进入事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TabPageAnnounce_Enter(object sender, EventArgs e) {
+            browserAnnounce = new WebBrowser();
+            browserAnnounce.Navigate(Const.urlAnnounce);
+            browserAnnounce.Dock = DockStyle.Fill;
+            tabPageAnnounce.Controls.Add(browserAnnounce);
+        }
+        /// <summary>
+        /// 公告页切出事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TabPageAnnounce_Leave(object sender, EventArgs e) {
+            tabPageAnnounce.Controls.Clear();
+            browserAnnounce.Dispose();
         }
     }
 }

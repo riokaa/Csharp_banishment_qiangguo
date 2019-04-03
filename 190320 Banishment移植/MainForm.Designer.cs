@@ -26,8 +26,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MainTab = new System.Windows.Forms.TabControl();
             this.tabPageMain = new System.Windows.Forms.TabPage();
-            this.MainSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.MainSplitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.MainSplitter = new System.Windows.Forms.SplitContainer();
+            this.MainSplitter1 = new System.Windows.Forms.SplitContainer();
             this.MainProgressBar = new System.Windows.Forms.ProgressBar();
             this.MainGrid = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,18 +41,22 @@
             this.tabPageSettings = new System.Windows.Forms.TabPage();
             this.tabPageAbout = new System.Windows.Forms.TabPage();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.UserSplitter = new System.Windows.Forms.SplitContainer();
             this.MainTab.SuspendLayout();
             this.tabPageMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer)).BeginInit();
-            this.MainSplitContainer.Panel1.SuspendLayout();
-            this.MainSplitContainer.Panel2.SuspendLayout();
-            this.MainSplitContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer1)).BeginInit();
-            this.MainSplitContainer1.Panel2.SuspendLayout();
-            this.MainSplitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MainSplitter)).BeginInit();
+            this.MainSplitter.Panel1.SuspendLayout();
+            this.MainSplitter.Panel2.SuspendLayout();
+            this.MainSplitter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MainSplitter1)).BeginInit();
+            this.MainSplitter1.Panel2.SuspendLayout();
+            this.MainSplitter1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainPicBoxRikka)).BeginInit();
             this.MainGroupBoxController.SuspendLayout();
+            this.tabPageUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UserSplitter)).BeginInit();
+            this.UserSplitter.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainTab
@@ -73,7 +77,7 @@
             // 
             // tabPageMain
             // 
-            this.tabPageMain.Controls.Add(this.MainSplitContainer);
+            this.tabPageMain.Controls.Add(this.MainSplitter);
             this.tabPageMain.Location = new System.Drawing.Point(4, 25);
             this.tabPageMain.Name = "tabPageMain";
             this.tabPageMain.Padding = new System.Windows.Forms.Padding(3);
@@ -82,40 +86,40 @@
             this.tabPageMain.Text = "主页";
             this.tabPageMain.UseVisualStyleBackColor = true;
             // 
-            // MainSplitContainer
+            // MainSplitter
             // 
-            this.MainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainSplitContainer.Location = new System.Drawing.Point(3, 3);
-            this.MainSplitContainer.Name = "MainSplitContainer";
-            this.MainSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.MainSplitter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainSplitter.Location = new System.Drawing.Point(3, 3);
+            this.MainSplitter.Name = "MainSplitter";
+            this.MainSplitter.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // MainSplitContainer.Panel1
+            // MainSplitter.Panel1
             // 
-            this.MainSplitContainer.Panel1.Controls.Add(this.MainSplitContainer1);
+            this.MainSplitter.Panel1.Controls.Add(this.MainSplitter1);
             // 
-            // MainSplitContainer.Panel2
+            // MainSplitter.Panel2
             // 
-            this.MainSplitContainer.Panel2.Controls.Add(this.MainGroupBoxController);
-            this.MainSplitContainer.Size = new System.Drawing.Size(896, 610);
-            this.MainSplitContainer.SplitterDistance = 426;
-            this.MainSplitContainer.TabIndex = 4;
+            this.MainSplitter.Panel2.Controls.Add(this.MainGroupBoxController);
+            this.MainSplitter.Size = new System.Drawing.Size(896, 610);
+            this.MainSplitter.SplitterDistance = 426;
+            this.MainSplitter.TabIndex = 4;
             // 
-            // MainSplitContainer1
+            // MainSplitter1
             // 
-            this.MainSplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainSplitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.MainSplitContainer1.Name = "MainSplitContainer1";
+            this.MainSplitter1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainSplitter1.Location = new System.Drawing.Point(0, 0);
+            this.MainSplitter1.Name = "MainSplitter1";
             // 
-            // MainSplitContainer1.Panel2
+            // MainSplitter1.Panel2
             // 
-            this.MainSplitContainer1.Panel2.Controls.Add(this.MainProgressBar);
-            this.MainSplitContainer1.Panel2.Controls.Add(this.MainGrid);
-            this.MainSplitContainer1.Panel2.Controls.Add(this.MainPicBoxRikka);
-            this.MainSplitContainer1.Panel2.Controls.Add(this.MainBtnRun);
-            this.MainSplitContainer1.Size = new System.Drawing.Size(896, 426);
-            this.MainSplitContainer1.SplitterDistance = 672;
-            this.MainSplitContainer1.TabIndex = 6;
-            this.MainSplitContainer1.TabStop = false;
+            this.MainSplitter1.Panel2.Controls.Add(this.MainProgressBar);
+            this.MainSplitter1.Panel2.Controls.Add(this.MainGrid);
+            this.MainSplitter1.Panel2.Controls.Add(this.MainPicBoxRikka);
+            this.MainSplitter1.Panel2.Controls.Add(this.MainBtnRun);
+            this.MainSplitter1.Size = new System.Drawing.Size(896, 426);
+            this.MainSplitter1.SplitterDistance = 672;
+            this.MainSplitter1.TabIndex = 6;
+            this.MainSplitter1.TabStop = false;
             // 
             // MainProgressBar
             // 
@@ -201,6 +205,7 @@
             // 
             // tabPageUser
             // 
+            this.tabPageUser.Controls.Add(this.UserSplitter);
             this.tabPageUser.Location = new System.Drawing.Point(4, 25);
             this.tabPageUser.Name = "tabPageUser";
             this.tabPageUser.Padding = new System.Windows.Forms.Padding(3);
@@ -217,6 +222,8 @@
             this.tabPageAnnounce.TabIndex = 2;
             this.tabPageAnnounce.Text = "公告";
             this.tabPageAnnounce.UseVisualStyleBackColor = true;
+            this.tabPageAnnounce.Enter += new System.EventHandler(this.TabPageAnnounce_Enter);
+            this.tabPageAnnounce.Leave += new System.EventHandler(this.TabPageAnnounce_Leave);
             // 
             // tabPageSettings
             // 
@@ -236,6 +243,15 @@
             this.tabPageAbout.Text = "关于";
             this.tabPageAbout.UseVisualStyleBackColor = true;
             // 
+            // UserSplitter
+            // 
+            this.UserSplitter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserSplitter.Location = new System.Drawing.Point(3, 3);
+            this.UserSplitter.Name = "UserSplitter";
+            this.UserSplitter.Size = new System.Drawing.Size(896, 610);
+            this.UserSplitter.SplitterDistance = 298;
+            this.UserSplitter.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -249,17 +265,20 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.MainTab.ResumeLayout(false);
             this.tabPageMain.ResumeLayout(false);
-            this.MainSplitContainer.Panel1.ResumeLayout(false);
-            this.MainSplitContainer.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer)).EndInit();
-            this.MainSplitContainer.ResumeLayout(false);
-            this.MainSplitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer1)).EndInit();
-            this.MainSplitContainer1.ResumeLayout(false);
+            this.MainSplitter.Panel1.ResumeLayout(false);
+            this.MainSplitter.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MainSplitter)).EndInit();
+            this.MainSplitter.ResumeLayout(false);
+            this.MainSplitter1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MainSplitter1)).EndInit();
+            this.MainSplitter1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainPicBoxRikka)).EndInit();
             this.MainGroupBoxController.ResumeLayout(false);
             this.MainGroupBoxController.PerformLayout();
+            this.tabPageUser.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.UserSplitter)).EndInit();
+            this.UserSplitter.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -272,10 +291,10 @@
         private System.Windows.Forms.TabPage tabPageAnnounce;
         private System.Windows.Forms.TabPage tabPageSettings;
         private System.Windows.Forms.TabPage tabPageAbout;
-        private System.Windows.Forms.SplitContainer MainSplitContainer;
+        private System.Windows.Forms.SplitContainer MainSplitter;
         private System.Windows.Forms.GroupBox MainGroupBoxController;
         public System.Windows.Forms.TextBox MainController;
-        private System.Windows.Forms.SplitContainer MainSplitContainer1;
+        private System.Windows.Forms.SplitContainer MainSplitter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.PictureBox MainPicBoxRikka;
@@ -283,5 +302,6 @@
         public System.Windows.Forms.ProgressBar MainProgressBar;
         public System.Windows.Forms.Button MainBtnRun;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        public System.Windows.Forms.SplitContainer UserSplitter;
     }
 }
