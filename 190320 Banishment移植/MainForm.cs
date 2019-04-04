@@ -3,6 +3,7 @@ using Banishment.WebOptions;
 using CefSharp;
 using CefSharp.WinForms;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Banishment {
@@ -11,6 +12,11 @@ namespace Banishment {
         public ChromiumWebBrowser MainWeb;
         public static MainForm self;
         public ThreadsController threadController;
+        public Button UserBtnLogin;
+        public Button UserBtnRegister;
+        public Label UserLabelUsername;
+        public Label UserLabelVipStatus;
+        public Label UserLabelVipDate;
 
         public MainForm() {
             self = this;
@@ -84,10 +90,53 @@ namespace Banishment {
         /// UI初始化
         /// </summary>
         private void InitializeUI() {
+            //title
             this.Text = string.Format("Banishment C#  {0}", Const.version);
+            //splitter width or height
             this.MainSplitter.SplitterDistance = (int)(MainSplitter.Height * 0.75);
             this.MainSplitter1.SplitterDistance = (int)(MainSplitter1.Width * 0.75);
             this.UserSplitter.SplitterDistance = (int)(UserSplitter.Width * 0.33);
+            this.UserSplitter1.SplitterDistance = (int)(UserSplitter1.Height * 0.6);
+            this.UserSplitter2.SplitterDistance = (int)(UserSplitter2.Height * 0.5);
+            //user table
+            UserLabelUsername = new Label() {
+                //Dock = DockStyle.Fill,
+                Text = "未登录",
+                TextAlign = ContentAlignment.MiddleCenter,
+            };
+            UserLabelVipStatus = new Label() { ForeColor = Color.Red, TextAlign = ContentAlignment.MiddleCenter };
+            UserLabelVipDate = new Label() { TextAlign = ContentAlignment.MiddleCenter };
+            UserTable.Controls.Add(new Label() {
+                //Dock = DockStyle.Fill,
+                Text = "用户名：",
+                TextAlign = ContentAlignment.MiddleRight,
+            }, 0, 0);
+            UserTable.Controls.Add(new Label() {
+                //Dock = DockStyle.Fill,
+                Text = "Pro状态：",
+                TextAlign = ContentAlignment.MiddleRight,
+            }, 0, 1);
+            UserTable.Controls.Add(new Label() {
+                //Dock = DockStyle.Fill,
+                Text = "到期时间：",
+                TextAlign = ContentAlignment.MiddleRight,
+            }, 0, 2);
+            UserTable.Controls.Add(UserLabelUsername, 1, 0);
+            UserTable.Controls.Add(UserLabelVipStatus, 1, 1);
+            UserTable.Controls.Add(UserLabelVipDate, 1, 2);
+            //user btn
+            UserBtnLogin = new Button() {
+                Text = "登陆",
+                Dock = DockStyle.Fill,
+            };
+            UserBtnRegister = new Button() {
+                Text = "注册",
+                Dock = DockStyle.Fill,
+            };
+            UserTable.Controls.Add(UserBtnLogin, 0, 3);
+            UserTable.Controls.Add(UserBtnRegister, 1, 3);
+            UserBtnLogin.Click += (o, e) => { new LoginForm().Show(this); };
+            UserBtnRegister.Click += (o, e) => { new RegForm().Show(this); };
         }
 
         /// <summary>
@@ -115,10 +164,6 @@ namespace Banishment {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e) => Environment.Exit(0);
-
-        private void MainForm_Load(object sender, EventArgs e) {
-
-        }
 
         /// <summary>
         /// 公告页进入事件

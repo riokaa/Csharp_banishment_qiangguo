@@ -37,11 +37,15 @@
             this.MainGroupBoxController = new System.Windows.Forms.GroupBox();
             this.MainController = new System.Windows.Forms.TextBox();
             this.tabPageUser = new System.Windows.Forms.TabPage();
+            this.UserSplitter = new System.Windows.Forms.SplitContainer();
+            this.UserSplitter1 = new System.Windows.Forms.SplitContainer();
+            this.UserSplitter2 = new System.Windows.Forms.SplitContainer();
+            this.UserImgHead = new System.Windows.Forms.PictureBox();
+            this.UserTable = new System.Windows.Forms.TableLayoutPanel();
+            this.UserGroupBoxPro = new System.Windows.Forms.GroupBox();
             this.tabPageAnnounce = new System.Windows.Forms.TabPage();
             this.tabPageSettings = new System.Windows.Forms.TabPage();
             this.tabPageAbout = new System.Windows.Forms.TabPage();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.UserSplitter = new System.Windows.Forms.SplitContainer();
             this.MainTab.SuspendLayout();
             this.tabPageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitter)).BeginInit();
@@ -56,7 +60,17 @@
             this.MainGroupBoxController.SuspendLayout();
             this.tabPageUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserSplitter)).BeginInit();
+            this.UserSplitter.Panel1.SuspendLayout();
+            this.UserSplitter.Panel2.SuspendLayout();
             this.UserSplitter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UserSplitter1)).BeginInit();
+            this.UserSplitter1.Panel1.SuspendLayout();
+            this.UserSplitter1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UserSplitter2)).BeginInit();
+            this.UserSplitter2.Panel1.SuspendLayout();
+            this.UserSplitter2.Panel2.SuspendLayout();
+            this.UserSplitter2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UserImgHead)).BeginInit();
             this.SuspendLayout();
             // 
             // MainTab
@@ -139,13 +153,13 @@
             this.Column1,
             this.Column2});
             this.MainGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainGrid.Location = new System.Drawing.Point(0, 72);
+            this.MainGrid.Location = new System.Drawing.Point(0, 123);
             this.MainGrid.Name = "MainGrid";
             this.MainGrid.ReadOnly = true;
             this.MainGrid.RowHeadersVisible = false;
             this.MainGrid.RowTemplate.Height = 27;
             this.MainGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.MainGrid.Size = new System.Drawing.Size(220, 307);
+            this.MainGrid.Size = new System.Drawing.Size(220, 256);
             this.MainGrid.TabIndex = 4;
             // 
             // Column1
@@ -162,10 +176,12 @@
             // 
             // MainPicBoxRikka
             // 
+            this.MainPicBoxRikka.BackgroundImage = global::Banishment.Properties.Resources.Rikka;
+            this.MainPicBoxRikka.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.MainPicBoxRikka.Dock = System.Windows.Forms.DockStyle.Top;
             this.MainPicBoxRikka.Location = new System.Drawing.Point(0, 0);
             this.MainPicBoxRikka.Name = "MainPicBoxRikka";
-            this.MainPicBoxRikka.Size = new System.Drawing.Size(220, 72);
+            this.MainPicBoxRikka.Size = new System.Drawing.Size(220, 123);
             this.MainPicBoxRikka.TabIndex = 3;
             this.MainPicBoxRikka.TabStop = false;
             // 
@@ -214,6 +230,93 @@
             this.tabPageUser.Text = "个人中心";
             this.tabPageUser.UseVisualStyleBackColor = true;
             // 
+            // UserSplitter
+            // 
+            this.UserSplitter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserSplitter.Location = new System.Drawing.Point(3, 3);
+            this.UserSplitter.Name = "UserSplitter";
+            // 
+            // UserSplitter.Panel1
+            // 
+            this.UserSplitter.Panel1.Controls.Add(this.UserSplitter1);
+            // 
+            // UserSplitter.Panel2
+            // 
+            this.UserSplitter.Panel2.Controls.Add(this.UserGroupBoxPro);
+            this.UserSplitter.Size = new System.Drawing.Size(896, 610);
+            this.UserSplitter.SplitterDistance = 298;
+            this.UserSplitter.TabIndex = 0;
+            // 
+            // UserSplitter1
+            // 
+            this.UserSplitter1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserSplitter1.Location = new System.Drawing.Point(0, 0);
+            this.UserSplitter1.Name = "UserSplitter1";
+            this.UserSplitter1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // UserSplitter1.Panel1
+            // 
+            this.UserSplitter1.Panel1.Controls.Add(this.UserSplitter2);
+            this.UserSplitter1.Size = new System.Drawing.Size(298, 610);
+            this.UserSplitter1.SplitterDistance = 300;
+            this.UserSplitter1.TabIndex = 0;
+            // 
+            // UserSplitter2
+            // 
+            this.UserSplitter2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserSplitter2.Location = new System.Drawing.Point(0, 0);
+            this.UserSplitter2.Name = "UserSplitter2";
+            this.UserSplitter2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // UserSplitter2.Panel1
+            // 
+            this.UserSplitter2.Panel1.Controls.Add(this.UserImgHead);
+            // 
+            // UserSplitter2.Panel2
+            // 
+            this.UserSplitter2.Panel2.Controls.Add(this.UserTable);
+            this.UserSplitter2.Size = new System.Drawing.Size(298, 300);
+            this.UserSplitter2.SplitterDistance = 150;
+            this.UserSplitter2.TabIndex = 0;
+            // 
+            // UserImgHead
+            // 
+            this.UserImgHead.BackgroundImage = global::Banishment.Properties.Resources.MainIcon;
+            this.UserImgHead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.UserImgHead.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserImgHead.Location = new System.Drawing.Point(0, 0);
+            this.UserImgHead.Name = "UserImgHead";
+            this.UserImgHead.Size = new System.Drawing.Size(298, 150);
+            this.UserImgHead.TabIndex = 0;
+            this.UserImgHead.TabStop = false;
+            // 
+            // UserTable
+            // 
+            this.UserTable.ColumnCount = 2;
+            this.UserTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.UserTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.UserTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserTable.Location = new System.Drawing.Point(0, 0);
+            this.UserTable.Name = "UserTable";
+            this.UserTable.Padding = new System.Windows.Forms.Padding(16);
+            this.UserTable.RowCount = 4;
+            this.UserTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.UserTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.UserTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.UserTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.UserTable.Size = new System.Drawing.Size(298, 146);
+            this.UserTable.TabIndex = 2;
+            // 
+            // UserGroupBoxPro
+            // 
+            this.UserGroupBoxPro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserGroupBoxPro.Location = new System.Drawing.Point(0, 0);
+            this.UserGroupBoxPro.Name = "UserGroupBoxPro";
+            this.UserGroupBoxPro.Size = new System.Drawing.Size(594, 610);
+            this.UserGroupBoxPro.TabIndex = 0;
+            this.UserGroupBoxPro.TabStop = false;
+            this.UserGroupBoxPro.Text = "Pro";
+            // 
             // tabPageAnnounce
             // 
             this.tabPageAnnounce.Location = new System.Drawing.Point(4, 25);
@@ -243,15 +346,6 @@
             this.tabPageAbout.Text = "关于";
             this.tabPageAbout.UseVisualStyleBackColor = true;
             // 
-            // UserSplitter
-            // 
-            this.UserSplitter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UserSplitter.Location = new System.Drawing.Point(3, 3);
-            this.UserSplitter.Name = "UserSplitter";
-            this.UserSplitter.Size = new System.Drawing.Size(896, 610);
-            this.UserSplitter.SplitterDistance = 298;
-            this.UserSplitter.TabIndex = 0;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -262,7 +356,6 @@
             this.Name = "MainForm";
             this.Text = "Banishment C#";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.MainTab.ResumeLayout(false);
             this.tabPageMain.ResumeLayout(false);
             this.MainSplitter.Panel1.ResumeLayout(false);
@@ -277,8 +370,18 @@
             this.MainGroupBoxController.ResumeLayout(false);
             this.MainGroupBoxController.PerformLayout();
             this.tabPageUser.ResumeLayout(false);
+            this.UserSplitter.Panel1.ResumeLayout(false);
+            this.UserSplitter.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.UserSplitter)).EndInit();
             this.UserSplitter.ResumeLayout(false);
+            this.UserSplitter1.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.UserSplitter1)).EndInit();
+            this.UserSplitter1.ResumeLayout(false);
+            this.UserSplitter2.Panel1.ResumeLayout(false);
+            this.UserSplitter2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.UserSplitter2)).EndInit();
+            this.UserSplitter2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.UserImgHead)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -301,7 +404,11 @@
         public System.Windows.Forms.DataGridView MainGrid;
         public System.Windows.Forms.ProgressBar MainProgressBar;
         public System.Windows.Forms.Button MainBtnRun;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         public System.Windows.Forms.SplitContainer UserSplitter;
+        public System.Windows.Forms.SplitContainer UserSplitter1;
+        public System.Windows.Forms.SplitContainer UserSplitter2;
+        private System.Windows.Forms.PictureBox UserImgHead;
+        private System.Windows.Forms.TableLayoutPanel UserTable;
+        private System.Windows.Forms.GroupBox UserGroupBoxPro;
     }
 }

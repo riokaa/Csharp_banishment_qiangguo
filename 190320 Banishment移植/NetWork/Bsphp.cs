@@ -46,6 +46,7 @@ namespace Banishment.NetWork {
             };
             //: http post request
             string response = HttpRequest.Post(BS.reqUrl, param);
+
             response = Encoding.UTF8.GetString(Convert.FromBase64String(response));
             Log.D(string.Format("Bsphp.ApiRequest.Response: {0}.", response));
 
