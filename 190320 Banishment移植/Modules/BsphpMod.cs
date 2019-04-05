@@ -7,7 +7,7 @@ namespace Banishment.Modules {
     /// 刷新用户信息
     /// </summary>
     class FlushUserInfo {
-        public static void Start() {
+        public static bool Start() {
             string loginStatus = Bsphp.GetLoginInfo();
             switch (loginStatus) {
                 case "1":
@@ -19,12 +19,12 @@ namespace Banishment.Modules {
                         BS.vip = false;
                     }
                     AfterLoginSucceed();
-                    break;
+                    return true;
                 default:
                     BS.status = -1;
                     BS.vip = false;
                     AfterLoginFailed();
-                    break;
+                    return false;
             }
         }
         /// <summary>
