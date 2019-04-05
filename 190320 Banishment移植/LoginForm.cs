@@ -41,13 +41,21 @@ namespace Banishment {
             LoginTable.Controls.Add(LoginTextUser, 1, 0);
             LoginTable.Controls.Add(LoginTextPwd, 1, 1);
         }
+
         /// <summary>
-        /// 忘记密码按钮
+        /// 开局自动登陆
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void LoginForgetLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            MessageBox.Show("联系相关邮箱~", "忘记密码");
+        public void LoginAuto() {
+            if (Settings.Default.User == "" || Settings.Default.Pwd == "")
+                return;
+            this.LoginTextUser.Text = Settings.Default.User;
+            this.LoginTextPwd.Text = Base.AesDecrypt(Settings.Default.Pwd, Const.aesKey);
+            this.LoginBtnLogin_Click(null, new EventArgs());
+            if (!(this.IsDisposed || this.Disposing)) {
+                Log.W("个人中心自动登陆失败。");
+                FlushUserInfo.AfterLoginFailed(); //登录失败后处理
+                this.Dispose();
+            }
         }
         /// <summary>
         /// 登录按钮事件
@@ -59,33 +67,39 @@ namespace Banishment {
             string pwd = LoginTextPwd.Text;
             string response = Bsphp.Login(user, pwd);
             string[] respArray = response.Split('|');
-            if(respArray.Count() >= 5) { //登陆成功
-                if(respArray[0] == "01") {
+            if (respArray.Count() >= 5) { //登陆成功
+                if (respArray[0] == "01") {
                     BS.status = int.Parse(respArray[1]);
                     BS.user = user;
                     BS.vipDate = respArray[4];
-                    if(respArray[1] == "1011") {
+                    if (respArray[1] == "1011") {
                         BS.vip = true;
                     }
-                    //登陆成功后处理
-                    this.Dispose();
+                    FlushUserInfo.AfterLoginSucceed();
                 } else {
                     if (Bsphp.StatusCode.ContainsKey(respArray[1])) {
                         this.LoginRespLabel.Text = Bsphp.StatusCode[respArray[1]];
                     } else {
                         this.LoginRespLabel.Text = string.Format("登陆失败！错误码：{0}", respArray[1]);
                     }
+                    return;
                 }
-            }else if(response == "9908") { //已到期
+            } else if (response == "9908") { //已到期
                 BS.status = int.Parse(respArray[1]);
-                for(int i=0; i<10; i++) {
+                for (int i = 0; i < 10; i++) {
                     Bsphp.Login(user, pwd);
                     if (FlushUserInfo.Start()) {
                         break;
                     }
                     Thread.Sleep(1000);
                 }
-                this.Dispose();
+                if (MainForm.self.InvokeRequired) {
+                    MainForm.self.Invoke(new Action(() => {
+                        MainForm.self.MainTab.SelectTab(1);
+                    }));
+                } else {
+                    MainForm.self.MainTab.SelectTab(1);
+                }
             } else { //登陆失败
                 this.LoginRespLabel.Text = response;
                 return;
@@ -95,6 +109,15 @@ namespace Banishment {
             Settings.Default.User = user;
             Settings.Default.Pwd = Base.AesEncrypt(pwd, Const.aesKey);
             Settings.Default.Save();
+            this.Dispose();
+        }
+        /// <summary>
+        /// 忘记密码按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LoginForgetLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            MessageBox.Show("联系相关邮箱~", "忘记密码");
         }
     }
 }

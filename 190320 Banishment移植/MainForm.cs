@@ -1,4 +1,7 @@
 ﻿using Banishment.BaseLib;
+using Banishment.Modules;
+using Banishment.NetWork;
+using Banishment.Properties;
 using Banishment.WebOptions;
 using CefSharp;
 using CefSharp.WinForms;
@@ -17,6 +20,7 @@ namespace Banishment {
         public Label UserLabelUsername;
         public Label UserLabelVipStatus;
         public Label UserLabelVipDate;
+        public LinkLabel UserLinkLabelLogout;
 
         public MainForm() {
             self = this;
@@ -26,8 +30,22 @@ namespace Banishment {
             InitializeMainBrowser();
             InitializeThreads();
             InitializeUI();
+            InitializeAutoLogin();
         }
 
+        /// <summary>
+        /// 个人中心自动登陆初始化
+        /// </summary>
+        private void InitializeAutoLogin() {
+            LoginForm lf = new LoginForm();
+            try {
+                lf.LoginAuto();
+            } finally {
+                if(!(lf.IsDisposed || lf.Disposing)) {
+                    lf.Dispose();
+                }
+            }
+        }
         /// <summary>
         /// 浏览器初始化
         /// </summary>
@@ -126,17 +144,35 @@ namespace Banishment {
             UserTable.Controls.Add(UserLabelVipDate, 1, 2);
             //user btn
             UserBtnLogin = new Button() {
-                Text = "登陆",
                 Dock = DockStyle.Fill,
+                Text = "登陆",
             };
             UserBtnRegister = new Button() {
-                Text = "注册",
                 Dock = DockStyle.Fill,
+                Text = "注册",
+            };
+            UserLinkLabelLogout = new LinkLabel() {
+                Dock = DockStyle.Fill,
+                Text = "注销登陆",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Visible = false,
             };
             UserTable.Controls.Add(UserBtnLogin, 0, 3);
             UserTable.Controls.Add(UserBtnRegister, 1, 3);
+            UserTable.Controls.Add(UserLinkLabelLogout, 1, 3);
             UserBtnLogin.Click += (o, e) => { new LoginForm().Show(this); };
             UserBtnRegister.Click += (o, e) => { new RegForm().Show(this); };
+            UserLinkLabelLogout.Click += (o, e) => {
+                if(Bsphp.Logout() == "1") {
+                    BS.user = "";
+                    BS.pwd = "";
+                    Bsphp.UpdateSeSSL();
+                    Settings.Default.User = "";
+                    Settings.Default.Pwd = "";
+                    Settings.Default.Save();
+                    FlushUserInfo.Start();
+                }
+            };
         }
 
         /// <summary>

@@ -1,5 +1,7 @@
 ﻿using Banishment.BaseLib;
 using Banishment.NetWork;
+using System;
+using System.Drawing;
 using System.Threading;
 
 namespace Banishment.Modules {
@@ -31,13 +33,47 @@ namespace Banishment.Modules {
         /// 登陆成功后处理
         /// </summary>
         public static void AfterLoginSucceed() {
-            //todo
+            MainForm main = MainForm.self;
+            if (main.InvokeRequired) {
+                main.Invoke(new Action(() => {
+                    main.UserBtnLogin.Visible = false;
+                    main.UserBtnRegister.Visible = false;
+                    main.UserLinkLabelLogout.Visible = true;
+                    main.UserBtnActivate.Enabled = true;
+                    main.UserBtnChangePwd.Enabled = true;
+                    main.UserLabelUsername.Text = BS.user;
+                    main.UserLabelVipDate.Text = BS.vipDate;
+                    if (BS.vip) {
+                        main.UserLabelVipStatus.ForeColor = Color.Green;
+                        main.UserLabelVipStatus.Text = "邪王真眼健在√";
+                        main.AboutBtnFeedback.Enabled = true;
+                    } else {
+                        main.UserLabelVipStatus.ForeColor = Color.Red;
+                        main.UserLabelVipStatus.Text = "已到期";
+                        main.AboutBtnFeedback.Enabled = false;
+                    }
+                    Log.I(string.Format("你好，{0}。", BS.user));
+                }));
+            }
         }
         /// <summary>
         /// 登陆失败后处理
         /// </summary>
         public static void AfterLoginFailed() {
-            //todo
+            MainForm main = MainForm.self;
+            if (main.InvokeRequired) {
+                main.Invoke(new Action(() => {
+                    main.UserLabelUsername.Text = "未登录";
+                    main.UserLabelVipStatus.Text = "";
+                    main.UserLabelVipDate.Text = "";
+                    main.UserBtnLogin.Visible = true;
+                    main.UserBtnRegister.Visible = true;
+                    main.UserLinkLabelLogout.Visible = false;
+                    main.UserBtnActivate.Enabled = false;
+                    main.UserBtnChangePwd.Enabled = false;
+                    main.AboutBtnFeedback.Enabled = false;
+                }));
+            }
         }
     }
 
