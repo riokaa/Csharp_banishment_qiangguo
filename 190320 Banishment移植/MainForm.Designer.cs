@@ -42,6 +42,15 @@
             this.UserSplitter2 = new System.Windows.Forms.SplitContainer();
             this.UserImgHead = new System.Windows.Forms.PictureBox();
             this.UserTable = new System.Windows.Forms.TableLayoutPanel();
+            this.UserLabelVipDate = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.UserLabelVipStatus = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.UserLabelUsername = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.UserTable2 = new System.Windows.Forms.TableLayoutPanel();
+            this.UserBtnRegister = new System.Windows.Forms.Button();
+            this.UserBtnLogin = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.UserBtnChangePwd = new System.Windows.Forms.Button();
             this.UserBtnActivate = new System.Windows.Forms.Button();
@@ -77,6 +86,8 @@
             this.UserSplitter2.Panel2.SuspendLayout();
             this.UserSplitter2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserImgHead)).BeginInit();
+            this.UserTable.SuspendLayout();
+            this.UserTable2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabPageAbout.SuspendLayout();
             this.SuspendLayout();
@@ -305,12 +316,18 @@
             // UserTable
             // 
             this.UserTable.ColumnCount = 2;
-            this.UserTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.UserTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.UserTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.24832F));
+            this.UserTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.75168F));
+            this.UserTable.Controls.Add(this.UserLabelVipDate, 1, 2);
+            this.UserTable.Controls.Add(this.label5, 0, 2);
+            this.UserTable.Controls.Add(this.UserLabelVipStatus, 1, 1);
+            this.UserTable.Controls.Add(this.label3, 0, 1);
+            this.UserTable.Controls.Add(this.UserLabelUsername, 1, 0);
+            this.UserTable.Controls.Add(this.label1, 0, 0);
+            this.UserTable.Controls.Add(this.UserTable2, 0, 3);
             this.UserTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UserTable.Location = new System.Drawing.Point(0, 0);
             this.UserTable.Name = "UserTable";
-            this.UserTable.Padding = new System.Windows.Forms.Padding(16);
             this.UserTable.RowCount = 4;
             this.UserTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.UserTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -318,6 +335,116 @@
             this.UserTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.UserTable.Size = new System.Drawing.Size(298, 146);
             this.UserTable.TabIndex = 2;
+            // 
+            // UserLabelVipDate
+            // 
+            this.UserLabelVipDate.AutoSize = true;
+            this.UserLabelVipDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserLabelVipDate.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.UserLabelVipDate.Location = new System.Drawing.Point(113, 72);
+            this.UserLabelVipDate.Name = "UserLabelVipDate";
+            this.UserLabelVipDate.Size = new System.Drawing.Size(182, 36);
+            this.UserLabelVipDate.TabIndex = 5;
+            this.UserLabelVipDate.Text = "可以不注册登陆";
+            this.UserLabelVipDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label5.Location = new System.Drawing.Point(3, 72);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(104, 36);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "到期时间：";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // UserLabelVipStatus
+            // 
+            this.UserLabelVipStatus.AutoSize = true;
+            this.UserLabelVipStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserLabelVipStatus.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.UserLabelVipStatus.Location = new System.Drawing.Point(113, 36);
+            this.UserLabelVipStatus.Name = "UserLabelVipStatus";
+            this.UserLabelVipStatus.Size = new System.Drawing.Size(182, 36);
+            this.UserLabelVipStatus.TabIndex = 3;
+            this.UserLabelVipStatus.Text = "若不用Pro的功能";
+            this.UserLabelVipStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(3, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(104, 36);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Pro状态：";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // UserLabelUsername
+            // 
+            this.UserLabelUsername.AutoSize = true;
+            this.UserLabelUsername.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserLabelUsername.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.UserLabelUsername.Location = new System.Drawing.Point(113, 0);
+            this.UserLabelUsername.Name = "UserLabelUsername";
+            this.UserLabelUsername.Size = new System.Drawing.Size(182, 36);
+            this.UserLabelUsername.TabIndex = 1;
+            this.UserLabelUsername.Text = "未登录呢";
+            this.UserLabelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 36);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "用户名：";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // UserTable2
+            // 
+            this.UserTable2.ColumnCount = 2;
+            this.UserTable.SetColumnSpan(this.UserTable2, 2);
+            this.UserTable2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.UserTable2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.UserTable2.Controls.Add(this.UserBtnRegister, 1, 0);
+            this.UserTable2.Controls.Add(this.UserBtnLogin, 0, 0);
+            this.UserTable2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserTable2.Location = new System.Drawing.Point(3, 111);
+            this.UserTable2.Name = "UserTable2";
+            this.UserTable2.RowCount = 1;
+            this.UserTable2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.UserTable2.Size = new System.Drawing.Size(292, 32);
+            this.UserTable2.TabIndex = 6;
+            // 
+            // UserBtnRegister
+            // 
+            this.UserBtnRegister.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserBtnRegister.Location = new System.Drawing.Point(149, 0);
+            this.UserBtnRegister.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.UserBtnRegister.Name = "UserBtnRegister";
+            this.UserBtnRegister.Size = new System.Drawing.Size(140, 32);
+            this.UserBtnRegister.TabIndex = 1;
+            this.UserBtnRegister.Text = "注册";
+            this.UserBtnRegister.UseVisualStyleBackColor = true;
+            // 
+            // UserBtnLogin
+            // 
+            this.UserBtnLogin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserBtnLogin.Location = new System.Drawing.Point(3, 0);
+            this.UserBtnLogin.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.UserBtnLogin.Name = "UserBtnLogin";
+            this.UserBtnLogin.Size = new System.Drawing.Size(140, 32);
+            this.UserBtnLogin.TabIndex = 0;
+            this.UserBtnLogin.Text = "登陆";
+            this.UserBtnLogin.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -329,7 +456,7 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
@@ -347,7 +474,7 @@
             this.UserBtnChangePwd.Enabled = false;
             this.UserBtnChangePwd.Location = new System.Drawing.Point(3, 3);
             this.UserBtnChangePwd.Name = "UserBtnChangePwd";
-            this.UserBtnChangePwd.Size = new System.Drawing.Size(292, 37);
+            this.UserBtnChangePwd.Size = new System.Drawing.Size(292, 45);
             this.UserBtnChangePwd.TabIndex = 0;
             this.UserBtnChangePwd.Text = "修改密码";
             this.UserBtnChangePwd.UseVisualStyleBackColor = true;
@@ -357,9 +484,9 @@
             // 
             this.UserBtnActivate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UserBtnActivate.Enabled = false;
-            this.UserBtnActivate.Location = new System.Drawing.Point(3, 46);
+            this.UserBtnActivate.Location = new System.Drawing.Point(3, 54);
             this.UserBtnActivate.Name = "UserBtnActivate";
-            this.UserBtnActivate.Size = new System.Drawing.Size(292, 37);
+            this.UserBtnActivate.Size = new System.Drawing.Size(292, 45);
             this.UserBtnActivate.TabIndex = 1;
             this.UserBtnActivate.Text = "激活Pro功能";
             this.UserBtnActivate.UseVisualStyleBackColor = true;
@@ -368,9 +495,9 @@
             // UserBtnGetPro
             // 
             this.UserBtnGetPro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UserBtnGetPro.Location = new System.Drawing.Point(3, 89);
+            this.UserBtnGetPro.Location = new System.Drawing.Point(3, 105);
             this.UserBtnGetPro.Name = "UserBtnGetPro";
-            this.UserBtnGetPro.Size = new System.Drawing.Size(292, 37);
+            this.UserBtnGetPro.Size = new System.Drawing.Size(292, 45);
             this.UserBtnGetPro.TabIndex = 2;
             this.UserBtnGetPro.Text = "获取Pro功能";
             this.UserBtnGetPro.UseVisualStyleBackColor = true;
@@ -463,6 +590,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.UserSplitter2)).EndInit();
             this.UserSplitter2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.UserImgHead)).EndInit();
+            this.UserTable.ResumeLayout(false);
+            this.UserTable.PerformLayout();
+            this.UserTable2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tabPageAbout.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -497,5 +627,14 @@
         public System.Windows.Forms.Button UserBtnActivate;
         public System.Windows.Forms.Button UserBtnGetPro;
         public System.Windows.Forms.Button AboutBtnFeedback;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TableLayoutPanel UserTable2;
+        public System.Windows.Forms.Label UserLabelVipDate;
+        public System.Windows.Forms.Label UserLabelVipStatus;
+        public System.Windows.Forms.Label UserLabelUsername;
+        public System.Windows.Forms.Button UserBtnRegister;
+        public System.Windows.Forms.Button UserBtnLogin;
     }
 }

@@ -25,12 +25,12 @@
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangePwdForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.Pwd = new System.Windows.Forms.TextBox();
-            this.Pwda = new System.Windows.Forms.TextBox();
             this.Pwdb = new System.Windows.Forms.TextBox();
+            this.Pwda = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Pwd = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.BtnChange = new System.Windows.Forms.Button();
             this.LabelWarn = new System.Windows.Forms.Label();
@@ -63,27 +63,25 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(320, 150);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // label1
+            // Pwdb
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 37);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "旧密码：";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Pwdb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pwdb.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Pwdb.Location = new System.Drawing.Point(114, 77);
+            this.Pwdb.Name = "Pwdb";
+            this.Pwdb.Size = new System.Drawing.Size(203, 30);
+            this.Pwdb.TabIndex = 7;
+            this.Pwdb.UseSystemPasswordChar = true;
             // 
-            // label3
+            // Pwda
             // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(3, 37);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 37);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "新密码：";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Pwda.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pwda.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Pwda.Location = new System.Drawing.Point(114, 40);
+            this.Pwda.Name = "Pwda";
+            this.Pwda.Size = new System.Drawing.Size(203, 30);
+            this.Pwda.TabIndex = 6;
+            this.Pwda.UseSystemPasswordChar = true;
             // 
             // label5
             // 
@@ -96,6 +94,28 @@
             this.label5.Text = "确认新密码：";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Location = new System.Drawing.Point(3, 37);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(105, 37);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "新密码：";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 37);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "旧密码：";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Pwd
             // 
             this.Pwd.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -105,26 +125,6 @@
             this.Pwd.Size = new System.Drawing.Size(203, 30);
             this.Pwd.TabIndex = 5;
             this.Pwd.UseSystemPasswordChar = true;
-            // 
-            // Pwda
-            // 
-            this.Pwda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Pwda.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Pwda.Location = new System.Drawing.Point(114, 40);
-            this.Pwda.Name = "Pwda";
-            this.Pwda.Size = new System.Drawing.Size(203, 30);
-            this.Pwda.TabIndex = 6;
-            this.Pwda.UseSystemPasswordChar = true;
-            // 
-            // Pwdb
-            // 
-            this.Pwdb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Pwdb.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Pwdb.Location = new System.Drawing.Point(114, 77);
-            this.Pwdb.Name = "Pwdb";
-            this.Pwdb.Size = new System.Drawing.Size(203, 30);
-            this.Pwdb.TabIndex = 7;
-            this.Pwdb.UseSystemPasswordChar = true;
             // 
             // tableLayoutPanel2
             // 

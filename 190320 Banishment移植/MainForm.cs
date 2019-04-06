@@ -15,11 +15,6 @@ namespace Banishment {
         public ChromiumWebBrowser MainWeb;
         public static MainForm self;
         public ThreadsController threadController;
-        public Button UserBtnLogin;
-        public Button UserBtnRegister;
-        public Label UserLabelUsername;
-        public Label UserLabelVipStatus;
-        public Label UserLabelVipDate;
         public LinkLabel UserLinkLabelLogout;
 
         public MainForm() {
@@ -117,57 +112,14 @@ namespace Banishment {
             this.UserSplitter.SplitterDistance = (int)(UserSplitter.Width * 0.33);
             this.UserSplitter1.SplitterDistance = (int)(UserSplitter1.Height * 0.55);
             this.UserSplitter2.SplitterDistance = (int)(UserSplitter2.Height * 0.5);
-            //user table
-            UserLabelUsername = new Label() {
-                Dock = DockStyle.Fill,
-                Text = "未登录",
-                TextAlign = ContentAlignment.MiddleCenter,
-            };
-            UserLabelVipStatus = new Label() {
-                Dock = DockStyle.Fill,
-                ForeColor = Color.Red,
-                TextAlign = ContentAlignment.MiddleCenter,
-            };
-            UserLabelVipDate = new Label() {
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleCenter,
-            };
-            UserTable.Controls.Add(new Label() {
-                Dock = DockStyle.Fill,
-                Text = "用户名：",
-                TextAlign = ContentAlignment.MiddleCenter,
-            }, 0, 0);
-            UserTable.Controls.Add(new Label() {
-                Dock = DockStyle.Fill,
-                Text = "Pro状态：",
-                TextAlign = ContentAlignment.MiddleCenter,
-            }, 0, 1);
-            UserTable.Controls.Add(new Label() {
-                Dock = DockStyle.Fill,
-                Text = "到期时间：",
-                TextAlign = ContentAlignment.MiddleCenter,
-            }, 0, 2);
-            UserTable.Controls.Add(UserLabelUsername, 1, 0);
-            UserTable.Controls.Add(UserLabelVipStatus, 1, 1);
-            UserTable.Controls.Add(UserLabelVipDate, 1, 2);
             //user btn
-            UserBtnLogin = new Button() {
-                Dock = DockStyle.Fill,
-                Text = "登陆",
-            };
-            UserBtnRegister = new Button() {
-                Dock = DockStyle.Fill,
-                Text = "注册",
-            };
             UserLinkLabelLogout = new LinkLabel() {
                 Dock = DockStyle.Fill,
                 Text = "注销登陆",
                 TextAlign = ContentAlignment.MiddleCenter,
                 Visible = false,
             };
-            UserTable.Controls.Add(UserBtnLogin, 0, 3);
-            UserTable.Controls.Add(UserBtnRegister, 1, 3);
-            UserTable.Controls.Add(UserLinkLabelLogout, 1, 3);
+            UserTable2.Controls.Add(UserLinkLabelLogout, 1, 0);
             UserBtnLogin.Click += (o, e) => { new LoginForm().Show(this); };
             UserBtnRegister.Click += (o, e) => { new RegForm().Show(this); };
             UserLinkLabelLogout.Click += (o, e) => {

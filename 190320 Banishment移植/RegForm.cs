@@ -13,7 +13,6 @@ namespace Banishment {
         }
 
         private void InitializeUI() {
-            RegSplitter.SplitterDistance = (int)(RegSplitter.Height * 0.33);
             RegVerifyPic_Click(null, new EventArgs()); //刷新验证码
         }
 
