@@ -42,14 +42,14 @@
             this.UserSplitter2 = new System.Windows.Forms.SplitContainer();
             this.UserImgHead = new System.Windows.Forms.PictureBox();
             this.UserTable = new System.Windows.Forms.TableLayoutPanel();
-            this.UserGroupBoxPro = new System.Windows.Forms.GroupBox();
-            this.tabPageAnnounce = new System.Windows.Forms.TabPage();
-            this.tabPageSettings = new System.Windows.Forms.TabPage();
-            this.tabPageAbout = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.UserBtnChangePwd = new System.Windows.Forms.Button();
             this.UserBtnActivate = new System.Windows.Forms.Button();
             this.UserBtnGetPro = new System.Windows.Forms.Button();
+            this.UserGroupBoxPro = new System.Windows.Forms.GroupBox();
+            this.tabPageAnnounce = new System.Windows.Forms.TabPage();
+            this.tabPageSettings = new System.Windows.Forms.TabPage();
+            this.tabPageAbout = new System.Windows.Forms.TabPage();
             this.AboutBtnFeedback = new System.Windows.Forms.Button();
             this.MainTab.SuspendLayout();
             this.tabPageMain.SuspendLayout();
@@ -77,8 +77,8 @@
             this.UserSplitter2.Panel2.SuspendLayout();
             this.UserSplitter2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserImgHead)).BeginInit();
-            this.tabPageAbout.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tabPageAbout.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainTab
@@ -319,6 +319,61 @@
             this.UserTable.Size = new System.Drawing.Size(298, 146);
             this.UserTable.TabIndex = 2;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.UserBtnChangePwd, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.UserBtnActivate, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.UserBtnGetPro, 0, 2);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(298, 306);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // UserBtnChangePwd
+            // 
+            this.UserBtnChangePwd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserBtnChangePwd.Enabled = false;
+            this.UserBtnChangePwd.Location = new System.Drawing.Point(3, 3);
+            this.UserBtnChangePwd.Name = "UserBtnChangePwd";
+            this.UserBtnChangePwd.Size = new System.Drawing.Size(292, 37);
+            this.UserBtnChangePwd.TabIndex = 0;
+            this.UserBtnChangePwd.Text = "修改密码";
+            this.UserBtnChangePwd.UseVisualStyleBackColor = true;
+            // 
+            // UserBtnActivate
+            // 
+            this.UserBtnActivate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserBtnActivate.Enabled = false;
+            this.UserBtnActivate.Location = new System.Drawing.Point(3, 46);
+            this.UserBtnActivate.Name = "UserBtnActivate";
+            this.UserBtnActivate.Size = new System.Drawing.Size(292, 37);
+            this.UserBtnActivate.TabIndex = 1;
+            this.UserBtnActivate.Text = "激活Pro功能";
+            this.UserBtnActivate.UseVisualStyleBackColor = true;
+            // 
+            // UserBtnGetPro
+            // 
+            this.UserBtnGetPro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserBtnGetPro.Location = new System.Drawing.Point(3, 89);
+            this.UserBtnGetPro.Name = "UserBtnGetPro";
+            this.UserBtnGetPro.Size = new System.Drawing.Size(292, 37);
+            this.UserBtnGetPro.TabIndex = 2;
+            this.UserBtnGetPro.Text = "获取Pro功能";
+            this.UserBtnGetPro.UseVisualStyleBackColor = true;
+            this.UserBtnGetPro.Click += new System.EventHandler(this.UserBtnGetPro_Click);
+            // 
             // UserGroupBoxPro
             // 
             this.UserGroupBoxPro.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -358,60 +413,6 @@
             this.tabPageAbout.TabIndex = 4;
             this.tabPageAbout.Text = "关于";
             this.tabPageAbout.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.UserBtnChangePwd, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.UserBtnActivate, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.UserBtnGetPro, 0, 2);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 8;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(298, 306);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // UserBtnChangePwd
-            // 
-            this.UserBtnChangePwd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UserBtnChangePwd.Enabled = false;
-            this.UserBtnChangePwd.Location = new System.Drawing.Point(3, 3);
-            this.UserBtnChangePwd.Name = "UserBtnChangePwd";
-            this.UserBtnChangePwd.Size = new System.Drawing.Size(292, 32);
-            this.UserBtnChangePwd.TabIndex = 0;
-            this.UserBtnChangePwd.Text = "修改密码";
-            this.UserBtnChangePwd.UseVisualStyleBackColor = true;
-            // 
-            // UserBtnActivate
-            // 
-            this.UserBtnActivate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UserBtnActivate.Enabled = false;
-            this.UserBtnActivate.Location = new System.Drawing.Point(3, 41);
-            this.UserBtnActivate.Name = "UserBtnActivate";
-            this.UserBtnActivate.Size = new System.Drawing.Size(292, 32);
-            this.UserBtnActivate.TabIndex = 1;
-            this.UserBtnActivate.Text = "激活Pro功能";
-            this.UserBtnActivate.UseVisualStyleBackColor = true;
-            // 
-            // UserBtnGetPro
-            // 
-            this.UserBtnGetPro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UserBtnGetPro.Location = new System.Drawing.Point(3, 79);
-            this.UserBtnGetPro.Name = "UserBtnGetPro";
-            this.UserBtnGetPro.Size = new System.Drawing.Size(292, 32);
-            this.UserBtnGetPro.TabIndex = 2;
-            this.UserBtnGetPro.Text = "获取Pro功能";
-            this.UserBtnGetPro.UseVisualStyleBackColor = true;
             // 
             // AboutBtnFeedback
             // 
@@ -460,8 +461,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.UserSplitter2)).EndInit();
             this.UserSplitter2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.UserImgHead)).EndInit();
-            this.tabPageAbout.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tabPageAbout.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

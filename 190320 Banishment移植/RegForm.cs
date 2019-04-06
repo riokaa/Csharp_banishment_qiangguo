@@ -13,5 +13,9 @@ namespace Banishment {
         public RegForm() {
             InitializeComponent();
         }
+
+        private void InitializeUI() {
+            this.RegSplitter.SplitterDistance = (int)(this.RegSplitter.Height * 0.33);
+        }
     }
 }
