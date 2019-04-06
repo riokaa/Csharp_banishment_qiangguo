@@ -9,9 +9,6 @@ using System.Windows.Forms;
 
 namespace Banishment {
     public partial class LoginForm : Form {
-        public TextBox LoginTextUser;
-        public TextBox LoginTextPwd;
-
         public LoginForm() {
             InitializeComponent();
             InitializeUI();
@@ -20,16 +17,7 @@ namespace Banishment {
         /// 界面初始化
         /// </summary>
         private void InitializeUI() {
-            LoginTextUser = new TextBox() {
-                Dock = DockStyle.Fill,
-            };
-            LoginTextPwd = new TextBox() {
-                Dock = DockStyle.Fill,
-                UseSystemPasswordChar = true,
-            };
-            
-            LoginTable.Controls.Add(LoginTextUser, 1, 0);
-            LoginTable.Controls.Add(LoginTextPwd, 1, 1);
+
         }
 
         /// <summary>

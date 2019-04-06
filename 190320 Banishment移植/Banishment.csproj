@@ -141,10 +141,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActivateForm.Designer.cs">
+      <DependentUpon>ActivateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BaseLib\Base.cs" />
     <Compile Include="BaseLib\Const.cs" />
     <Compile Include="BaseLib\Log.cs" />
     <Compile Include="BaseLib\ThreadsController.cs" />
+    <Compile Include="ChangePwdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePwdForm.Designer.cs">
+      <DependentUpon>ChangePwdForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +197,12 @@
     <Compile Include="Modules\GetVideoList.cs" />
     <Compile Include="WebOptions\WebLib.cs" />
     <Compile Include="Modules\GetScore.cs" />
+    <EmbeddedResource Include="ActivateForm.resx">
+      <DependentUpon>ActivateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePwdForm.resx">
+      <DependentUpon>ChangePwdForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

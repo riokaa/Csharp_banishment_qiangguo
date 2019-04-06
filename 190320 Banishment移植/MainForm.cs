@@ -76,6 +76,7 @@ namespace Banishment {
         /// </summary>
         private void InitializeMainController() {
             if (Const.debug) {
+                MessageBox.Show("当前是 Debug 模式。", "!");
                 Log.I("当前是 Debug 模式。");
                 Log.I("当前是 Debug 模式。");
                 Log.I("当前是 Debug 模式。");
@@ -233,6 +234,14 @@ namespace Banishment {
             WebForm wf = new WebForm();
             wf.LoadPage("Pro获取页", Const.urlPay);
             wf.Show(this);
+        }
+
+        private void UserBtnActivate_Click(object sender, EventArgs e) {
+            new ActivateForm().Show(this);
+        }
+
+        private void UserBtnChangePwd_Click(object sender, EventArgs e) {
+            new ChangePwdForm().Show(this);
         }
     }
 }

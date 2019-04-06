@@ -27,13 +27,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.LoginPicBoxRikka = new System.Windows.Forms.PictureBox();
             this.LoginTable = new System.Windows.Forms.TableLayoutPanel();
+            this.LoginTextPwd = new System.Windows.Forms.TextBox();
             this.LoginPanel1 = new System.Windows.Forms.Panel();
             this.LoginBtnLogin = new System.Windows.Forms.Button();
             this.LoginTable3 = new System.Windows.Forms.TableLayoutPanel();
             this.LoginForgetLabel = new System.Windows.Forms.LinkLabel();
+            this.LoginRespLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.LoginRespLabel = new System.Windows.Forms.Label();
+            this.LoginTextUser = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LoginPicBoxRikka)).BeginInit();
             this.LoginTable.SuspendLayout();
@@ -64,14 +66,16 @@
             // 
             // LoginTable
             // 
+            this.LoginTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LoginTable.ColumnCount = 2;
             this.LoginTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.65363F));
             this.LoginTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.34637F));
+            this.LoginTable.Controls.Add(this.LoginTextPwd, 1, 1);
             this.LoginTable.Controls.Add(this.LoginPanel1, 0, 3);
             this.LoginTable.Controls.Add(this.LoginTable3, 0, 2);
             this.LoginTable.Controls.Add(this.label1, 0, 0);
             this.LoginTable.Controls.Add(this.label2, 0, 1);
-            this.LoginTable.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LoginTable.Controls.Add(this.LoginTextUser, 1, 0);
             this.LoginTable.Location = new System.Drawing.Point(0, 123);
             this.LoginTable.Name = "LoginTable";
             this.LoginTable.RowCount = 4;
@@ -82,6 +86,16 @@
             this.LoginTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.LoginTable.Size = new System.Drawing.Size(358, 172);
             this.LoginTable.TabIndex = 5;
+            // 
+            // LoginTextPwd
+            // 
+            this.LoginTextPwd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LoginTextPwd.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LoginTextPwd.Location = new System.Drawing.Point(101, 46);
+            this.LoginTextPwd.Name = "LoginTextPwd";
+            this.LoginTextPwd.Size = new System.Drawing.Size(254, 34);
+            this.LoginTextPwd.TabIndex = 5;
+            this.LoginTextPwd.UseSystemPasswordChar = true;
             // 
             // LoginPanel1
             // 
@@ -134,6 +148,17 @@
             this.LoginForgetLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LoginForgetLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LoginForgetLabel_LinkClicked);
             // 
+            // LoginRespLabel
+            // 
+            this.LoginRespLabel.AutoSize = true;
+            this.LoginRespLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LoginRespLabel.ForeColor = System.Drawing.Color.Red;
+            this.LoginRespLabel.Location = new System.Drawing.Point(3, 0);
+            this.LoginRespLabel.Name = "LoginRespLabel";
+            this.LoginRespLabel.Size = new System.Drawing.Size(240, 37);
+            this.LoginRespLabel.TabIndex = 1;
+            this.LoginRespLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -156,16 +181,14 @@
             this.label2.Text = "密码：";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LoginRespLabel
+            // LoginTextUser
             // 
-            this.LoginRespLabel.AutoSize = true;
-            this.LoginRespLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LoginRespLabel.ForeColor = System.Drawing.Color.Red;
-            this.LoginRespLabel.Location = new System.Drawing.Point(3, 0);
-            this.LoginRespLabel.Name = "LoginRespLabel";
-            this.LoginRespLabel.Size = new System.Drawing.Size(240, 37);
-            this.LoginRespLabel.TabIndex = 1;
-            this.LoginRespLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LoginTextUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LoginTextUser.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LoginTextUser.Location = new System.Drawing.Point(101, 3);
+            this.LoginTextUser.Name = "LoginTextUser";
+            this.LoginTextUser.Size = new System.Drawing.Size(254, 34);
+            this.LoginTextUser.TabIndex = 4;
             // 
             // LoginForm
             // 
@@ -199,5 +222,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LoginRespLabel;
+        private System.Windows.Forms.TextBox LoginTextPwd;
+        private System.Windows.Forms.TextBox LoginTextUser;
     }
 }

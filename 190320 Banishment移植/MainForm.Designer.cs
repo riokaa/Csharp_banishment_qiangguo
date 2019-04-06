@@ -351,6 +351,7 @@
             this.UserBtnChangePwd.TabIndex = 0;
             this.UserBtnChangePwd.Text = "修改密码";
             this.UserBtnChangePwd.UseVisualStyleBackColor = true;
+            this.UserBtnChangePwd.Click += new System.EventHandler(this.UserBtnChangePwd_Click);
             // 
             // UserBtnActivate
             // 
@@ -362,6 +363,7 @@
             this.UserBtnActivate.TabIndex = 1;
             this.UserBtnActivate.Text = "激活Pro功能";
             this.UserBtnActivate.UseVisualStyleBackColor = true;
+            this.UserBtnActivate.Click += new System.EventHandler(this.UserBtnActivate_Click);
             // 
             // UserBtnGetPro
             // 
