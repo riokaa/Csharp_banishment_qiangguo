@@ -7,6 +7,7 @@ using CefSharp;
 using CefSharp.WinForms;
 using System;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Banishment {
@@ -46,15 +47,15 @@ namespace Banishment {
         /// </summary>
         private void InitializeMainBrowser() {
             var settings = new CefSettings {
-                Locale = "zh-CN",
                 AcceptLanguageList = "zh-CN",
-                MultiThreadedMessageLoop = true
+                Locale = "zh-CN",
+                MultiThreadedMessageLoop = true,
             };
             settings.CefCommandLineArgs.Add("disable-gpu", "1");
             Cef.Initialize(settings);
             MainWeb = new ChromiumWebBrowser("https://pc.xuexi.cn/points/login.html?ref=https://www.xuexi.cn/") {
                 Dock = DockStyle.Fill,
-                LifeSpanHandler = new OpenPageSelf()
+                LifeSpanHandler = new OpenPageSelf(),
             };
             MainWeb.FrameLoadEnd += InitializeMainBrowserEndingEvent;
             MainSplitter1.Panel1.Controls.Add(MainWeb);
@@ -194,6 +195,52 @@ namespace Banishment {
 
         private void UserBtnChangePwd_Click(object sender, EventArgs e) {
             new ChangePwdForm().Show(this);
+        }
+
+        private void SetBtnApply_Click(object sender, EventArgs e) {
+            //自动关程序
+            if (SetCheckAutoClose.Checked) {
+                if (!Const.settingsAutoClose) {
+                    Const.settingsAutoClose = true;
+                    Settings.Default.AutoClose = true;
+                    Log.I("设置：积分刷满后自动关闭程序开启。");
+                }
+            } else {
+                if (Const.settingsAutoClose) {
+                    Const.settingsAutoClose = false;
+                    Settings.Default.AutoClose = false;
+                    Log.I("设置：积分刷满后自动关闭程序关闭。");
+                }
+            }
+            //自动关机
+            if (SetCheckAutoShutdown.Checked) {
+                if (!Const.settingsAutoShutdown) {
+                    Const.settingsAutoShutdown = true;
+                    Settings.Default.AutoShutdown = true;
+                    Log.I("设置：积分刷满后自动关机开启。");
+                }
+            } else {
+                if (Const.settingsAutoShutdown) {
+                    Const.settingsAutoShutdown = false;
+                    Settings.Default.AutoShutdown = false;
+                    Log.I("设置：积分刷满后自动关机关闭。");
+                }
+            }
+            //保存配置
+            Settings.Default.Save();
+            //反馈动作
+            SetBtnApply.Enabled = false;
+            SetBtnApply.Text = "成功！";
+            Thread.Sleep(1000);
+            SetBtnApply.Text = "应用";
+            SetBtnApply.Enabled = true;
+        }
+
+        private void AboutBtnFeedback_Click(object sender, EventArgs e) {
+            string urlFeedback = @"http://verify.rayiooo.top/index.php?m=applib&c=appweb&a=feedback&daihao=10000000&uid=" + BS.user + "&table=快捷反馈&leix=feedback";
+            WebForm wf = new WebForm();
+            wf.LoadPage("快捷反馈  联系方式请填邮箱~", urlFeedback);
+            wf.Show(this);
         }
     }
 }

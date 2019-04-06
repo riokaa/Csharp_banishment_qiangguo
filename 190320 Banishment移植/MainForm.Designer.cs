@@ -60,6 +60,12 @@
             this.tabPageSettings = new System.Windows.Forms.TabPage();
             this.tabPageAbout = new System.Windows.Forms.TabPage();
             this.AboutBtnFeedback = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.SetCheckNoVoice = new System.Windows.Forms.CheckBox();
+            this.SetCheckAutoClose = new System.Windows.Forms.CheckBox();
+            this.SetCheckAutoShutdown = new System.Windows.Forms.CheckBox();
+            this.SetBtnApply = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.MainTab.SuspendLayout();
             this.tabPageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitter)).BeginInit();
@@ -89,7 +95,9 @@
             this.UserTable.SuspendLayout();
             this.UserTable2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tabPageSettings.SuspendLayout();
             this.tabPageAbout.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainTab
@@ -207,6 +215,7 @@
             // MainBtnRun
             // 
             this.MainBtnRun.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.MainBtnRun.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MainBtnRun.Location = new System.Drawing.Point(0, 379);
             this.MainBtnRun.Name = "MainBtnRun";
             this.MainBtnRun.Size = new System.Drawing.Size(220, 47);
@@ -472,6 +481,7 @@
             // 
             this.UserBtnChangePwd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UserBtnChangePwd.Enabled = false;
+            this.UserBtnChangePwd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UserBtnChangePwd.Location = new System.Drawing.Point(3, 3);
             this.UserBtnChangePwd.Name = "UserBtnChangePwd";
             this.UserBtnChangePwd.Size = new System.Drawing.Size(292, 45);
@@ -484,6 +494,7 @@
             // 
             this.UserBtnActivate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UserBtnActivate.Enabled = false;
+            this.UserBtnActivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UserBtnActivate.Location = new System.Drawing.Point(3, 54);
             this.UserBtnActivate.Name = "UserBtnActivate";
             this.UserBtnActivate.Size = new System.Drawing.Size(292, 45);
@@ -495,6 +506,7 @@
             // UserBtnGetPro
             // 
             this.UserBtnGetPro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserBtnGetPro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UserBtnGetPro.Location = new System.Drawing.Point(3, 105);
             this.UserBtnGetPro.Name = "UserBtnGetPro";
             this.UserBtnGetPro.Size = new System.Drawing.Size(292, 45);
@@ -526,6 +538,8 @@
             // 
             // tabPageSettings
             // 
+            this.tabPageSettings.Controls.Add(this.SetBtnApply);
+            this.tabPageSettings.Controls.Add(this.groupBox1);
             this.tabPageSettings.Location = new System.Drawing.Point(4, 25);
             this.tabPageSettings.Name = "tabPageSettings";
             this.tabPageSettings.Size = new System.Drawing.Size(902, 616);
@@ -535,6 +549,7 @@
             // 
             // tabPageAbout
             // 
+            this.tabPageAbout.Controls.Add(this.label2);
             this.tabPageAbout.Controls.Add(this.AboutBtnFeedback);
             this.tabPageAbout.Location = new System.Drawing.Point(4, 25);
             this.tabPageAbout.Name = "tabPageAbout";
@@ -546,12 +561,75 @@
             // AboutBtnFeedback
             // 
             this.AboutBtnFeedback.Enabled = false;
-            this.AboutBtnFeedback.Location = new System.Drawing.Point(508, 174);
+            this.AboutBtnFeedback.Location = new System.Drawing.Point(703, 99);
             this.AboutBtnFeedback.Name = "AboutBtnFeedback";
-            this.AboutBtnFeedback.Size = new System.Drawing.Size(147, 46);
+            this.AboutBtnFeedback.Size = new System.Drawing.Size(147, 36);
             this.AboutBtnFeedback.TabIndex = 0;
             this.AboutBtnFeedback.Text = "快捷反馈（Pro）";
             this.AboutBtnFeedback.UseVisualStyleBackColor = true;
+            this.AboutBtnFeedback.Click += new System.EventHandler(this.AboutBtnFeedback_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.SetCheckAutoShutdown);
+            this.groupBox1.Controls.Add(this.SetCheckAutoClose);
+            this.groupBox1.Controls.Add(this.SetCheckNoVoice);
+            this.groupBox1.Location = new System.Drawing.Point(9, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(885, 180);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "首选项";
+            // 
+            // SetCheckNoVoice
+            // 
+            this.SetCheckNoVoice.AutoSize = true;
+            this.SetCheckNoVoice.Enabled = false;
+            this.SetCheckNoVoice.Location = new System.Drawing.Point(6, 24);
+            this.SetCheckNoVoice.Name = "SetCheckNoVoice";
+            this.SetCheckNoVoice.Size = new System.Drawing.Size(164, 19);
+            this.SetCheckNoVoice.TabIndex = 0;
+            this.SetCheckNoVoice.Text = "静音（还未开发呢）";
+            this.SetCheckNoVoice.UseVisualStyleBackColor = true;
+            // 
+            // SetCheckAutoClose
+            // 
+            this.SetCheckAutoClose.AutoSize = true;
+            this.SetCheckAutoClose.Location = new System.Drawing.Point(6, 49);
+            this.SetCheckAutoClose.Name = "SetCheckAutoClose";
+            this.SetCheckAutoClose.Size = new System.Drawing.Size(179, 19);
+            this.SetCheckAutoClose.TabIndex = 1;
+            this.SetCheckAutoClose.Text = "积分刷满后自动关程序";
+            this.SetCheckAutoClose.UseVisualStyleBackColor = true;
+            // 
+            // SetCheckAutoShutdown
+            // 
+            this.SetCheckAutoShutdown.AutoSize = true;
+            this.SetCheckAutoShutdown.Location = new System.Drawing.Point(6, 74);
+            this.SetCheckAutoShutdown.Name = "SetCheckAutoShutdown";
+            this.SetCheckAutoShutdown.Size = new System.Drawing.Size(164, 19);
+            this.SetCheckAutoShutdown.TabIndex = 2;
+            this.SetCheckAutoShutdown.Text = "积分刷满后自动关机";
+            this.SetCheckAutoShutdown.UseVisualStyleBackColor = true;
+            // 
+            // SetBtnApply
+            // 
+            this.SetBtnApply.Location = new System.Drawing.Point(784, 190);
+            this.SetBtnApply.Name = "SetBtnApply";
+            this.SetBtnApply.Size = new System.Drawing.Size(110, 37);
+            this.SetBtnApply.TabIndex = 1;
+            this.SetBtnApply.Text = "应用";
+            this.SetBtnApply.UseVisualStyleBackColor = true;
+            this.SetBtnApply.Click += new System.EventHandler(this.SetBtnApply_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(94, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "By：板。";
             // 
             // MainForm
             // 
@@ -594,7 +672,11 @@
             this.UserTable.PerformLayout();
             this.UserTable2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tabPageSettings.ResumeLayout(false);
             this.tabPageAbout.ResumeLayout(false);
+            this.tabPageAbout.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -636,5 +718,11 @@
         public System.Windows.Forms.Label UserLabelUsername;
         public System.Windows.Forms.Button UserBtnRegister;
         public System.Windows.Forms.Button UserBtnLogin;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox SetCheckAutoShutdown;
+        private System.Windows.Forms.CheckBox SetCheckAutoClose;
+        private System.Windows.Forms.CheckBox SetCheckNoVoice;
+        private System.Windows.Forms.Button SetBtnApply;
+        private System.Windows.Forms.Label label2;
     }
 }
