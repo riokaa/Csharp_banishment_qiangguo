@@ -68,7 +68,7 @@ namespace Banishment {
         private void InitializeMainBrowserEndingEvent(object sender, FrameLoadEndEventArgs e) {
             if (e.Frame.IsMain) {
                 MainWeb.FrameLoadEnd -= InitializeMainBrowserEndingEvent; //only trigger once
-                WebLib.ScrollTo(355, 960);
+                WebLib.ScrollTo(365, 900);
             }
         }
         /// <summary>

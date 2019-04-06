@@ -27,17 +27,7 @@ namespace Banishment {
                 Dock = DockStyle.Fill,
                 UseSystemPasswordChar = true,
             };
-
-            //LoginTable.Controls.Add(new Label() {
-            //    Dock = DockStyle.Fill,
-            //    Text = "用户名：",
-            //    TextAlign = ContentAlignment.MiddleRight,
-            //}, 0, 0);
-            //LoginTable.Controls.Add(new Label() {
-            //    Dock = DockStyle.Fill,
-            //    Text = "密码：",
-            //    TextAlign = ContentAlignment.MiddleRight,
-            //}, 0, 1);
+            
             LoginTable.Controls.Add(LoginTextUser, 1, 0);
             LoginTable.Controls.Add(LoginTextPwd, 1, 1);
         }
@@ -68,6 +58,7 @@ namespace Banishment {
             string response = Bsphp.Login(user, pwd);
             string[] respArray = response.Split('|');
             if (respArray.Count() >= 5) { //登陆成功
+                Log.D("登陆成功且Pro功能未到期。");
                 if (respArray[0] == "01") {
                     BS.status = int.Parse(respArray[1]);
                     BS.user = user;
@@ -85,7 +76,8 @@ namespace Banishment {
                     return;
                 }
             } else if (response == "9908") { //已到期
-                BS.status = int.Parse(respArray[1]);
+                Log.D("登陆成功但Pro功能已到期。");
+                BS.status = 9908;
                 for (int i = 0; i < 10; i++) {
                     Bsphp.Login(user, pwd);
                     if (FlushUserInfo.Start()) {
@@ -101,6 +93,7 @@ namespace Banishment {
                     MainForm.self.MainTab.SelectTab(1);
                 }
             } else { //登陆失败
+                Log.D("登陆失败。");
                 this.LoginRespLabel.Text = response;
                 return;
             }

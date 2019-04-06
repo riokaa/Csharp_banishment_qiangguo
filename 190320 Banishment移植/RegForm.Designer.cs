@@ -229,6 +229,7 @@
             this.RegBtnReg.TabIndex = 0;
             this.RegBtnReg.Text = "注册";
             this.RegBtnReg.UseVisualStyleBackColor = true;
+            this.RegBtnReg.Click += new System.EventHandler(this.RegBtnReg_Click);
             // 
             // RegLabelWarn
             // 
@@ -274,6 +275,7 @@
             this.RegVerifyPic.Size = new System.Drawing.Size(129, 32);
             this.RegVerifyPic.TabIndex = 12;
             this.RegVerifyPic.TabStop = false;
+            this.RegVerifyPic.Click += new System.EventHandler(this.RegVerifyPic_Click);
             // 
             // RegForm
             // 
