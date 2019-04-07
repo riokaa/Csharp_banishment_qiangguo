@@ -18,7 +18,7 @@ namespace Banishment {
         public LinkLabel UserLinkLabelLogout;
 
         /// <summary>
-        /// TODO：静音js、自动更新。
+        /// TODO：静音js。
         /// </summary>
         public MainForm() {
             self = this;
@@ -80,6 +80,7 @@ namespace Banishment {
                 Log.I("当前是 Debug 模式。");
             }
             Log.I(string.Format("Banishment Version {0}.", Const.version));
+            Log.I("");
             Log.I("使用方式：扫码登陆后开始执行。");
             Log.I("本软件『完全可以免费使用』。");
         }
