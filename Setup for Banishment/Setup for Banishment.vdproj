@@ -2389,7 +2389,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Setup for Banishment"
         "ProductCode" = "8:{4BC3976C-D549-489E-BA7D-BED2054200BB}"
-        "PackageCode" = "8:{F8269DD5-3B17-49DD-883D-463FA27A7234}"
+        "PackageCode" = "8:{F5FE54C1-A104-4EDE-80F9-583698499F8E}"
         "UpgradeCode" = "8:{A5DDEC0C-FA28-452C-AB68-420A99AFCA45}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -2520,7 +2520,7 @@
             "Target" = "8:_9CD5B20B19FB4C95B0E3E90AC911AAC1"
             "Folder" = "8:_9F59FC41A5DE429797A08CB502B39790"
             "WorkingFolder" = "8:_65E96D5CE5F04DE58E536BE80959438C"
-            "Icon" = "8:"
+            "Icon" = "8:_D435B0DB44F84FBE866CD6239F38A9F8"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_51BD6161D7E54BE590ED1E5EDB54D0F0"
