@@ -10,6 +10,7 @@ namespace Banishment.BaseLib {
         public static int[] scoreMax = new int[5] { 1, 6, 6, 6, 6 };
         public static bool settingsAutoClose = false;
         public static bool settingsAutoShutdown = false;
+        public static bool settingsNoVoice = false;
         public static string urlAnnounce = @"http://verify.rayiooo.top/index.php?m=applib&c=appweb&open_new=&a=new_list&list=10001";
         public static string urlPay = @"http://verify.rayiooo.top/index.php?m=applib&c=appweb&a=new_info&id=83";
         public static string urlVideoList = @"http://api.rayiooo.top/banishment/getVideoList.php";

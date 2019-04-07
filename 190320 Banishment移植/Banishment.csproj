@@ -252,6 +252,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MainIcon.ico" />
+    <None Include="Resources\clouds\cloud_6.png" />
+    <None Include="Resources\clouds\cloud_5.png" />
+    <None Include="Resources\clouds\cloud_4.png" />
+    <None Include="Resources\clouds\cloud_3.png" />
+    <None Include="Resources\clouds\cloud_2.png" />
+    <None Include="Resources\clouds\cloud_1.png" />
     <None Include="Resources\Rikka.png" />
   </ItemGroup>
   <ItemGroup>

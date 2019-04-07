@@ -70,5 +70,17 @@ namespace Banishment.Properties {
                 this["AutoShutdown"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool NoVoice {
+            get {
+                return ((bool)(this["NoVoice"]));
+            }
+            set {
+                this["NoVoice"] = value;
+            }
+        }
     }
 }

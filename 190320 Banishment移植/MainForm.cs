@@ -137,6 +137,19 @@ namespace Banishment {
                     FlushUserInfo.Start();
                 }
             };
+            //settings init
+            if (Settings.Default.NoVoice) {
+                Const.settingsNoVoice = true;
+                SetCheckNoVoice.Checked = true;
+            }
+            if (Settings.Default.AutoClose) {
+                Const.settingsAutoClose = true;
+                SetCheckAutoClose.Checked = true;
+            }
+            if (Settings.Default.AutoShutdown) {
+                Const.settingsAutoShutdown = true;
+                SetCheckAutoShutdown.Checked = true;
+            }
         }
 
         /// <summary>
@@ -185,11 +198,32 @@ namespace Banishment {
             tabPageAnnounce.Controls.Clear();
             browserAnnounce.Dispose();
         }
-
-        private void UserBtnGetPro_Click(object sender, EventArgs e) {
-            WebForm wf = new WebForm();
-            wf.LoadPage("Pro获取页", Const.urlPay);
-            wf.Show(this);
+        /// <summary>
+        /// 用户页切入事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TabPageUser_Enter(object sender, EventArgs e) {
+            switch(new Random().Next(1, 7)) {
+                case 1:
+                    UserPicProCloud.BackgroundImage = Resources.cloud_1;
+                    break;
+                case 2:
+                    UserPicProCloud.BackgroundImage = Resources.cloud_2;
+                    break;
+                case 3:
+                    UserPicProCloud.BackgroundImage = Resources.cloud_3;
+                    break;
+                case 4:
+                    UserPicProCloud.BackgroundImage = Resources.cloud_4;
+                    break;
+                case 5:
+                    UserPicProCloud.BackgroundImage = Resources.cloud_5;
+                    break;
+                case 6:
+                    UserPicProCloud.BackgroundImage = Resources.cloud_6;
+                    break;
+            }
         }
 
         private void UserBtnActivate_Click(object sender, EventArgs e) {
@@ -200,7 +234,41 @@ namespace Banishment {
             new ChangePwdForm().Show(this);
         }
 
+        private void AboutBtnFeedback_Click(object sender, EventArgs e) {
+            string urlFeedback = @"http://verify.rayiooo.top/index.php?m=applib&c=appweb&a=feedback&daihao=10000000&uid=" + BS.user + "&table=快捷反馈&leix=feedback";
+            WebForm wf = new WebForm();
+            wf.LoadPage("快捷反馈  联系方式请填邮箱~", urlFeedback);
+            wf.Show(this);
+        }
+
+        private void UserBtnGetPro_Click(object sender, EventArgs e) {
+            WebForm wf = new WebForm();
+            wf.LoadPage("Pro获取页", Const.urlPay);
+            wf.Show(this);
+        }
+
+        private void UserLinkLabelProDetail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            string urlProDetail = @"http://verify.rayiooo.top/index.php?m=applib&c=appweb&a=new_info&id=85";
+            WebForm wf = new WebForm();
+            wf.LoadPage("Pro功能介绍", urlProDetail);
+            wf.Show(this);
+        }
+
         private void SetBtnApply_Click(object sender, EventArgs e) {
+            //静音
+            if (SetCheckNoVoice.Checked) {
+                if (!Const.settingsNoVoice) {
+                    Const.settingsNoVoice = true;
+                    Settings.Default.NoVoice = true;
+                    Log.I("设置：静音功能开启。");
+                }
+            } else {
+                if (Const.settingsNoVoice) {
+                    Const.settingsNoVoice = false;
+                    Settings.Default.NoVoice = false;
+                    Log.I("设置：静音功能关闭。");
+                }
+            }
             //自动关程序
             if (SetCheckAutoClose.Checked) {
                 if (!Const.settingsAutoClose) {
@@ -232,18 +300,7 @@ namespace Banishment {
             //保存配置
             Settings.Default.Save();
             //反馈动作
-            SetBtnApply.Enabled = false;
-            SetBtnApply.Text = "成功！";
-            Thread.Sleep(1000);
-            SetBtnApply.Text = "应用";
-            SetBtnApply.Enabled = true;
-        }
-
-        private void AboutBtnFeedback_Click(object sender, EventArgs e) {
-            string urlFeedback = @"http://verify.rayiooo.top/index.php?m=applib&c=appweb&a=feedback&daihao=10000000&uid=" + BS.user + "&table=快捷反馈&leix=feedback";
-            WebForm wf = new WebForm();
-            wf.LoadPage("快捷反馈  联系方式请填邮箱~", urlFeedback);
-            wf.Show(this);
+            MessageBox.Show("设置已更改。", "~");
         }
 
         private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e) {
