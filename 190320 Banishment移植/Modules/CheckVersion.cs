@@ -1,5 +1,6 @@
 ﻿using Banishment.BaseLib;
 using Banishment.NetWork;
+using FSLib.App.SimpleUpdater;
 
 namespace Banishment.Modules {
     class CheckVersion {
@@ -21,8 +22,12 @@ namespace Banishment.Modules {
                 Log.I("当前版本已是最新。");
             } else {
                 //有更新
-                Log.I(string.Format("发现新版本 {0} 。更新公告见公告栏。", remoteVersion));
+                //Log.I(string.Format("发现新版本 {0} 。更新公告见公告栏。", remoteVersion));
+                AutoUpdate();
             }
+        }
+        private static void AutoUpdate() {
+            Updater.CheckUpdateSimple(Const.urlUpdateXml, "update_c.xml");
         }
     }
 }

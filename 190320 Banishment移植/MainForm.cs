@@ -7,7 +7,6 @@ using CefSharp;
 using CefSharp.WinForms;
 using System;
 using System.Drawing;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace Banishment {
@@ -81,7 +80,6 @@ namespace Banishment {
                 Log.I("当前是 Debug 模式。");
             }
             Log.I(string.Format("Banishment Version {0}.", Const.version));
-            Log.W("此版本为测试版，不检测更新，新版本请关注v2.0.2版本公告栏。");
             Log.I("使用方式：扫码登陆后开始执行。");
             Log.I("本软件『完全可以免费使用』。");
         }
