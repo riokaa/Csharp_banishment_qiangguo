@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MainTab = new System.Windows.Forms.TabControl();
             this.tabPageMain = new System.Windows.Forms.TabPage();
@@ -58,14 +59,18 @@
             this.UserGroupBoxPro = new System.Windows.Forms.GroupBox();
             this.tabPageAnnounce = new System.Windows.Forms.TabPage();
             this.tabPageSettings = new System.Windows.Forms.TabPage();
-            this.tabPageAbout = new System.Windows.Forms.TabPage();
-            this.AboutBtnFeedback = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.SetCheckNoVoice = new System.Windows.Forms.CheckBox();
-            this.SetCheckAutoClose = new System.Windows.Forms.CheckBox();
-            this.SetCheckAutoShutdown = new System.Windows.Forms.CheckBox();
             this.SetBtnApply = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.SetCheckAutoShutdown = new System.Windows.Forms.CheckBox();
+            this.SetCheckAutoClose = new System.Windows.Forms.CheckBox();
+            this.SetCheckNoVoice = new System.Windows.Forms.CheckBox();
+            this.tabPageAbout = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
+            this.AboutBtnFeedback = new System.Windows.Forms.Button();
+            this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.NotifyMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.NotifyShow = new System.Windows.Forms.ToolStripMenuItem();
+            this.NotifyExit = new System.Windows.Forms.ToolStripMenuItem();
             this.MainTab.SuspendLayout();
             this.tabPageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitter)).BeginInit();
@@ -96,8 +101,9 @@
             this.UserTable2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabPageSettings.SuspendLayout();
-            this.tabPageAbout.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPageAbout.SuspendLayout();
+            this.NotifyMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainTab
@@ -547,27 +553,15 @@
             this.tabPageSettings.Text = "设置";
             this.tabPageSettings.UseVisualStyleBackColor = true;
             // 
-            // tabPageAbout
+            // SetBtnApply
             // 
-            this.tabPageAbout.Controls.Add(this.label2);
-            this.tabPageAbout.Controls.Add(this.AboutBtnFeedback);
-            this.tabPageAbout.Location = new System.Drawing.Point(4, 25);
-            this.tabPageAbout.Name = "tabPageAbout";
-            this.tabPageAbout.Size = new System.Drawing.Size(902, 616);
-            this.tabPageAbout.TabIndex = 4;
-            this.tabPageAbout.Text = "关于";
-            this.tabPageAbout.UseVisualStyleBackColor = true;
-            // 
-            // AboutBtnFeedback
-            // 
-            this.AboutBtnFeedback.Enabled = false;
-            this.AboutBtnFeedback.Location = new System.Drawing.Point(703, 99);
-            this.AboutBtnFeedback.Name = "AboutBtnFeedback";
-            this.AboutBtnFeedback.Size = new System.Drawing.Size(147, 36);
-            this.AboutBtnFeedback.TabIndex = 0;
-            this.AboutBtnFeedback.Text = "快捷反馈（Pro）";
-            this.AboutBtnFeedback.UseVisualStyleBackColor = true;
-            this.AboutBtnFeedback.Click += new System.EventHandler(this.AboutBtnFeedback_Click);
+            this.SetBtnApply.Location = new System.Drawing.Point(784, 190);
+            this.SetBtnApply.Name = "SetBtnApply";
+            this.SetBtnApply.Size = new System.Drawing.Size(110, 37);
+            this.SetBtnApply.TabIndex = 1;
+            this.SetBtnApply.Text = "应用";
+            this.SetBtnApply.UseVisualStyleBackColor = true;
+            this.SetBtnApply.Click += new System.EventHandler(this.SetBtnApply_Click);
             // 
             // groupBox1
             // 
@@ -581,16 +575,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "首选项";
             // 
-            // SetCheckNoVoice
+            // SetCheckAutoShutdown
             // 
-            this.SetCheckNoVoice.AutoSize = true;
-            this.SetCheckNoVoice.Enabled = false;
-            this.SetCheckNoVoice.Location = new System.Drawing.Point(6, 24);
-            this.SetCheckNoVoice.Name = "SetCheckNoVoice";
-            this.SetCheckNoVoice.Size = new System.Drawing.Size(164, 19);
-            this.SetCheckNoVoice.TabIndex = 0;
-            this.SetCheckNoVoice.Text = "静音（还未开发呢）";
-            this.SetCheckNoVoice.UseVisualStyleBackColor = true;
+            this.SetCheckAutoShutdown.AutoSize = true;
+            this.SetCheckAutoShutdown.Location = new System.Drawing.Point(6, 74);
+            this.SetCheckAutoShutdown.Name = "SetCheckAutoShutdown";
+            this.SetCheckAutoShutdown.Size = new System.Drawing.Size(164, 19);
+            this.SetCheckAutoShutdown.TabIndex = 2;
+            this.SetCheckAutoShutdown.Text = "积分刷满后自动关机";
+            this.SetCheckAutoShutdown.UseVisualStyleBackColor = true;
             // 
             // SetCheckAutoClose
             // 
@@ -602,25 +595,27 @@
             this.SetCheckAutoClose.Text = "积分刷满后自动关程序";
             this.SetCheckAutoClose.UseVisualStyleBackColor = true;
             // 
-            // SetCheckAutoShutdown
+            // SetCheckNoVoice
             // 
-            this.SetCheckAutoShutdown.AutoSize = true;
-            this.SetCheckAutoShutdown.Location = new System.Drawing.Point(6, 74);
-            this.SetCheckAutoShutdown.Name = "SetCheckAutoShutdown";
-            this.SetCheckAutoShutdown.Size = new System.Drawing.Size(164, 19);
-            this.SetCheckAutoShutdown.TabIndex = 2;
-            this.SetCheckAutoShutdown.Text = "积分刷满后自动关机";
-            this.SetCheckAutoShutdown.UseVisualStyleBackColor = true;
+            this.SetCheckNoVoice.AutoSize = true;
+            this.SetCheckNoVoice.Enabled = false;
+            this.SetCheckNoVoice.Location = new System.Drawing.Point(6, 24);
+            this.SetCheckNoVoice.Name = "SetCheckNoVoice";
+            this.SetCheckNoVoice.Size = new System.Drawing.Size(164, 19);
+            this.SetCheckNoVoice.TabIndex = 0;
+            this.SetCheckNoVoice.Text = "静音（还未开发呢）";
+            this.SetCheckNoVoice.UseVisualStyleBackColor = true;
             // 
-            // SetBtnApply
+            // tabPageAbout
             // 
-            this.SetBtnApply.Location = new System.Drawing.Point(784, 190);
-            this.SetBtnApply.Name = "SetBtnApply";
-            this.SetBtnApply.Size = new System.Drawing.Size(110, 37);
-            this.SetBtnApply.TabIndex = 1;
-            this.SetBtnApply.Text = "应用";
-            this.SetBtnApply.UseVisualStyleBackColor = true;
-            this.SetBtnApply.Click += new System.EventHandler(this.SetBtnApply_Click);
+            this.tabPageAbout.Controls.Add(this.label2);
+            this.tabPageAbout.Controls.Add(this.AboutBtnFeedback);
+            this.tabPageAbout.Location = new System.Drawing.Point(4, 25);
+            this.tabPageAbout.Name = "tabPageAbout";
+            this.tabPageAbout.Size = new System.Drawing.Size(902, 616);
+            this.tabPageAbout.TabIndex = 4;
+            this.tabPageAbout.Text = "关于";
+            this.tabPageAbout.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -631,6 +626,48 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "By：板。";
             // 
+            // AboutBtnFeedback
+            // 
+            this.AboutBtnFeedback.Enabled = false;
+            this.AboutBtnFeedback.Location = new System.Drawing.Point(703, 99);
+            this.AboutBtnFeedback.Name = "AboutBtnFeedback";
+            this.AboutBtnFeedback.Size = new System.Drawing.Size(147, 36);
+            this.AboutBtnFeedback.TabIndex = 0;
+            this.AboutBtnFeedback.Text = "快捷反馈（Pro）";
+            this.AboutBtnFeedback.UseVisualStyleBackColor = true;
+            this.AboutBtnFeedback.Click += new System.EventHandler(this.AboutBtnFeedback_Click);
+            // 
+            // NotifyIcon
+            // 
+            this.NotifyIcon.ContextMenuStrip = this.NotifyMenu;
+            this.NotifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("NotifyIcon.Icon")));
+            this.NotifyIcon.Text = "Ba";
+            this.NotifyIcon.Visible = true;
+            this.NotifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon_MouseDoubleClick);
+            // 
+            // NotifyMenu
+            // 
+            this.NotifyMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.NotifyMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NotifyShow,
+            this.NotifyExit});
+            this.NotifyMenu.Name = "NotifyMenu";
+            this.NotifyMenu.Size = new System.Drawing.Size(109, 52);
+            // 
+            // NotifyShow
+            // 
+            this.NotifyShow.Name = "NotifyShow";
+            this.NotifyShow.Size = new System.Drawing.Size(210, 24);
+            this.NotifyShow.Text = "显示";
+            this.NotifyShow.Click += new System.EventHandler(this.NotifyShow_Click);
+            // 
+            // NotifyExit
+            // 
+            this.NotifyExit.Name = "NotifyExit";
+            this.NotifyExit.Size = new System.Drawing.Size(210, 24);
+            this.NotifyExit.Text = "退出";
+            this.NotifyExit.Click += new System.EventHandler(this.NotifyExit_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -640,6 +677,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Banishment C#";
+            this.Deactivate += new System.EventHandler(this.MainForm_Deactivate);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.MainTab.ResumeLayout(false);
             this.tabPageMain.ResumeLayout(false);
@@ -673,10 +711,11 @@
             this.UserTable2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tabPageSettings.ResumeLayout(false);
-            this.tabPageAbout.ResumeLayout(false);
-            this.tabPageAbout.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPageAbout.ResumeLayout(false);
+            this.tabPageAbout.PerformLayout();
+            this.NotifyMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -724,5 +763,9 @@
         private System.Windows.Forms.CheckBox SetCheckNoVoice;
         private System.Windows.Forms.Button SetBtnApply;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NotifyIcon NotifyIcon;
+        private System.Windows.Forms.ContextMenuStrip NotifyMenu;
+        private System.Windows.Forms.ToolStripMenuItem NotifyShow;
+        private System.Windows.Forms.ToolStripMenuItem NotifyExit;
     }
 }

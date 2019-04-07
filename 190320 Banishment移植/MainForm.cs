@@ -18,6 +18,9 @@ namespace Banishment {
         public ThreadsController threadController;
         public LinkLabel UserLinkLabelLogout;
 
+        /// <summary>
+        /// TODO：静音js、自动更新。
+        /// </summary>
         public MainForm() {
             self = this;
             InitializeComponent();
@@ -241,6 +244,34 @@ namespace Banishment {
             WebForm wf = new WebForm();
             wf.LoadPage("快捷反馈  联系方式请填邮箱~", urlFeedback);
             wf.Show(this);
+        }
+
+        private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e) {
+            if (WindowState == FormWindowState.Minimized) {
+                //还原窗体显示    
+                WindowState = FormWindowState.Normal;
+                //激活窗体并给予它焦点
+                this.Activate();
+                //任务栏区显示图标
+                this.ShowInTaskbar = true;
+                //托盘区图标隐藏
+                NotifyIcon.Visible = false;
+            }
+        }
+
+        private void MainForm_Deactivate(object sender, EventArgs e) {
+            if (this.WindowState == FormWindowState.Minimized) {
+                this.ShowInTaskbar = false;
+                NotifyIcon.Visible = true;
+            }
+        }
+
+        private void NotifyShow_Click(object sender, EventArgs e) {
+            NotifyIcon_MouseDoubleClick(null, null);
+        }
+
+        private void NotifyExit_Click(object sender, EventArgs e) {
+            MainForm_FormClosed(null, null);
         }
     }
 }
