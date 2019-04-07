@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banishment", "190320 Banishment移植\Banishment.csproj", "{0AFFF854-981C-4E3F-82D0-8FDE5F57C088}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "安装向导", "安装向导\安装向导.vdproj", "{28B75311-085F-4316-A65A-6FB2240CE703}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup for Banishment", "Setup for Banishment\Setup for Banishment.vdproj", "{166D8230-BFD4-4D74-83DA-897BB6EC2DE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{0AFFF854-981C-4E3F-82D0-8FDE5F57C088}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0AFFF854-981C-4E3F-82D0-8FDE5F57C088}.Release|x86.ActiveCfg = Release|x86
 		{0AFFF854-981C-4E3F-82D0-8FDE5F57C088}.Release|x86.Build.0 = Release|x86
-		{28B75311-085F-4316-A65A-6FB2240CE703}.Debug|Any CPU.ActiveCfg = Debug
-		{28B75311-085F-4316-A65A-6FB2240CE703}.Debug|x86.ActiveCfg = Debug
-		{28B75311-085F-4316-A65A-6FB2240CE703}.Release|Any CPU.ActiveCfg = Release
-		{28B75311-085F-4316-A65A-6FB2240CE703}.Release|x86.ActiveCfg = Release
+		{166D8230-BFD4-4D74-83DA-897BB6EC2DE6}.Debug|Any CPU.ActiveCfg = Debug
+		{166D8230-BFD4-4D74-83DA-897BB6EC2DE6}.Debug|x86.ActiveCfg = Debug
+		{166D8230-BFD4-4D74-83DA-897BB6EC2DE6}.Release|Any CPU.ActiveCfg = Release
+		{166D8230-BFD4-4D74-83DA-897BB6EC2DE6}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

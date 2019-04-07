@@ -1,5 +1,4 @@
 ﻿using Banishment.BaseLib;
-using CefSharp;
 using HtmlAgilityPack;
 using System;
 using System.Text.RegularExpressions;
@@ -32,8 +31,10 @@ namespace Banishment.Modules {
                     HtmlNode node = scoreNodes[i];
                     MainForm.self.MainGrid.Rows[i].Cells[1].Value = node.InnerText;
                     Match match = Regex.Match(node.InnerText, @"([0-9]+)分/([0-9]+)分");
-                    if (match.Groups.Count > 0) {
+                    if (match.Groups.Count > 2) {
                         Const.score[i] = int.Parse(match.Groups[1].Value);
+                        Const.scoreMax[i] = int.Parse(match.Groups[2].Value);
+                        //Log.D(string.Format("获取到积分上限{0}：{1}分。", i, Const.scoreMax[i]));
                     }
                     sum += Const.score[i];
                 }

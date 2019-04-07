@@ -4,6 +4,7 @@ using System.Threading;
 
 namespace Banishment.BaseLib {
     public class ThreadsController {
+        private Thread threadCheckUpdate;
         private Thread threadMain;
         private Thread threadProMouseMove;
         private Thread threadProScroll;
@@ -12,6 +13,16 @@ namespace Banishment.BaseLib {
             threadMain = new Thread(Logic.Start);
             threadProMouseMove = new Thread(WebAction.ProMouseMove);
             threadProScroll = new Thread(WebAction.ProScroll);
+            threadCheckUpdate = new Thread(CheckVersion.Start);
+            //threadCheckUpdate.Start();
+        }
+        public void ThreadCheckUpdateStart() {
+            if (threadCheckUpdate.ThreadState == ThreadState.Unstarted) {
+                threadCheckUpdate.Start();
+            } else if (threadCheckUpdate.ThreadState == ThreadState.Aborted) {
+                threadCheckUpdate = new Thread(CheckVersion.Start);
+                threadCheckUpdate.Start();
+            }
         }
         public void ThreadMainStart() {
             if(threadMain.ThreadState == ThreadState.Unstarted) {

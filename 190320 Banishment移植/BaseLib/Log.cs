@@ -39,16 +39,23 @@ namespace Banishment.BaseLib {
             MessageBox.Show(temp, "Fatal!");
         }
         public static void ControllerFlush() {
+            //清理控制台
+            string str = output.ToString();
+            if(str.Length >= 100000) {
+                output = new StringBuilder();
+                output.AppendLine(string.Format("{0} [info] : {1}", Base.GetCurrentTime(), "控制台自动清理完毕。"));
+            }
+            //刷新控制台
             var controller = MainForm.self.MainController;
             if (controller.InvokeRequired) {
                 controller.Invoke(new Action(() => {
-                    controller.Text = output.ToString();
+                    controller.Text = str;
                     controller.Focus();//获取焦点
                     controller.Select(controller.TextLength, 0);//光标定位到文本最后
                     controller.ScrollToCaret();//滚动到光标处
                 }));
             } else {
-                controller.Text = output.ToString();
+                controller.Text = str;
                 controller.Focus();//获取焦点
                 controller.Select(controller.TextLength, 0);//光标定位到文本最后
                 controller.ScrollToCaret();//滚动到光标处
