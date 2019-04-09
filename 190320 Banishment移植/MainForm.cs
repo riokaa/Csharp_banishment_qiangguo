@@ -7,6 +7,7 @@ using CefSharp;
 using CefSharp.WinForms;
 using System;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Banishment {
@@ -23,10 +24,10 @@ namespace Banishment {
         public MainForm() {
             self = this;
             InitializeComponent();
+            InitializeThreads();
             InitializeMainController();
             InitializeMainGrid();
             InitializeMainBrowser();
-            InitializeThreads();
             InitializeUI();
             InitializeAutoLogin();
         }
@@ -54,19 +55,25 @@ namespace Banishment {
                 MultiThreadedMessageLoop = true,
             };
             settings.CefCommandLineArgs.Add("disable-gpu", "1");
+            //settings.CefCommandLineArgs.Add("enable-media-stream", "1");
             Cef.Initialize(settings);
             MainWeb = new ChromiumWebBrowser("https://pc.xuexi.cn/points/login.html?ref=https://www.xuexi.cn/") {
                 Dock = DockStyle.Fill,
                 LifeSpanHandler = new OpenPageSelf(),
             };
+            threadController.ThreadNoVoiceStart(); //开启静音线程
             MainWeb.FrameLoadEnd += InitializeMainBrowserEndingEvent;
             MainSplitter1.Panel1.Controls.Add(MainWeb);
             Log.I("ChromiumWebBrowser loaded.");
+        }
+        private void InitializeMainBrowserLoadingEvent() {
+
         }
         private void InitializeMainBrowserEndingEvent(object sender, FrameLoadEndEventArgs e) {
             if (e.Frame.IsMain) {
                 MainWeb.FrameLoadEnd -= InitializeMainBrowserEndingEvent; //only trigger once
                 WebLib.ScrollTo(365, 900);
+                threadController.ThreadNoVoiceAbort(); //结束静音线程
             }
         }
         /// <summary>

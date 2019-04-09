@@ -38,14 +38,18 @@ namespace Banishment.Modules {
                     }
                     sum += Const.score[i];
                 }
+                int sumMax = 0;
+                foreach(int i in Const.scoreMax) {
+                    sumMax += i;
+                }
                 //: flush progress bar
                 var progressBar = MainForm.self.MainProgressBar;
                 if (progressBar.InvokeRequired) {
                     progressBar.Invoke(new Action(() => {
-                        progressBar.Value = 100 * sum / 31;
+                        progressBar.Value = 100 * sum / sumMax;
                     }));
                 } else {
-                    progressBar.Value = 100 * sum / 31;
+                    progressBar.Value = 100 * sum / sumMax;
                 }
             }
 

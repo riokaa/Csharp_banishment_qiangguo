@@ -620,9 +620,9 @@
             this.SetCheckNoVoice.Enabled = false;
             this.SetCheckNoVoice.Location = new System.Drawing.Point(6, 24);
             this.SetCheckNoVoice.Name = "SetCheckNoVoice";
-            this.SetCheckNoVoice.Size = new System.Drawing.Size(164, 19);
+            this.SetCheckNoVoice.Size = new System.Drawing.Size(59, 19);
             this.SetCheckNoVoice.TabIndex = 4;
-            this.SetCheckNoVoice.Text = "静音（还未开发呢）";
+            this.SetCheckNoVoice.Text = "静音";
             this.SetCheckNoVoice.UseVisualStyleBackColor = true;
             // 
             // SetBtnApply
@@ -652,6 +652,7 @@
             // SetCheckAutoShutdown
             // 
             this.SetCheckAutoShutdown.AutoSize = true;
+            this.SetCheckAutoShutdown.ForeColor = System.Drawing.SystemColors.ControlText;
             this.SetCheckAutoShutdown.Location = new System.Drawing.Point(6, 49);
             this.SetCheckAutoShutdown.Name = "SetCheckAutoShutdown";
             this.SetCheckAutoShutdown.Size = new System.Drawing.Size(164, 19);

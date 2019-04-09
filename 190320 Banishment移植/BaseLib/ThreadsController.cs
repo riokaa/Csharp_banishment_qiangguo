@@ -1,11 +1,15 @@
 ﻿using Banishment.Modules;
+using Banishment.NetWork;
 using Banishment.WebOptions;
+using CefSharp;
+using System;
 using System.Threading;
 
 namespace Banishment.BaseLib {
     public class ThreadsController {
         private Thread threadCheckUpdate;
         private Thread threadMain;
+        private Thread threadNoVoice;
         private Thread threadProMouseMove;
         private Thread threadProScroll;
 
@@ -14,7 +18,7 @@ namespace Banishment.BaseLib {
             threadProMouseMove = new Thread(WebAction.ProMouseMove);
             threadProScroll = new Thread(WebAction.ProScroll);
             threadCheckUpdate = new Thread(CheckVersion.Start);
-            //threadCheckUpdate.Start();
+            threadNoVoice = new Thread(NoVoice);
         }
         public void ThreadCheckUpdateStart() {
             if (threadCheckUpdate.ThreadState == ThreadState.Unstarted) {
@@ -35,6 +39,19 @@ namespace Banishment.BaseLib {
         public void ThreadMainAbort() {
             if(threadMain.ThreadState != ThreadState.Unstarted && threadMain.ThreadState != ThreadState.Aborted) {
                 threadMain.Abort();
+            }
+        }
+        public void ThreadNoVoiceStart() {
+            if (threadNoVoice.ThreadState == ThreadState.Unstarted) {
+                threadNoVoice.Start();
+            } else if (threadNoVoice.ThreadState == ThreadState.Aborted) {
+                threadNoVoice = new Thread(NoVoice);
+                threadNoVoice.Start();
+            }
+        }
+        public void ThreadNoVoiceAbort() {
+            if (threadNoVoice.ThreadState != ThreadState.Unstarted && threadNoVoice.ThreadState != ThreadState.Aborted) {
+                threadNoVoice.Abort();
             }
         }
         public void ThreadProMouseMoveResume() {
@@ -73,6 +90,25 @@ namespace Banishment.BaseLib {
 #pragma warning disable CS0618 // 类型或成员已过时
                 threadProScroll.Suspend();
 #pragma warning restore CS0618 // 类型或成员已过时
+            }
+        }
+
+        /// <summary>
+        /// 静音线程方法
+        /// </summary>
+        private void NoVoice() {
+            var browser = MainForm.self.MainWeb;
+            while (true) {
+                if(BS.vip && Const.settingsNoVoice) {
+                    if (browser.InvokeRequired) {
+                        browser.Invoke(new Action(() => {
+                            browser.EvaluateScriptAsync("document.getElementsByTagName(\'audio\')[0].volume = 0;");
+                        }));
+                    } else {
+                        browser.EvaluateScriptAsync("document.getElementsByTagName(\'audio\')[0].volume = 0;");
+                    }
+                }
+                Thread.Sleep(500);
             }
         }
     }
