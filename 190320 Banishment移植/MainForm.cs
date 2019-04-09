@@ -137,10 +137,6 @@ namespace Banishment {
                 }
             };
             //settings init
-            if (Settings.Default.NoVoice) {
-                Const.settingsNoVoice = true;
-                SetCheckNoVoice.Checked = true;
-            }
             if (Settings.Default.AutoClose) {
                 Const.settingsAutoClose = true;
                 SetCheckAutoClose.Checked = true;
@@ -148,6 +144,14 @@ namespace Banishment {
             if (Settings.Default.AutoShutdown) {
                 Const.settingsAutoShutdown = true;
                 SetCheckAutoShutdown.Checked = true;
+            }
+            if (Settings.Default.NoVoice) {
+                Const.settingsNoVoice = true;
+                SetCheckNoVoice.Checked = true;
+            }
+            if (Settings.Default.Icon360) {
+                Const.settingsIcon360 = true;
+                SetCheckIcon360.Checked = true;
             }
         }
 
@@ -252,22 +256,12 @@ namespace Banishment {
             wf.LoadPage("Pro功能介绍", urlProDetail);
             wf.Show(this);
         }
-
+        /// <summary>
+        /// 应用设置事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SetBtnApply_Click(object sender, EventArgs e) {
-            //静音
-            if (SetCheckNoVoice.Checked) {
-                if (!Const.settingsNoVoice) {
-                    Const.settingsNoVoice = true;
-                    Settings.Default.NoVoice = true;
-                    Log.I("设置：静音功能开启。");
-                }
-            } else {
-                if (Const.settingsNoVoice) {
-                    Const.settingsNoVoice = false;
-                    Settings.Default.NoVoice = false;
-                    Log.I("设置：静音功能关闭。");
-                }
-            }
             //自动关程序
             if (SetCheckAutoClose.Checked) {
                 if (!Const.settingsAutoClose) {
@@ -296,6 +290,40 @@ namespace Banishment {
                     Log.I("设置：积分刷满后自动关机关闭。");
                 }
             }
+            //静音
+            if (SetCheckNoVoice.Checked) {
+                if (!Const.settingsNoVoice) {
+                    Const.settingsNoVoice = true;
+                    Settings.Default.NoVoice = true;
+                    Log.I("设置：静音功能开启。");
+                }
+            } else {
+                if (Const.settingsNoVoice) {
+                    Const.settingsNoVoice = false;
+                    Settings.Default.NoVoice = false;
+                    Log.I("设置：静音功能关闭。");
+                }
+            }
+            //360Icon
+            if (SetCheckIcon360.Checked) {
+                if (!Const.settingsIcon360) {
+                    Const.settingsIcon360 = true;
+                    Settings.Default.Icon360 = true;
+                    if (BS.vip) {
+                        Log.I("设置：360伪装图标功能开启。");
+                        this.Icon = Resources.MainIcon360;
+                        this.NotifyIcon.Icon = Resources.MainIcon360;
+                    }
+                }
+            } else {
+                if (Const.settingsIcon360) {
+                    Const.settingsIcon360 = false;
+                    Settings.Default.Icon360 = false;
+                    Log.I("设置：360伪装图标功能关闭。");
+                    this.Icon = Resources.MainIcon;
+                    this.NotifyIcon.Icon = Resources.MainIcon;
+                }
+            }
             //保存配置
             Settings.Default.Save();
             //反馈动作
@@ -304,21 +332,16 @@ namespace Banishment {
 
         private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e) {
             if (WindowState == FormWindowState.Minimized) {
-                //还原窗体显示    
+                this.Show();
                 WindowState = FormWindowState.Normal;
-                //激活窗体并给予它焦点
                 this.Activate();
-                //任务栏区显示图标
-                this.ShowInTaskbar = true;
-                //托盘区图标隐藏
-                NotifyIcon.Visible = false;
             }
         }
 
         private void MainForm_Deactivate(object sender, EventArgs e) {
             if (this.WindowState == FormWindowState.Minimized) {
-                this.ShowInTaskbar = false;
                 NotifyIcon.Visible = true;
+                this.Hide();
             }
         }
 

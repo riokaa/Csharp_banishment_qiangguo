@@ -82,5 +82,17 @@ namespace Banishment.Properties {
                 this["NoVoice"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Icon360 {
+            get {
+                return ((bool)(this["Icon360"]));
+            }
+            set {
+                this["Icon360"] = value;
+            }
+        }
     }
 }

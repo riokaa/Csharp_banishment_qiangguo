@@ -121,12 +121,12 @@ namespace Banishment.Properties {
         }
         
         /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap MainIcon {
+        internal static System.Drawing.Icon MainIcon {
             get {
                 object obj = ResourceManager.GetObject("MainIcon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -137,6 +137,16 @@ namespace Banishment.Properties {
             get {
                 object obj = ResourceManager.GetObject("MainIcon360", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap MainIconImage {
+            get {
+                object obj = ResourceManager.GetObject("MainIconImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

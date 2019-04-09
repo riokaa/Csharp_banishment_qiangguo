@@ -61,11 +61,13 @@
             this.UserPicProCloud = new System.Windows.Forms.PictureBox();
             this.tabPageAnnounce = new System.Windows.Forms.TabPage();
             this.tabPageSettings = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.SetCheckIcon360 = new System.Windows.Forms.CheckBox();
+            this.SetCheckNoVoice = new System.Windows.Forms.CheckBox();
             this.SetBtnApply = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SetCheckAutoShutdown = new System.Windows.Forms.CheckBox();
             this.SetCheckAutoClose = new System.Windows.Forms.CheckBox();
-            this.SetCheckNoVoice = new System.Windows.Forms.CheckBox();
             this.tabPageAbout = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.AboutBtnFeedback = new System.Windows.Forms.Button();
@@ -105,6 +107,7 @@
             this.UserGroupBoxPro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserPicProCloud)).BeginInit();
             this.tabPageSettings.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPageAbout.SuspendLayout();
             this.NotifyMenu.SuspendLayout();
@@ -324,7 +327,7 @@
             // 
             // UserImgHead
             // 
-            this.UserImgHead.BackgroundImage = global::Banishment.Properties.Resources.MainIcon;
+            this.UserImgHead.BackgroundImage = global::Banishment.Properties.Resources.MainIconImage;
             this.UserImgHead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.UserImgHead.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UserImgHead.Location = new System.Drawing.Point(0, 0);
@@ -577,6 +580,7 @@
             // 
             // tabPageSettings
             // 
+            this.tabPageSettings.Controls.Add(this.groupBox2);
             this.tabPageSettings.Controls.Add(this.SetBtnApply);
             this.tabPageSettings.Controls.Add(this.groupBox1);
             this.tabPageSettings.Location = new System.Drawing.Point(4, 25);
@@ -586,10 +590,45 @@
             this.tabPageSettings.Text = "设置";
             this.tabPageSettings.UseVisualStyleBackColor = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.SetCheckIcon360);
+            this.groupBox2.Controls.Add(this.SetCheckNoVoice);
+            this.groupBox2.Location = new System.Drawing.Point(9, 190);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(885, 180);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Pro选项";
+            // 
+            // SetCheckIcon360
+            // 
+            this.SetCheckIcon360.AutoSize = true;
+            this.SetCheckIcon360.Enabled = false;
+            this.SetCheckIcon360.Location = new System.Drawing.Point(6, 49);
+            this.SetCheckIcon360.Name = "SetCheckIcon360";
+            this.SetCheckIcon360.Size = new System.Drawing.Size(128, 19);
+            this.SetCheckIcon360.TabIndex = 5;
+            this.SetCheckIcon360.Text = "图标伪装成360";
+            this.SetCheckIcon360.UseVisualStyleBackColor = true;
+            // 
+            // SetCheckNoVoice
+            // 
+            this.SetCheckNoVoice.AutoSize = true;
+            this.SetCheckNoVoice.Enabled = false;
+            this.SetCheckNoVoice.Location = new System.Drawing.Point(6, 24);
+            this.SetCheckNoVoice.Name = "SetCheckNoVoice";
+            this.SetCheckNoVoice.Size = new System.Drawing.Size(164, 19);
+            this.SetCheckNoVoice.TabIndex = 4;
+            this.SetCheckNoVoice.Text = "静音（还未开发呢）";
+            this.SetCheckNoVoice.UseVisualStyleBackColor = true;
+            // 
             // SetBtnApply
             // 
             this.SetBtnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SetBtnApply.Location = new System.Drawing.Point(784, 190);
+            this.SetBtnApply.Location = new System.Drawing.Point(784, 376);
             this.SetBtnApply.Name = "SetBtnApply";
             this.SetBtnApply.Size = new System.Drawing.Size(110, 37);
             this.SetBtnApply.TabIndex = 1;
@@ -603,7 +642,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.SetCheckAutoShutdown);
             this.groupBox1.Controls.Add(this.SetCheckAutoClose);
-            this.groupBox1.Controls.Add(this.SetCheckNoVoice);
             this.groupBox1.Location = new System.Drawing.Point(9, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(885, 180);
@@ -614,7 +652,7 @@
             // SetCheckAutoShutdown
             // 
             this.SetCheckAutoShutdown.AutoSize = true;
-            this.SetCheckAutoShutdown.Location = new System.Drawing.Point(6, 74);
+            this.SetCheckAutoShutdown.Location = new System.Drawing.Point(6, 49);
             this.SetCheckAutoShutdown.Name = "SetCheckAutoShutdown";
             this.SetCheckAutoShutdown.Size = new System.Drawing.Size(164, 19);
             this.SetCheckAutoShutdown.TabIndex = 2;
@@ -624,23 +662,12 @@
             // SetCheckAutoClose
             // 
             this.SetCheckAutoClose.AutoSize = true;
-            this.SetCheckAutoClose.Location = new System.Drawing.Point(6, 49);
+            this.SetCheckAutoClose.Location = new System.Drawing.Point(6, 24);
             this.SetCheckAutoClose.Name = "SetCheckAutoClose";
             this.SetCheckAutoClose.Size = new System.Drawing.Size(179, 19);
             this.SetCheckAutoClose.TabIndex = 1;
             this.SetCheckAutoClose.Text = "积分刷满后自动关程序";
             this.SetCheckAutoClose.UseVisualStyleBackColor = true;
-            // 
-            // SetCheckNoVoice
-            // 
-            this.SetCheckNoVoice.AutoSize = true;
-            this.SetCheckNoVoice.Enabled = false;
-            this.SetCheckNoVoice.Location = new System.Drawing.Point(6, 24);
-            this.SetCheckNoVoice.Name = "SetCheckNoVoice";
-            this.SetCheckNoVoice.Size = new System.Drawing.Size(164, 19);
-            this.SetCheckNoVoice.TabIndex = 0;
-            this.SetCheckNoVoice.Text = "静音（还未开发呢）";
-            this.SetCheckNoVoice.UseVisualStyleBackColor = true;
             // 
             // tabPageAbout
             // 
@@ -750,6 +777,8 @@
             this.UserGroupBoxPro.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserPicProCloud)).EndInit();
             this.tabPageSettings.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPageAbout.ResumeLayout(false);
@@ -799,14 +828,16 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox SetCheckAutoShutdown;
         private System.Windows.Forms.CheckBox SetCheckAutoClose;
-        private System.Windows.Forms.CheckBox SetCheckNoVoice;
         private System.Windows.Forms.Button SetBtnApply;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NotifyIcon NotifyIcon;
         private System.Windows.Forms.ContextMenuStrip NotifyMenu;
         private System.Windows.Forms.ToolStripMenuItem NotifyShow;
         private System.Windows.Forms.ToolStripMenuItem NotifyExit;
         private System.Windows.Forms.LinkLabel UserLinkLabelProDetail;
         private System.Windows.Forms.PictureBox UserPicProCloud;
+        private System.Windows.Forms.GroupBox groupBox2;
+        public System.Windows.Forms.CheckBox SetCheckIcon360;
+        public System.Windows.Forms.CheckBox SetCheckNoVoice;
+        public System.Windows.Forms.NotifyIcon NotifyIcon;
     }
 }

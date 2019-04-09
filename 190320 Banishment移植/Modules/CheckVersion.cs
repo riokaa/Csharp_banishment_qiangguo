@@ -1,6 +1,7 @@
 ﻿using Banishment.BaseLib;
 using Banishment.NetWork;
 using FSLib.App.SimpleUpdater;
+using FSLib.App.SimpleUpdater.Defination;
 using System.Windows.Forms;
 
 namespace Banishment.Modules {
@@ -28,7 +29,13 @@ namespace Banishment.Modules {
             AutoUpdate();
         }
         private static void AutoUpdate() {
-            var updater = Updater.CreateUpdaterInstance(Const.urlUpdateXml, "update_c.xml");
+            var updater = Updater.CreateUpdaterInstance(
+                new UpdateServerInfo[]{
+                    new UpdateServerInfo("http://api.update.rayiooo.top/Banishment/update/{0}", "update_c.xml"),
+                    new UpdateServerInfo("http://api.rayiooo.top/banishment/update/{0}", "update_c.xml")
+	        });
+
+            //var updater = Updater.CreateUpdaterInstance(Const.urlUpdateXml, "update_c.xml");
             updater.Error += (s, e) => {
                 Log.E("更新发生了错误：" + updater.Context.Exception.Message);
             };
