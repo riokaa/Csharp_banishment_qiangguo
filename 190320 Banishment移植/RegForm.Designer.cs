@@ -187,6 +187,7 @@
             this.RegBtnReg.TabIndex = 0;
             this.RegBtnReg.Text = "注册";
             this.RegBtnReg.UseVisualStyleBackColor = true;
+            this.RegBtnReg.Click += new System.EventHandler(this.RegBtnReg_Click);
             // 
             // RegLabelWarn
             // 
