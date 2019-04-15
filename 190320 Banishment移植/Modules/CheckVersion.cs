@@ -66,7 +66,8 @@ namespace Banishment.Modules {
 
         private static void AutoUpdate() {
             var updater = Updater.CreateUpdaterInstance(
-                new UpdateServerInfo[]{
+                new UpdateServerInfo[]{ 
+                    new UpdateServerInfo("http://rayiooo.coding.me/Csharp_BanishmentRelease/{0}", "update_c.xml"),
                     new UpdateServerInfo("http://api.update.rayiooo.top/Banishment/update/{0}", "update_c.xml"),
                     new UpdateServerInfo("http://api.rayiooo.top/banishment/update/{0}", "update_c.xml")
 	        });

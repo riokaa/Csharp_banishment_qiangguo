@@ -7,12 +7,12 @@ using CefSharp;
 using CefSharp.WinForms;
 using System;
 using System.Drawing;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace Banishment {
     public partial class MainForm : Form {
         WebBrowser browserAnnounce;
+        public bool browserInitialized = false;
         public ChromiumWebBrowser MainWeb;
         public static MainForm self;
         public ThreadsController threadController;
@@ -61,19 +61,22 @@ namespace Banishment {
                 Dock = DockStyle.Fill,
                 LifeSpanHandler = new OpenPageSelf(),
             };
+            MainWeb.IsBrowserInitializedChanged += OnIsBrowserInitializedChanged;
             threadController.ThreadNoVoiceStart(); //开启静音线程
             MainWeb.FrameLoadEnd += InitializeMainBrowserEndingEvent;
             MainSplitter1.Panel1.Controls.Add(MainWeb);
             Log.I("ChromiumWebBrowser loaded.");
-        }
-        private void InitializeMainBrowserLoadingEvent() {
-
         }
         private void InitializeMainBrowserEndingEvent(object sender, FrameLoadEndEventArgs e) {
             if (e.Frame.IsMain) {
                 MainWeb.FrameLoadEnd -= InitializeMainBrowserEndingEvent; //only trigger once
                 WebLib.ScrollTo(365, 900);
                 threadController.ThreadNoVoiceAbort(); //结束静音线程
+            }
+        }
+        private void OnIsBrowserInitializedChanged(object sender, IsBrowserInitializedChangedEventArgs e) {
+            if (e.IsBrowserInitialized) {
+                this.browserInitialized = true;
             }
         }
         /// <summary>

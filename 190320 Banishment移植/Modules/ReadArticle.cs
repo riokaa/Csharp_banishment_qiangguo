@@ -25,12 +25,20 @@ namespace Banishment.Modules {
             Log.D("ReadArticle: page loaded.");
 
             //: get html and article titles
+            string itemClassName = "text-wrap"; //标题的div类名。那个强国前端程序员好闲噢，请不要改名了。
             string html = BrowserGetHtml();
+            //Log.D("html: " + html);
+            while (!html.Contains(string.Format("<div class=\"{0}\"", itemClassName))) {
+                //强国前端程序员可能在网页加了延迟展示页面的js
+                Thread.Sleep(1000);
+                html = BrowserGetHtml();
+                //Log.D("rehtml: " + html);
+            }
             var htmlDoc = new HtmlDocument();
             htmlDoc.LoadHtml(html);
-            HtmlNodeCollection nodes = htmlDoc.DocumentNode.SelectNodes(@"//div[@class='screen']//div[@class='word-item'][string-length()>10]");
+            HtmlNodeCollection nodes = htmlDoc.DocumentNode.SelectNodes(string.Format(@"//div[@class='{0}'][string-length()>10]", itemClassName));
             Log.I(string.Format("ReadArticle: {0} articles found.", nodes.Count));
-            if(nodes.Count == 0) {
+            if (nodes.Count == 0) {
                 Log.E("出问题了：没有获取到文章们！");
                 return;
             }
@@ -44,7 +52,7 @@ namespace Banishment.Modules {
             //: click it by js
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("function getElementsByClassName(node,classname) {if (node.getElementsByClassName) {return node.getElementsByClassName(classname);} else {return (function getElementsByClass(searchClass,node) {if ( node == null )node=document;var classElements=[],els = node.getElementsByTagName(\"*\"),elsLen=els.length,pattern=new RegExp(\"(^|\\s)\"+searchClass+\"(\\s|$)\"), i, j;for (i = 0, j = 0; i < elsLen; i++) {if ( pattern.test(els[i].className) ) {classElements[j] = els[i]; j++;}}return classElements;})(classname, node);}}");
-            sb.AppendLine("function getElementTitleEqualsTo(title){var elements = getElementsByClassName(document, \"word-item\");for(var i=0; i<elements.length;i++){if(elements[i].innerText == title){return elements[i];}}return null;}");
+            sb.AppendLine("function getElementTitleEqualsTo(title){var elements = getElementsByClassName(document, \"" + itemClassName + "\");for(var i=0; i<elements.length;i++){if(elements[i].innerText == title){return elements[i];}}return null;}");
             sb.AppendLine("getElementTitleEqualsTo(\"" + selected.InnerText + "\").click();");
             BrowserEvaluateScript(sb.ToString());
             Log.I(string.Format("Loading article randomly... [@title='{0}']", selected.InnerText));

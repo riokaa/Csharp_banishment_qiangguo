@@ -99,7 +99,7 @@ namespace Banishment.BaseLib {
         private void NoVoice() {
             var browser = MainForm.self.MainWeb;
             while (true) {
-                if(BS.vip && Const.settingsNoVoice) {
+                if(BS.vip && Const.settingsNoVoice && MainForm.self.browserInitialized) {
                     if (browser.InvokeRequired) {
                         browser.Invoke(new Action(() => {
                             browser.EvaluateScriptAsync("document.getElementsByTagName(\'audio\')[0].volume = 0;");
