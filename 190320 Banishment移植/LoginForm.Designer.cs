@@ -57,7 +57,6 @@
             // 
             this.LoginPicBoxRikka.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.LoginPicBoxRikka.BackgroundImage = global::Banishment.Properties.Resources.Rikka;
             this.LoginPicBoxRikka.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.LoginPicBoxRikka.Location = new System.Drawing.Point(12, 12);
             this.LoginPicBoxRikka.Name = "LoginPicBoxRikka";

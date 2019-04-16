@@ -209,11 +209,11 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
+    <Content Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
+    </Content>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -245,20 +245,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\MainIcon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\MainIcon360.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="MainIcon.ico" />
-    <None Include="Resources\clouds\cloud_6.png" />
-    <None Include="Resources\clouds\cloud_5.png" />
-    <None Include="Resources\clouds\cloud_4.png" />
-    <None Include="Resources\clouds\cloud_3.png" />
-    <None Include="Resources\clouds\cloud_2.png" />
-    <None Include="Resources\clouds\cloud_1.png" />
-    <None Include="Resources\Rikka.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

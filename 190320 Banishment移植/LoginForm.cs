@@ -17,7 +17,7 @@ namespace Banishment {
         /// 界面初始化
         /// </summary>
         private void InitializeUI() {
-
+            this.LoginPicBoxRikka.BackgroundImage = BanishmentImageDll.Src.GetImage("Rikka");
         }
 
         /// <summary>

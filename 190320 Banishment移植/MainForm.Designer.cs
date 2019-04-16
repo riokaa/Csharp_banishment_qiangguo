@@ -216,7 +216,6 @@
             // 
             // MainPicBoxRikka
             // 
-            this.MainPicBoxRikka.BackgroundImage = global::Banishment.Properties.Resources.Rikka;
             this.MainPicBoxRikka.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.MainPicBoxRikka.Dock = System.Windows.Forms.DockStyle.Top;
             this.MainPicBoxRikka.Location = new System.Drawing.Point(0, 0);
@@ -327,7 +326,6 @@
             // 
             // UserImgHead
             // 
-            this.UserImgHead.BackgroundImage = global::Banishment.Properties.Resources.MainIconImage;
             this.UserImgHead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.UserImgHead.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UserImgHead.Location = new System.Drawing.Point(0, 0);
@@ -543,8 +541,7 @@
             // 
             // UserLinkLabelProDetail
             // 
-            this.UserLinkLabelProDetail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.UserLinkLabelProDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.UserLinkLabelProDetail.AutoSize = true;
             this.UserLinkLabelProDetail.Location = new System.Drawing.Point(467, 586);
             this.UserLinkLabelProDetail.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
@@ -559,7 +556,6 @@
             // 
             this.UserPicProCloud.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.UserPicProCloud.BackgroundImage = global::Banishment.Properties.Resources.cloud_1;
             this.UserPicProCloud.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.UserPicProCloud.Location = new System.Drawing.Point(6, 24);
             this.UserPicProCloud.Name = "UserPicProCloud";

@@ -13,6 +13,7 @@ namespace Banishment {
         }
 
         private void InitializeUI() {
+            this.RegPicBox.BackgroundImage = BanishmentImageDll.Src.GetImage("Rikka");
             RegVerifyPic_Click(null, new EventArgs()); //刷新验证码
         }
 

@@ -247,7 +247,6 @@
             // 
             this.RegPicBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RegPicBox.BackgroundImage = global::Banishment.Properties.Resources.Rikka;
             this.RegPicBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.RegPicBox.Location = new System.Drawing.Point(12, 12);
             this.RegPicBox.Name = "RegPicBox";

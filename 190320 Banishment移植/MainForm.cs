@@ -3,6 +3,7 @@ using Banishment.Modules;
 using Banishment.NetWork;
 using Banishment.Properties;
 using Banishment.WebOptions;
+using BanishmentImageDll;
 using CefSharp;
 using CefSharp.WinForms;
 using System;
@@ -24,6 +25,7 @@ namespace Banishment {
         public MainForm() {
             self = this;
             InitializeComponent();
+            InitializeDll();
             InitializeThreads();
             InitializeMainController();
             InitializeMainGrid();
@@ -44,6 +46,12 @@ namespace Banishment {
                     lf.Dispose();
                 }
             }
+        }
+        /// <summary>
+        /// 程序分模块dll加载
+        /// </summary>
+        private void InitializeDll() {
+
         }
         /// <summary>
         /// 浏览器初始化
@@ -125,6 +133,9 @@ namespace Banishment {
             this.UserSplitter.SplitterDistance = (int)(UserSplitter.Width * 0.33);
             this.UserSplitter1.SplitterDistance = (int)(UserSplitter1.Height * 0.55);
             this.UserSplitter2.SplitterDistance = (int)(UserSplitter2.Height * 0.5);
+            //图片自资源dll中加载
+            this.MainPicBoxRikka.BackgroundImage = Src.GetImage("Rikka");
+            this.UserImgHead.BackgroundImage = Src.GetImage("MainIcon");
             //user btn
             UserLinkLabelLogout = new LinkLabel() {
                 Dock = DockStyle.Fill,
@@ -217,26 +228,7 @@ namespace Banishment {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void TabPageUser_Enter(object sender, EventArgs e) {
-            switch(new Random().Next(1, 7)) {
-                case 1:
-                    UserPicProCloud.BackgroundImage = Resources.cloud_1;
-                    break;
-                case 2:
-                    UserPicProCloud.BackgroundImage = Resources.cloud_2;
-                    break;
-                case 3:
-                    UserPicProCloud.BackgroundImage = Resources.cloud_3;
-                    break;
-                case 4:
-                    UserPicProCloud.BackgroundImage = Resources.cloud_4;
-                    break;
-                case 5:
-                    UserPicProCloud.BackgroundImage = Resources.cloud_5;
-                    break;
-                case 6:
-                    UserPicProCloud.BackgroundImage = Resources.cloud_6;
-                    break;
-            }
+            UserPicProCloud.BackgroundImage = Src.GetImage("Cloud");
         }
 
         private void UserBtnActivate_Click(object sender, EventArgs e) {
@@ -321,8 +313,8 @@ namespace Banishment {
                     Settings.Default.Icon360 = true;
                     if (BS.vip) {
                         Log.I("设置：360伪装图标功能开启。");
-                        this.Icon = Resources.MainIcon360;
-                        this.NotifyIcon.Icon = Resources.MainIcon360;
+                        this.Icon = Src.GetIcon("MainIcon360");
+                        this.NotifyIcon.Icon = Src.GetIcon("MainIcon360");
                     }
                 }
             } else {
@@ -330,8 +322,8 @@ namespace Banishment {
                     Const.settingsIcon360 = false;
                     Settings.Default.Icon360 = false;
                     Log.I("设置：360伪装图标功能关闭。");
-                    this.Icon = Resources.MainIcon;
-                    this.NotifyIcon.Icon = Resources.MainIcon;
+                    this.Icon = Src.GetIcon("MainIcon");
+                    this.NotifyIcon.Icon = Src.GetIcon("MainIcon");
                 }
             }
             //保存配置

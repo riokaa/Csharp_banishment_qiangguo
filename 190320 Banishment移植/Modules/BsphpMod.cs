@@ -59,8 +59,8 @@ namespace Banishment.Modules {
                 main.SetCheckIcon360.Enabled = true;
                 main.SetCheckNoVoice.Enabled = true;
                 if (main.SetCheckIcon360.Checked) {
-                    main.Icon = Resources.MainIcon360;
-                    main.NotifyIcon.Icon = Resources.MainIcon360;
+                    main.Icon = BanishmentImageDll.Src.GetIcon("MainIcon360");
+                    main.NotifyIcon.Icon = BanishmentImageDll.Src.GetIcon("MainIcon360");
                 }
             } else {
                 main.UserLabelVipStatus.ForeColor = Color.Red;
