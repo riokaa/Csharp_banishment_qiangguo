@@ -23,7 +23,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangePwdForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Pwdb = new System.Windows.Forms.TextBox();
             this.Pwda = new System.Windows.Forms.TextBox();
@@ -170,7 +169,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(344, 174);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ChangePwdForm";
             this.Text = "修改密码";
             this.tableLayoutPanel1.ResumeLayout(false);

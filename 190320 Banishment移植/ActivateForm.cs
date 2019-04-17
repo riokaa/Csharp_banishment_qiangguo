@@ -1,5 +1,6 @@
 ﻿using Banishment.Modules;
 using Banishment.NetWork;
+using BanishmentImageDll;
 using System;
 using System.Windows.Forms;
 
@@ -7,6 +8,11 @@ namespace Banishment {
     public partial class ActivateForm : Form {
         public ActivateForm() {
             InitializeComponent();
+            InitializeUI();
+        }
+
+        private void InitializeUI() {
+            this.Icon = Src.GetIcon("MainIcon");
         }
 
         private void ActivateBtn_Click(object sender, EventArgs e) {

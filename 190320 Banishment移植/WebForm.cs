@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BanishmentImageDll;
 using System.Windows.Forms;
 
 namespace Banishment {
     public partial class WebForm : Form {
         public WebForm() {
             InitializeComponent();
+            InitializeUI();
         }
+
+        private void InitializeUI() {
+            this.Icon = Src.GetIcon("MainIcon");
+        }
+
         public void LoadPage(string caption, string url) {
             this.Text = caption;
             this.WebBrowser.Navigate(url);

@@ -2,6 +2,7 @@
 using Banishment.Modules;
 using Banishment.NetWork;
 using Banishment.Properties;
+using BanishmentImageDll;
 using System;
 using System.Linq;
 using System.Threading;
@@ -17,6 +18,7 @@ namespace Banishment {
         /// 界面初始化
         /// </summary>
         private void InitializeUI() {
+            this.Icon = Src.GetIcon("MainIcon");
             this.LoginPicBoxRikka.BackgroundImage = BanishmentImageDll.Src.GetImage("Rikka");
         }
 

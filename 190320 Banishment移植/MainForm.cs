@@ -134,7 +134,9 @@ namespace Banishment {
             this.UserSplitter1.SplitterDistance = (int)(UserSplitter1.Height * 0.55);
             this.UserSplitter2.SplitterDistance = (int)(UserSplitter2.Height * 0.5);
             //图片自资源dll中加载
+            this.Icon = Src.GetIcon("MainIcon");
             this.MainPicBoxRikka.BackgroundImage = Src.GetImage("Rikka");
+            this.NotifyIcon.Icon = Src.GetIcon("MainIcon");
             this.UserImgHead.BackgroundImage = Src.GetImage("MainIcon");
             //user btn
             UserLinkLabelLogout = new LinkLabel() {

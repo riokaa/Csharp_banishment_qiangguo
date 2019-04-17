@@ -1,6 +1,7 @@
 ﻿using Banishment.BaseLib;
 using Banishment.NetWork;
 using Banishment.Properties;
+using BanishmentImageDll;
 using System;
 using System.Windows.Forms;
 
@@ -8,6 +9,11 @@ namespace Banishment {
     public partial class ChangePwdForm : Form {
         public ChangePwdForm() {
             InitializeComponent();
+            InitializeUI();
+        }
+
+        private void InitializeUI() {
+            this.Icon = Src.GetIcon("MainIcon");
         }
 
         private void BtnChange_Click(object sender, EventArgs e) {

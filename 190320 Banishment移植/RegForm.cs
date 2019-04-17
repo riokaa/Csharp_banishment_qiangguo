@@ -1,5 +1,6 @@
 ﻿using Banishment.BaseLib;
 using Banishment.NetWork;
+using BanishmentImageDll;
 using FSLib.Network.Http;
 using System;
 using System.Drawing;
@@ -13,8 +14,11 @@ namespace Banishment {
         }
 
         private void InitializeUI() {
-            this.RegPicBox.BackgroundImage = BanishmentImageDll.Src.GetImage("Rikka");
-            RegVerifyPic_Click(null, new EventArgs()); //刷新验证码
+            //导入图片资源
+            this.Icon = Src.GetIcon("MainIcon");
+            this.RegPicBox.BackgroundImage = Src.GetImage("Rikka");
+            //刷新验证码
+            RegVerifyPic_Click(null, new EventArgs());
         }
 
         /// <summary>
