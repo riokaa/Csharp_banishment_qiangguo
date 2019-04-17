@@ -1,5 +1,5 @@
 ﻿using Banishment.BaseLib;
-using Banishment.NetWork;
+using BanishmentVerifyDll;
 using FSLib.App.SimpleUpdater;
 using FSLib.App.SimpleUpdater.Defination;
 using System;

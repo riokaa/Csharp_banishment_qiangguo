@@ -1,9 +1,10 @@
-﻿using Banishment.BaseLib;
-using Banishment.NetWork;
-using Banishment.Properties;
+﻿using BanishmentBaseDll;
 using BanishmentImageDll;
+using BanishmentVerifyDll;
+using Banishment.Properties;
 using System;
 using System.Windows.Forms;
+using Banishment.BaseLib;
 
 namespace Banishment {
     public partial class ChangePwdForm : Form {

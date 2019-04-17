@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
 using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Banishment.BaseLib {
-    class Base {
+namespace BanishmentBaseDll {
+    public static class Base {
         public static string GetCurrentTime() {
             return DateTime.Now.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss");
         }
@@ -17,11 +14,11 @@ namespace Banishment.BaseLib {
                 NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
                 foreach (NetworkInterface ni in interfaces) {
                     string mac = BitConverter.ToString(ni.GetPhysicalAddress().GetAddressBytes());
-                    Log.D("Base.GetMac.mac: " + mac);
+                    //Log.D("Base.GetMac.mac: " + mac);
                     return mac;
                 }
             } catch (Exception) {
-                Log.E("Mac address not found.");
+                //Log.E("Mac address not found.");
             }
             return "00-00-00-00-00-00";
         }
@@ -33,7 +30,7 @@ namespace Banishment.BaseLib {
         }
 
         public static string MD5(string str) {
-            System.Security.Cryptography.MD5 md5Hasher = System.Security.Cryptography.MD5.Create();
+            MD5 md5Hasher = System.Security.Cryptography.MD5.Create();
             byte[] data = md5Hasher.ComputeHash(Encoding.UTF8.GetBytes(str));
             StringBuilder sBuilder = new StringBuilder();
             for (int i = 0; i < data.Length; i++) {

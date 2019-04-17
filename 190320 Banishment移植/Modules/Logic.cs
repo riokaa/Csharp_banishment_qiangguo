@@ -1,6 +1,5 @@
 ﻿using Banishment.BaseLib;
-using Banishment.NetWork;
-using Banishment.WebOptions;
+using BanishmentVerifyDll;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

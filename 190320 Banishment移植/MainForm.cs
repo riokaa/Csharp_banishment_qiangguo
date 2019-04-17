@@ -1,9 +1,9 @@
 ﻿using Banishment.BaseLib;
 using Banishment.Modules;
-using Banishment.NetWork;
 using Banishment.Properties;
 using Banishment.WebOptions;
 using BanishmentImageDll;
+using BanishmentVerifyDll;
 using CefSharp;
 using CefSharp.WinForms;
 using System;

@@ -1,12 +1,13 @@
-﻿using Banishment.BaseLib;
-using Banishment.Modules;
-using Banishment.NetWork;
-using Banishment.Properties;
+﻿using BanishmentBaseDll;
 using BanishmentImageDll;
+using BanishmentVerifyDll;
+using Banishment.Modules;
+using Banishment.Properties;
 using System;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
+using Banishment.BaseLib;
 
 namespace Banishment {
     public partial class LoginForm : Form {
@@ -19,7 +20,7 @@ namespace Banishment {
         /// </summary>
         private void InitializeUI() {
             this.Icon = Src.GetIcon("MainIcon");
-            this.LoginPicBoxRikka.BackgroundImage = BanishmentImageDll.Src.GetImage("Rikka");
+            this.LoginPicBoxRikka.BackgroundImage = Src.GetImage("Rikka");
         }
 
         /// <summary>

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("Banishment C#")]
-[assembly: AssemblyDescription("Auto strengthen country.")]
+[assembly: AssemblyTitle("BanishmentBaseDll")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("本萌")]
-[assembly: AssemblyProduct("Banishment C# 移植版")]
-[assembly: AssemblyCopyright("Copyright 板 2019")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("BanishmentBaseDll")]
+[assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("0afff854-981c-4e3f-82d0-8fde5f57c088")]
+[assembly: Guid("6c79aa21-2aa4-4e0c-9548-11b1339d1479")]
 
 // 程序集的版本信息由下列四个值组成: 
 //
@@ -30,7 +30,7 @@ using System.Runtime.InteropServices;
 //      修订号
 //
 // 可以指定所有值，也可以使用以下所示的 "*" 预置版本号和修订号
-// 方法是按如下所示使用“*”: :
+//通过使用 "*"，如下所示:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("3.2.4.0")]
-[assembly: AssemblyFileVersion("3.2.4.0")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

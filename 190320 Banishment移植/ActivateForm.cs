@@ -1,5 +1,5 @@
 ﻿using Banishment.Modules;
-using Banishment.NetWork;
+using BanishmentVerifyDll;
 using BanishmentImageDll;
 using System;
 using System.Windows.Forms;

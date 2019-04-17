@@ -1,5 +1,5 @@
 ﻿using Banishment.BaseLib;
-using Banishment.NetWork;
+using BanishmentVerifyDll;
 using BanishmentImageDll;
 using FSLib.Network.Http;
 using System;

@@ -1,4 +1,4 @@
-﻿using Banishment.NetWork;
+﻿using BanishmentVerifyDll;
 using System;
 using System.Threading;
 

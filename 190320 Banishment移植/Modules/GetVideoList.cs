@@ -1,5 +1,5 @@
 ﻿using Banishment.BaseLib;
-using Banishment.NetWork;
+using BanishmentVerifyDll;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 

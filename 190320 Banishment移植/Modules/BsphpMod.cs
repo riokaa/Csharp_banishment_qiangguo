@@ -1,6 +1,5 @@
 ﻿using Banishment.BaseLib;
-using Banishment.NetWork;
-using Banishment.Properties;
+using BanishmentVerifyDll;
 using System;
 using System.Drawing;
 using System.Threading;

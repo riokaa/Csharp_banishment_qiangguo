@@ -1,19 +1,19 @@
-﻿using Banishment.BaseLib;
+﻿using BanishmentBaseDll;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Banishment.NetWork {
-    static class Bsphp {
+namespace BanishmentVerifyDll {
+    public static class Bsphp {
         public static Dictionary<string, string> StatusCode;
 
         static Bsphp() {
             initStatusDic();
         }
         private static string ApiRequest(string apiName, Dictionary<string, string> param = null) {
-            Log.D(string.Format("Bsphp.ApiRequest.ApiName: {0}.", apiName));
+            //Log.D(string.Format("Bsphp.ApiRequest.ApiName: {0}.", apiName));
             //: stable params
             if(param == null) {
                 param = new Dictionary<string, string>();
@@ -48,7 +48,7 @@ namespace Banishment.NetWork {
             string response = HttpRequest.Post(BS.reqUrl, param);
 
             response = Encoding.UTF8.GetString(Convert.FromBase64String(response));
-            Log.D(string.Format("Bsphp.ApiRequest.Response: {0}.", response));
+            //Log.D(string.Format("Bsphp.ApiRequest.Response: {0}.", response));
 
             //: verify data safe
             try {
@@ -57,8 +57,9 @@ namespace Banishment.NetWork {
                 }
                 JsonReturn respJson = JsonConvert.DeserializeAnonymousType(response, new JsonReturn());
                 //判断 appsafecode 是否与发出时一致
-                if (!respJson.response.appsafecode.Equals(appsafecode))
-                    Log.W("Api数据包被劫持。");
+                if (!respJson.response.appsafecode.Equals(appsafecode)) { 
+                    //Log.W("Api数据包被劫持。");
+                }
                 //返回签名验证
                 //data ＋ date ＋ unix ＋ microtime ＋ appsafecode
                 string sSginReturn = respJson.response.data + respJson.response.date + respJson.response.unix + respJson.response.microtime + respJson.response.appsafecode;
@@ -67,13 +68,13 @@ namespace Banishment.NetWork {
                 //签名值
                 string sginMd5return = Base.MD5(serverKeyreturn);
                 if (!sginMd5return.Equals(respJson.response.sgin)) {
-                    Log.W("Api请求 sgin 签名验证失败。");
+                    //Log.W("Api请求 sgin 签名验证失败。");
                     return "Api请求 sgin 签名验证失败。";
                 } else {
                     return respJson.response.data; //返回正确数据包
                 }
             } catch (Exception ex) {
-                Log.E(ex.Message);
+                //Log.E(ex.Message);
                 return "";
             }
         }
@@ -328,7 +329,7 @@ namespace Banishment.NetWork {
         /// <returns></returns>
         public static string UpdateSeSSL() {
             BS.sessl = Base.MD5(BS.machineCode + Base.GetTimeStamp());
-            Log.D(string.Format("Bsphp.UpdateSeSSL.sessl: {0}", BS.sessl));
+            //Log.D(string.Format("Bsphp.UpdateSeSSL.sessl: {0}", BS.sessl));
             return BS.sessl;
         }
         /// <summary>

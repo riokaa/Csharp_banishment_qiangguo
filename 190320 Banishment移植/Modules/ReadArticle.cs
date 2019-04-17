@@ -1,6 +1,5 @@
 ﻿using Banishment.BaseLib;
-using Banishment.NetWork;
-using CefSharp;
+using BanishmentVerifyDll;
 using HtmlAgilityPack;
 using System;
 using System.Text;

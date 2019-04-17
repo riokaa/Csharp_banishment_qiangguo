@@ -5,23 +5,23 @@ using System.IO;
 using System.Net;
 using System.Text;
 
-namespace Banishment.NetWork {
-    class Example {
-        private void test() {
-            // Get
-            var getUrl = "http://localhost:8888?";
-            HttpRequest.Get(getUrl);
+namespace BanishmentVerifyDll {
+    //class Example {
+    //    private void test() {
+    //        // Get
+    //        var getUrl = "http://localhost:8888?";
+    //        HttpRequest.Get(getUrl);
 
-            // Post
-            var postUrl = "http://localhost:8888";
-            var postObj = new {
-                username = "DamonZhu",
-                password = "12345678"
-            };
-            var postData = JsonConvert.SerializeObject(postObj);
-            HttpRequest.Post(postUrl, postData);
-        }
-    }
+    //        // Post
+    //        var postUrl = "http://localhost:8888";
+    //        var postObj = new {
+    //            username = "DamonZhu",
+    //            password = "12345678"
+    //        };
+    //        var postData = JsonConvert.SerializeObject(postObj);
+    //        HttpRequest.Post(postUrl, postData);
+    //    }
+    //}
     public static class HttpRequest {
         /// <summary>
         /// Http Get Request

@@ -1,5 +1,5 @@
 ﻿using Banishment.Modules;
-using Banishment.NetWork;
+using BanishmentVerifyDll;
 using Banishment.WebOptions;
 using CefSharp;
 using System;

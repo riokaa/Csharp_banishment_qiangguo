@@ -9,6 +9,10 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup for Banishment", "Set
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanishmentImageDll", "BanishmentImageDll\BanishmentImageDll.csproj", "{8D1B487A-E538-4AF0-A285-32B34D3DFB4F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanishmentVerifyDll", "BanishmentVerifyDll\BanishmentVerifyDll.csproj", "{55072412-EAC8-4B0E-90D8-95EE492B54CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanishmentBaseDll", "BanishmentBaseDll\BanishmentBaseDll.csproj", "{6C79AA21-2AA4-4E0C-9548-11B1339D1479}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,22 @@ Global
 		{8D1B487A-E538-4AF0-A285-32B34D3DFB4F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8D1B487A-E538-4AF0-A285-32B34D3DFB4F}.Release|x86.ActiveCfg = Release|Any CPU
 		{8D1B487A-E538-4AF0-A285-32B34D3DFB4F}.Release|x86.Build.0 = Release|Any CPU
+		{55072412-EAC8-4B0E-90D8-95EE492B54CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55072412-EAC8-4B0E-90D8-95EE492B54CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55072412-EAC8-4B0E-90D8-95EE492B54CD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{55072412-EAC8-4B0E-90D8-95EE492B54CD}.Debug|x86.Build.0 = Debug|Any CPU
+		{55072412-EAC8-4B0E-90D8-95EE492B54CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55072412-EAC8-4B0E-90D8-95EE492B54CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55072412-EAC8-4B0E-90D8-95EE492B54CD}.Release|x86.ActiveCfg = Release|Any CPU
+		{55072412-EAC8-4B0E-90D8-95EE492B54CD}.Release|x86.Build.0 = Release|Any CPU
+		{6C79AA21-2AA4-4E0C-9548-11B1339D1479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C79AA21-2AA4-4E0C-9548-11B1339D1479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C79AA21-2AA4-4E0C-9548-11B1339D1479}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6C79AA21-2AA4-4E0C-9548-11B1339D1479}.Debug|x86.Build.0 = Debug|Any CPU
+		{6C79AA21-2AA4-4E0C-9548-11B1339D1479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C79AA21-2AA4-4E0C-9548-11B1339D1479}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C79AA21-2AA4-4E0C-9548-11B1339D1479}.Release|x86.ActiveCfg = Release|Any CPU
+		{6C79AA21-2AA4-4E0C-9548-11B1339D1479}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

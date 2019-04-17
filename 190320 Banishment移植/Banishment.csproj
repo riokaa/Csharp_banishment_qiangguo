@@ -147,7 +147,6 @@
     <Compile Include="ActivateForm.Designer.cs">
       <DependentUpon>ActivateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BaseLib\Base.cs" />
     <Compile Include="BaseLib\Const.cs" />
     <Compile Include="BaseLib\Log.cs" />
     <Compile Include="BaseLib\ThreadsController.cs" />
@@ -175,9 +174,6 @@
     <Compile Include="Modules\OptionOnBrowser.cs" />
     <Compile Include="Modules\ReadArticle.cs" />
     <Compile Include="Modules\WatchVideo.cs" />
-    <Compile Include="NetWork\Bsphp.cs" />
-    <Compile Include="NetWork\BsphpConst.cs" />
-    <Compile Include="NetWork\HttpRequest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegForm.cs">
@@ -260,9 +256,17 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BanishmentBaseDll\BanishmentBaseDll.csproj">
+      <Project>{6c79aa21-2aa4-4e0c-9548-11b1339d1479}</Project>
+      <Name>BanishmentBaseDll</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BanishmentImageDll\BanishmentImageDll.csproj">
       <Project>{8d1b487a-e538-4af0-a285-32b34d3dfb4f}</Project>
       <Name>BanishmentImageDll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BanishmentVerifyDll\BanishmentVerifyDll.csproj">
+      <Project>{55072412-eac8-4b0e-90d8-95ee492b54cd}</Project>
+      <Name>BanishmentVerifyDll</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
