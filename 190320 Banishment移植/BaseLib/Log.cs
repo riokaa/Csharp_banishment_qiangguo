@@ -1,43 +1,51 @@
 ﻿using BanishmentBaseDll;
+using BanishmentMailDll;
 using System;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
 namespace Banishment.BaseLib {
     public class Log {
+        public static StringBuilder logstorage = new StringBuilder();
         public static StringBuilder output = new StringBuilder();
+
         public static void D(string log) {
-            string temp = string.Format("{0} [debug] : {1}", Base.GetCurrentTime(), log);
-            Console.WriteLine(temp);
-            if (Const.debug) {
-                output.AppendLine(temp);
-                ControllerFlush();
-            }
+            LogOut("debug", log);
         }
         public static void I(string log) {
-            string temp = string.Format("{0} [info] : {1}", Base.GetCurrentTime(), log);
-            Console.WriteLine(temp);
-            output.AppendLine(temp);
-            ControllerFlush();
+            LogOut("info", log);
         }
         public static void W(string log) {
-            string temp = string.Format("{0} [warn] : {1}", Base.GetCurrentTime(), log);
-            Console.WriteLine(temp);
-            output.AppendLine(temp);
-            ControllerFlush();
+            LogOut("warn", log);
         }
         public static void E(string log) {
-            string temp = string.Format("{0} [error] : {1}", Base.GetCurrentTime(), log);
-            Console.WriteLine(temp);
-            output.AppendLine(temp);
-            ControllerFlush();
+            LogOut("error", log);
         }
         public static void F(string log) {
-            string temp = string.Format("{0} [fatal] : {1}", Base.GetCurrentTime(), log);
+            LogOut("fatal", log);
+        }
+        private static void LogOut(string style, string log) {
+            string temp = string.Format("{0} [{1}] : {2}", Base.GetCurrentTime(), style, log);
             Console.WriteLine(temp);
-            output.AppendLine(temp);
-            ControllerFlush();
-            MessageBox.Show(temp, "Fatal!");
+            logstorage.AppendLine(temp);
+            switch (style) {
+                case "debug":
+                    if (Const.debug) {
+                        output.AppendLine(temp);
+                        ControllerFlush();
+                    }
+                    break;
+                case "fatal":
+                    output.AppendLine(temp);
+                    ControllerFlush();
+                    MessageBox.Show(temp, "Fatal!");
+                    break;
+                default:
+                    output.AppendLine(temp);
+                    ControllerFlush();
+                    break;
+            }
         }
         public static void ControllerFlush() {
             //清理控制台
@@ -60,6 +68,21 @@ namespace Banishment.BaseLib {
                 controller.Focus();//获取焦点
                 controller.Select(controller.TextLength, 0);//光标定位到文本最后
                 controller.ScrollToCaret();//滚动到光标处
+            }
+        }
+        /// <summary>
+        /// 发送log文件到指定邮箱
+        /// </summary>
+        public static void UploadLogFile() {
+            WriteLogFile();
+            LogUpload.Do("god", "error.txt");
+            if(Directory.Exists(Directory.GetCurrentDirectory() + @"\error.txt"))
+                File.Delete(Directory.GetCurrentDirectory() + @"\error.txt");
+        }
+        public static void WriteLogFile() {
+            using (StreamWriter sw = new StreamWriter(@"error.txt", false)) {
+                sw.WriteLine(logstorage);
+                sw.Close();
             }
         }
     }

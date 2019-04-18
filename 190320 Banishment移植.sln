@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanishmentVerifyDll", "Bani
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanishmentBaseDll", "BanishmentBaseDll\BanishmentBaseDll.csproj", "{6C79AA21-2AA4-4E0C-9548-11B1339D1479}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanishmentMailDll", "BanishmentMailDll\BanishmentMailDll.csproj", "{541CDFF1-C2C6-4E00-AA09-E26B1768992A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,14 @@ Global
 		{6C79AA21-2AA4-4E0C-9548-11B1339D1479}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6C79AA21-2AA4-4E0C-9548-11B1339D1479}.Release|x86.ActiveCfg = Release|Any CPU
 		{6C79AA21-2AA4-4E0C-9548-11B1339D1479}.Release|x86.Build.0 = Release|Any CPU
+		{541CDFF1-C2C6-4E00-AA09-E26B1768992A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{541CDFF1-C2C6-4E00-AA09-E26B1768992A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{541CDFF1-C2C6-4E00-AA09-E26B1768992A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{541CDFF1-C2C6-4E00-AA09-E26B1768992A}.Debug|x86.Build.0 = Debug|Any CPU
+		{541CDFF1-C2C6-4E00-AA09-E26B1768992A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{541CDFF1-C2C6-4E00-AA09-E26B1768992A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{541CDFF1-C2C6-4E00-AA09-E26B1768992A}.Release|x86.ActiveCfg = Release|Any CPU
+		{541CDFF1-C2C6-4E00-AA09-E26B1768992A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

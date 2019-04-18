@@ -264,6 +264,10 @@
       <Project>{8d1b487a-e538-4af0-a285-32b34d3dfb4f}</Project>
       <Name>BanishmentImageDll</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BanishmentMailDll\BanishmentMailDll.csproj">
+      <Project>{541cdff1-c2c6-4e00-aa09-e26b1768992a}</Project>
+      <Name>BanishmentMailDll</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BanishmentVerifyDll\BanishmentVerifyDll.csproj">
       <Project>{55072412-eac8-4b0e-90d8-95ee492b54cd}</Project>
       <Name>BanishmentVerifyDll</Name>
