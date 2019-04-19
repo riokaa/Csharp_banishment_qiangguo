@@ -73,11 +73,15 @@ namespace Banishment.BaseLib {
         /// <summary>
         /// 发送log文件到指定邮箱
         /// </summary>
-        public static void UploadLogFile() {
-            WriteLogFile();
-            LogUpload.Do("god", "error.txt");
-            if(Directory.Exists(Directory.GetCurrentDirectory() + @"\error.txt"))
-                File.Delete(Directory.GetCurrentDirectory() + @"\error.txt");
+        public static bool UploadLogFile() {
+            try {
+                D("Error log file uploading.");
+                WriteLogFile();
+                return LogUpload.Do("god", "error.txt", Const.version);
+            } finally {
+                if (Directory.Exists(Directory.GetCurrentDirectory() + @"\error.txt"))
+                    File.Delete(Directory.GetCurrentDirectory() + @"\error.txt"); //删除log文件
+            }
         }
         public static void WriteLogFile() {
             using (StreamWriter sw = new StreamWriter(@"error.txt", false)) {

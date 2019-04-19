@@ -18,10 +18,7 @@ namespace Banishment {
         public static MainForm self;
         public ThreadsController threadController;
         public LinkLabel UserLinkLabelLogout;
-
-        /// <summary>
-        /// TODO：静音js。
-        /// </summary>
+        
         public MainForm() {
             self = this;
             InitializeComponent();
