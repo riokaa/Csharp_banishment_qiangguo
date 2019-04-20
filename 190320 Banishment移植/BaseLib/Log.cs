@@ -79,10 +79,13 @@ namespace Banishment.BaseLib {
                 WriteLogFile();
                 return LogUpload.Do("god", "error.txt", Const.version);
             } finally {
-                if (Directory.Exists(Directory.GetCurrentDirectory() + @"\error.txt"))
+                if (File.Exists(Directory.GetCurrentDirectory() + @"\error.txt"))
                     File.Delete(Directory.GetCurrentDirectory() + @"\error.txt"); //删除log文件
             }
         }
+        /// <summary>
+        /// 写日志到文件
+        /// </summary>
         public static void WriteLogFile() {
             using (StreamWriter sw = new StreamWriter(@"error.txt", false)) {
                 sw.WriteLine(logstorage);

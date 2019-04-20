@@ -157,6 +157,7 @@ namespace Banishment {
                 }
             };
             //settings init
+            SetUpdateSource.SelectedIndex = Settings.Default.UpdateSource;
             if (Settings.Default.AutoClose) {
                 Const.settingsAutoClose = true;
                 SetCheckAutoClose.Checked = true;
@@ -291,6 +292,8 @@ namespace Banishment {
                     Log.I("设置：积分刷满后自动关机关闭。");
                 }
             }
+            //更新源
+            Settings.Default.UpdateSource = SetUpdateSource.SelectedIndex;
             //静音
             if (SetCheckNoVoice.Checked) {
                 if (!Const.settingsNoVoice) {

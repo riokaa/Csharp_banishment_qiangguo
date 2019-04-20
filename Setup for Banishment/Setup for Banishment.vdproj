@@ -100,7 +100,7 @@
         "Entry"
         {
         "MsmKey" = "8:_27ECE23A80A0595122521AFE67282324"
-        "OwnerKey" = "8:_9CD5B20B19FB4C95B0E3E90AC911AAC1"
+        "OwnerKey" = "8:_D0EAA9BA3C3F48ECAD22AE08579C1667"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -160,7 +160,7 @@
         "Entry"
         {
         "MsmKey" = "8:_4268AABD178A8084B83A64092C67DAC0"
-        "OwnerKey" = "8:_9CD5B20B19FB4C95B0E3E90AC911AAC1"
+        "OwnerKey" = "8:_D0EAA9BA3C3F48ECAD22AE08579C1667"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -244,13 +244,19 @@
         "Entry"
         {
         "MsmKey" = "8:_6153D0A8713E96F75777A59F89297711"
-        "OwnerKey" = "8:_9CD5B20B19FB4C95B0E3E90AC911AAC1"
+        "OwnerKey" = "8:_C388FAF4971B402BB1E65FD23FB42548"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_6153D0A8713E96F75777A59F89297711"
         "OwnerKey" = "8:_E70890C873D7959AC05CB85CE0923C0D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6153D0A8713E96F75777A59F89297711"
+        "OwnerKey" = "8:_D0EAA9BA3C3F48ECAD22AE08579C1667"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -310,13 +316,13 @@
         "Entry"
         {
         "MsmKey" = "8:_92AB0A2211656AF61D8EF1F3FF93249C"
-        "OwnerKey" = "8:_9CD5B20B19FB4C95B0E3E90AC911AAC1"
+        "OwnerKey" = "8:_D0EAA9BA3C3F48ECAD22AE08579C1667"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_93AD5C6E5F9688895049CD63E570C962"
-        "OwnerKey" = "8:_9CD5B20B19FB4C95B0E3E90AC911AAC1"
+        "OwnerKey" = "8:_D0EAA9BA3C3F48ECAD22AE08579C1667"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -328,12 +334,6 @@
         "Entry"
         {
         "MsmKey" = "8:_948602D0F679409CABC2600090E5C078"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9CD5B20B19FB4C95B0E3E90AC911AAC1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -382,19 +382,7 @@
         "Entry"
         {
         "MsmKey" = "8:_B61BF825E194096AB442D0F721FA3C6B"
-        "OwnerKey" = "8:_4268AABD178A8084B83A64092C67DAC0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B61BF825E194096AB442D0F721FA3C6B"
         "OwnerKey" = "8:_F59A5D4508714EA09EB41C97C5537A5A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B61BF825E194096AB442D0F721FA3C6B"
-        "OwnerKey" = "8:_6034CE28616DD200680722B041D93322"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -406,12 +394,30 @@
         "Entry"
         {
         "MsmKey" = "8:_B61BF825E194096AB442D0F721FA3C6B"
-        "OwnerKey" = "8:_9CD5B20B19FB4C95B0E3E90AC911AAC1"
+        "OwnerKey" = "8:_D0EAA9BA3C3F48ECAD22AE08579C1667"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B61BF825E194096AB442D0F721FA3C6B"
+        "OwnerKey" = "8:_4268AABD178A8084B83A64092C67DAC0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B61BF825E194096AB442D0F721FA3C6B"
+        "OwnerKey" = "8:_6034CE28616DD200680722B041D93322"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_C1032B10F86C47B793B1018A1AE5FCCE"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C388FAF4971B402BB1E65FD23FB42548"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -429,7 +435,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D435B0DB44F84FBE866CD6239F38A9F8"
+        "MsmKey" = "8:_D0EAA9BA3C3F48ECAD22AE08579C1667"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -442,6 +448,12 @@
         "Entry"
         {
         "MsmKey" = "8:_DCFF1C861E3740F69C9AE42A7E586196"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E1B4260081F84D31905D1C99895A6F93"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -460,7 +472,7 @@
         "Entry"
         {
         "MsmKey" = "8:_E70890C873D7959AC05CB85CE0923C0D"
-        "OwnerKey" = "8:_9CD5B20B19FB4C95B0E3E90AC911AAC1"
+        "OwnerKey" = "8:_D0EAA9BA3C3F48ECAD22AE08579C1667"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -472,7 +484,13 @@
         "Entry"
         {
         "MsmKey" = "8:_EAC2A7F118AACE4136FB6C9F7200330D"
-        "OwnerKey" = "8:_9CD5B20B19FB4C95B0E3E90AC911AAC1"
+        "OwnerKey" = "8:_C388FAF4971B402BB1E65FD23FB42548"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EAC2A7F118AACE4136FB6C9F7200330D"
+        "OwnerKey" = "8:_D0EAA9BA3C3F48ECAD22AE08579C1667"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -508,7 +526,7 @@
         "Entry"
         {
         "MsmKey" = "8:_FA351A0D60153FFF2F4EE8F2FAA45EAD"
-        "OwnerKey" = "8:_9CD5B20B19FB4C95B0E3E90AC911AAC1"
+        "OwnerKey" = "8:_D0EAA9BA3C3F48ECAD22AE08579C1667"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -526,13 +544,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6034CE28616DD200680722B041D93322"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9CD5B20B19FB4C95B0E3E90AC911AAC1"
+        "OwnerKey" = "8:_D0EAA9BA3C3F48ECAD22AE08579C1667"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -556,12 +568,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EAC2A7F118AACE4136FB6C9F7200330D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_93AD5C6E5F9688895049CD63E570C962"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -575,6 +581,24 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_4268AABD178A8084B83A64092C67DAC0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C388FAF4971B402BB1E65FD23FB42548"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6034CE28616DD200680722B041D93322"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_EAC2A7F118AACE4136FB6C9F7200330D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1438,11 +1462,6 @@
             "AssemblyAsmDisplayName" = "8:CefSharp.BrowserSubprocess.Core, Version=71.0.2.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_6034CE28616DD200680722B041D93322"
-                    {
-                    "Name" = "8:CefSharp.BrowserSubprocess.Core.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CefSharp.BrowserSubprocess.Core.DLL"
             "TargetName" = "8:"
@@ -1986,26 +2005,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D435B0DB44F84FBE866CD6239F38A9F8"
-            {
-            "SourcePath" = "8:..\\190320 Banishment移植\\Resources\\MainIcon.ico"
-            "TargetName" = "8:MainIcon.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_65E96D5CE5F04DE58E536BE80959438C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D56EA8D74F4F4F479738CFC14E8CDC43"
             {
             "SourcePath" = "8:..\\190320 Banishment移植\\bin\\x86\\Release\\locales\\pl.pak"
@@ -2032,6 +2031,26 @@
             "TargetName" = "8:nb.pak"
             "Tag" = "8:"
             "Folder" = "8:_792C0CEB3CAA4670912BE090E4D30F2F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E1B4260081F84D31905D1C99895A6F93"
+            {
+            "SourcePath" = "8:..\\190320 Banishment移植\\bin\\x86\\Release\\MainIcon.ico"
+            "TargetName" = "8:MainIcon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_65E96D5CE5F04DE58E536BE80959438C"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2195,11 +2214,6 @@
             "AssemblyAsmDisplayName" = "8:CefSharp.BrowserSubprocess, Version=71.0.2.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_F59A5D4508714EA09EB41C97C5537A5A"
-                    {
-                    "Name" = "8:CefSharp.BrowserSubprocess.exe"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:..\\190320 Banishment移植\\bin\\x86\\Release\\CefSharp.BrowserSubprocess.exe"
             "TargetName" = "8:"
@@ -2517,10 +2531,24 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_9CD5B20B19FB4C95B0E3E90AC911AAC1"
+            "Target" = "8:_D0EAA9BA3C3F48ECAD22AE08579C1667"
             "Folder" = "8:_9F59FC41A5DE429797A08CB502B39790"
             "WorkingFolder" = "8:_65E96D5CE5F04DE58E536BE80959438C"
-            "Icon" = "8:_D435B0DB44F84FBE866CD6239F38A9F8"
+            "Icon" = "8:"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_484AB1910D054665BF2898C08C85F08A"
+            {
+            "Name" = "8:修复工具"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_C388FAF4971B402BB1E65FD23FB42548"
+            "Folder" = "8:_7C3333EB70244257A4FE629E566808ED"
+            "WorkingFolder" = "8:_65E96D5CE5F04DE58E536BE80959438C"
+            "Icon" = "8:_E1B4260081F84D31905D1C99895A6F93"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_51BD6161D7E54BE590ED1E5EDB54D0F0"
@@ -2531,10 +2559,10 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_9CD5B20B19FB4C95B0E3E90AC911AAC1"
+            "Target" = "8:_D0EAA9BA3C3F48ECAD22AE08579C1667"
             "Folder" = "8:_7C3333EB70244257A4FE629E566808ED"
             "WorkingFolder" = "8:_65E96D5CE5F04DE58E536BE80959438C"
-            "Icon" = "8:_D435B0DB44F84FBE866CD6239F38A9F8"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
         }
@@ -2936,7 +2964,35 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_9CD5B20B19FB4C95B0E3E90AC911AAC1"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_C388FAF4971B402BB1E65FD23FB42548"
+            {
+            "SourcePath" = "8:..\\修复工具\\obj\\Release\\修复工具.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_65E96D5CE5F04DE58E536BE80959438C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:Built"
+            "OutputProjectGuid" = "8:{85649151-228E-42AD-8205-64AF92527B9D}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D0EAA9BA3C3F48ECAD22AE08579C1667"
             {
             "SourcePath" = "8:..\\190320 Banishment移植\\obj\\x86\\Release\\Banishment.exe"
             "TargetName" = "8:"

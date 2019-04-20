@@ -44,7 +44,10 @@ namespace Banishment.Modules {
             }
             if (Const.settingsAutoShutdown) {
                 Log.I("10秒后将执行自动关机操作。");
-                Process.Start("shutdown.exe", "-r -f -t 10");
+                Process p = new Process();
+                p.StartInfo.FileName = "shutdown.exe";
+                p.StartInfo.Arguments = "-s -f -t 10";
+                p.Start();
             }
             MainForm.self.MainBtnRun.Invoke(new Action(() => {
                 MainForm.self.MainBtnRun.Text = "开始执行";

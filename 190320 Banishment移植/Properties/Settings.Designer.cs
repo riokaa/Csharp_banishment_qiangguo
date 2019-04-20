@@ -94,5 +94,17 @@ namespace Banishment.Properties {
                 this["Icon360"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int UpdateSource {
+            get {
+                return ((int)(this["UpdateSource"]));
+            }
+            set {
+                this["UpdateSource"] = value;
+            }
+        }
     }
 }

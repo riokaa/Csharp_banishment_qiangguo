@@ -1,7 +1,7 @@
 ﻿using Banishment.BaseLib;
+using Banishment.Properties;
 using BanishmentVerifyDll;
 using FSLib.App.SimpleUpdater;
-using FSLib.App.SimpleUpdater.Defination;
 using System;
 using System.Windows.Forms;
 
@@ -9,22 +9,12 @@ namespace Banishment.Modules {
     class CheckVersion {
         public static void Start() {
             Log.D("检查更新。");
-            string remoteVersion = Bsphp.GetVersion();
-            if (CompareVersion(Const.version, remoteVersion) >= 0) {
+            if (Settings.Default.UpdateSource == 0 && CompareVersion(Const.version, Bsphp.GetVersion()) >= 0) {
+                //稳定版&&已最新
                 Log.D("当前版本已是最新。");
-            } else {
-                //Log.I(string.Format("发现新版本 {0} 。更新公告见公告栏。", remoteVersion));
-                AutoUpdate();
+                return;
             }
-            ////test
-            //string v1 = "v2.0.0", v2 = "v2.0.1";
-            //Log.D(string.Format("TestVersionCmp: {0}, {1}, {2}", v1, v2, CompareVersion(v1, v2) >= 0));
-            //v1 = "v2.0.0"; v2 = "v2.0.0.0";
-            //Log.D(string.Format("TestVersionCmp: {0}, {1}, {2}", v1, v2, CompareVersion(v1, v2) >= 0));
-            //v1 = "v2.0.0"; v2 = "v2.1";
-            //Log.D(string.Format("TestVersionCmp: {0}, {1}, {2}", v1, v2, CompareVersion(v1, v2) >= 0));
-            //v1 = "v2.0.0"; v2 = "v2.0.0.1";
-            //Log.D(string.Format("TestVersionCmp: {0}, {1}, {2}", v1, v2, CompareVersion(v1, v2) >= 0));
+            AutoUpdate();
         }
         /// <summary>
         /// 比对v1与v2大小，若相等返回0，否则取v1-v2的正负号乘以1
@@ -65,25 +55,37 @@ namespace Banishment.Modules {
         }
 
         private static void AutoUpdate() {
-            var updater = Updater.CreateUpdaterInstance(
-                new UpdateServerInfo[]{ 
-                    new UpdateServerInfo("http://rayiooo.coding.me/Csharp_BanishmentRelease/{0}", "update_c.xml"),
-                    new UpdateServerInfo("http://api.update.rayiooo.top/Banishment/update/{0}", "update_c.xml"),
-                    new UpdateServerInfo("http://api.rayiooo.top/banishment/update/{0}", "update_c.xml")
-	        });
-
-            //var updater = Updater.CreateUpdaterInstance(Const.urlUpdateXml, "update_c.xml");
+            Updater updater;
+            switch (Settings.Default.UpdateSource) {
+                case 0: //稳定版
+                    updater = Updater.CreateUpdaterInstance("http://api.update.rayiooo.top/Banishment/update/{0}", "update_c.xml");
+                    break;
+                case 1: //开发版
+                    updater = Updater.CreateUpdaterInstance("http://rayiooo.coding.me/Csharp_BanishmentRelease/{0}", "update_c.xml");
+                    break;
+                default:
+                    updater = Updater.CreateUpdaterInstance("http://api.update.rayiooo.top/Banishment/update/{0}", "update_c.xml");
+                    break;
+            }
+            //   var updater = Updater.CreateUpdaterInstance(
+            //       new UpdateServerInfo[]{ 
+            //           new UpdateServerInfo("http://rayiooo.coding.me/Csharp_BanishmentRelease/{0}", "update_c.xml"),
+            //           new UpdateServerInfo("http://api.update.rayiooo.top/Banishment/update/{0}", "update_c.xml"),
+            //           new UpdateServerInfo("http://api.rayiooo.top/banishment/update/{0}", "update_c.xml")
+	        //});
+            
             updater.Error += (s, e) => {
                 Log.E("更新发生了错误：" + updater.Context.Exception.Message);
+                MessageBox.Show(string.Format("更新发生了错误：{0}！可尝试在设置中更换更新源。", updater.Context.Exception.Message), "更新失败");
             };
             updater.UpdatesFound += (s, e) => {
                 Log.D("发现了新版本：" + updater.Context.UpdateInfo.AppVersion);
             };
             updater.NoUpdatesFound += (s, e) => {
-                Log.D("没有新版本！");
+                Log.D("没有新版本。");
             };
             updater.MinmumVersionRequired += (s, e) => {
-                MessageBox.Show("当前版本过低无法使用自动更新！请在公告栏中手动下载新版本。");
+                MessageBox.Show("当前版本过低无法使用自动更新！请在公告栏中手动下载新版本。", "更新信息");
             };
             Updater.CheckUpdateSimple();
         }

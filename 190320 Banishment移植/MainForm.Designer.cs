@@ -74,6 +74,8 @@
             this.NotifyMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.NotifyShow = new System.Windows.Forms.ToolStripMenuItem();
             this.NotifyExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.label4 = new System.Windows.Forms.Label();
+            this.SetUpdateSource = new System.Windows.Forms.ComboBox();
             this.MainTab.SuspendLayout();
             this.tabPageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitter)).BeginInit();
@@ -635,6 +637,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.SetUpdateSource);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.SetCheckAutoShutdown);
             this.groupBox1.Controls.Add(this.SetCheckAutoClose);
             this.groupBox1.Location = new System.Drawing.Point(9, 4);
@@ -725,6 +729,26 @@
             this.NotifyExit.Size = new System.Drawing.Size(108, 24);
             this.NotifyExit.Text = "退出";
             this.NotifyExit.Click += new System.EventHandler(this.NotifyExit_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(97, 15);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "更新源选择：";
+            // 
+            // SetUpdateSource
+            // 
+            this.SetUpdateSource.FormattingEnabled = true;
+            this.SetUpdateSource.Items.AddRange(new object[] {
+            "稳定版",
+            "开发版"});
+            this.SetUpdateSource.Location = new System.Drawing.Point(109, 74);
+            this.SetUpdateSource.Name = "SetUpdateSource";
+            this.SetUpdateSource.Size = new System.Drawing.Size(89, 23);
+            this.SetUpdateSource.TabIndex = 4;
             // 
             // MainForm
             // 
@@ -833,5 +857,7 @@
         public System.Windows.Forms.CheckBox SetCheckIcon360;
         public System.Windows.Forms.CheckBox SetCheckNoVoice;
         public System.Windows.Forms.NotifyIcon NotifyIcon;
+        private System.Windows.Forms.ComboBox SetUpdateSource;
+        private System.Windows.Forms.Label label4;
     }
 }
