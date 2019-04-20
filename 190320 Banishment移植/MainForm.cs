@@ -60,6 +60,7 @@ namespace Banishment {
                 MultiThreadedMessageLoop = true,
             };
             settings.CefCommandLineArgs.Add("disable-gpu", "1");
+            settings.CefCommandLineArgs.Add("disable-extensions", "1");
             //settings.CefCommandLineArgs.Add("enable-media-stream", "1");
             Cef.Initialize(settings);
             MainWeb = new ChromiumWebBrowser("https://pc.xuexi.cn/points/login.html?ref=https://www.xuexi.cn/") {
