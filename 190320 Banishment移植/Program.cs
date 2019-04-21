@@ -33,6 +33,8 @@ namespace Banishment {
                 errlog = string.Format("Application UnhandledError:{0}", e);
             }
             Log.D(errlog);
+            if (Const.debug)
+                return; //debug模式不上传日志
             if (Log.UploadLogFile()) {
                 MessageBox.Show("程序因异常退出，请及时重启软件！异常日志已自动上传。", "Banishment - Error", MessageBoxButtons.OK);
             } else {
@@ -53,6 +55,8 @@ namespace Banishment {
                 errlog = string.Format("应用程序线程错误:{0}", e);
             }
             Log.D(errlog);
+            if (Const.debug)
+                return;
             if (Log.UploadLogFile()) {
                 MessageBox.Show("程序因异常退出，请及时重启软件！异常日志已自动上传。", "Banishment - Error", MessageBoxButtons.OK);
             } else {

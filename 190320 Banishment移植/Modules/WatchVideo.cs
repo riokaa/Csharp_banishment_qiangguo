@@ -23,6 +23,10 @@ namespace Banishment.Modules {
             //: selecting logic
             Log.I("Watching video.");
             if(Const.videoList.Count > 0) { //有分发视频
+                //if (Const.debug) {
+                //    GoCenter();
+                //    Thread.Sleep(20000);
+                //}
                 GoLocal();
             } else { //离线模式
                 GoCenter();
@@ -34,8 +38,8 @@ namespace Banishment.Modules {
                 if (BS.vip) {
                     watchTime = watchTime * _random.Next(60, 150) / 100;
                 }
-                if (Const.debug)
-                    watchTime = 3000;
+                //if (Const.debug)
+                //    watchTime = 3000;
             } else if (_mode.Equals("flush amount")) {
                 watchTime = 60000;
                 if (BS.vip) {
@@ -68,32 +72,39 @@ namespace Banishment.Modules {
 
             //: select video type
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("function getElementByXpath(path) {return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;}");
-            sb.AppendLine("getElementByXpath(\"//label[@for='icw2w2r402000_第一频道']\").click();");
+            string className = "tab-wrapper";
+            string innerText = "第一频道";
+            sb.AppendLine("function getElementsByClassName(node,classname) {if (node.getElementsByClassName) {return node.getElementsByClassName(classname);} else {return (function getElementsByClass(searchClass,node) {if ( node == null )node=document;var classElements=[],els = node.getElementsByTagName(\"*\"),elsLen=els.length,pattern=new RegExp(\"(^|\\s)\"+searchClass+\"(\\s|$)\"), i, j;for (i = 0, j = 0; i < elsLen; i++) {if ( pattern.test(els[i].className) ) {classElements[j] = els[i]; j++;}}return classElements;})(classname, node);}}");
+            sb.AppendLine("function getElementTitleEqualsTo(title){var elements = getElementsByClassName(document, \"" + className + "\");for(var i=0; i<elements.length;i++){if(elements[i].innerText.indexOf(title)!= -1){return elements[i];}}return null;}");
+            sb.AppendLine("getElementTitleEqualsTo(\"" + innerText + "\").getElementsByTagName(\"div\")[0].getElementsByTagName(\"div\")[0].click();");
             BrowserEvaluateScript(sb.ToString());
             Thread.Sleep(1000);
 
             sb = new StringBuilder();
-            sb.AppendLine("function getElementByXpath(path) {return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;}");
+            sb.AppendLine("function getElementsByClassName(node,classname) {if (node.getElementsByClassName) {return node.getElementsByClassName(classname);} else {return (function getElementsByClass(searchClass,node) {if ( node == null )node=document;var classElements=[],els = node.getElementsByTagName(\"*\"),elsLen=els.length,pattern=new RegExp(\"(^|\\s)\"+searchClass+\"(\\s|$)\"), i, j;for (i = 0, j = 0; i < elsLen; i++) {if ( pattern.test(els[i].className) ) {classElements[j] = els[i]; j++;}}return classElements;})(classname, node);}}");
+            sb.AppendLine("function getElementTitleEqualsTo(title){var elements = getElementsByClassName(document, \"" + className + "\");for(var i=0; i<elements.length;i++){if(elements[i].innerText.indexOf(title)!= -1){return elements[i];}}return null;}");
             switch (_random.Next(0, 3)) {
                 case 0:
-                    sb.AppendLine("getElementByXpath(\"//label[@for='2p2eqv4lwtk00_习近平活动视频集']\").click();");
+                    innerText = "重要活动视频专辑";
                     break;
                 case 1:
-                    sb.AppendLine("getElementByXpath(\"//label[@for='2p2eqv4lwtk00_专题报道']\").click();");
+                    innerText = "学习专题报告";
                     break;
                 case 2:
-                    sb.AppendLine("getElementByXpath(\"//label[@for='2p2eqv4lwtk00_新闻联播']\").click();");
+                    innerText = "新闻联播";
                     break;
             }
+            //sb.AppendLine("alert(getElementTitleEqualsTo(\"" + innerText + "\").innerHTML);"); //test
+            sb.AppendLine("getElementTitleEqualsTo(\"" + innerText + "\").getElementsByTagName(\"div\")[0].getElementsByTagName(\"div\")[0].click();");
             BrowserEvaluateScript(sb.ToString());
             BrowserWaitLoad();
 
             //: select video randomly
+            className = "textWrapper";
             string html = BrowserGetHtml();
             var htmlDoc = new HtmlDocument();
             htmlDoc.LoadHtml(html);
-            HtmlNodeCollection nodes = htmlDoc.DocumentNode.SelectNodes(@"//div[@class='screen']//div[@class='word-item'][string-length()>10]");
+            HtmlNodeCollection nodes = htmlDoc.DocumentNode.SelectNodes(@"//div[@class='" + className + "'][string-length()>10]");
             Log.I(string.Format("WatchVideo: {0} videos found.", nodes.Count));
             if (nodes.Count == 0) {
                 Log.E("出问题了：没有获取到视频们！");
@@ -104,9 +115,10 @@ namespace Banishment.Modules {
             HtmlNode selected = nodes[_random.Next(0, nodes.Count)];
 
             //: click it by js
+            className = "textWrapper";
             sb = new StringBuilder();
             sb.AppendLine("function getElementsByClassName(node,classname) {if (node.getElementsByClassName) {return node.getElementsByClassName(classname);} else {return (function getElementsByClass(searchClass,node) {if ( node == null )node=document;var classElements=[],els = node.getElementsByTagName(\"*\"),elsLen=els.length,pattern=new RegExp(\"(^|\\s)\"+searchClass+\"(\\s|$)\"), i, j;for (i = 0, j = 0; i < elsLen; i++) {if ( pattern.test(els[i].className) ) {classElements[j] = els[i]; j++;}}return classElements;})(classname, node);}}");
-            sb.AppendLine("function getElementTitleEqualsTo(title){var elements = getElementsByClassName(document, \"word-item\");for(var i=0; i<elements.length;i++){if(elements[i].innerText == title){return elements[i];}}return null;}");
+            sb.AppendLine("function getElementTitleEqualsTo(title){var elements = getElementsByClassName(document, \"" + className + "\");for(var i=0; i<elements.length;i++){if(elements[i].innerText.indexOf(title)!= -1){return elements[i];}}return null;}");
             sb.AppendLine("getElementTitleEqualsTo(\"" + selected.InnerText + "\").click();");
             BrowserEvaluateScript(sb.ToString());
             Log.I(string.Format("Loading video randomly... [@title='{0}']", selected.InnerText));

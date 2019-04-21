@@ -1,21 +1,29 @@
 ﻿using Banishment.BaseLib;
 using BanishmentVerifyDll;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Banishment.Modules {
     class WebGetVideoList {
+        static int maxTryCount = 10; //videoList请求超时最大请求次数
         public static void Start() {
             Log.D("WebGetVideoList: getting video list from server.");
             string response = HttpRequest.Get(Const.urlVideoList);
             Log.D("WebGetVideoList: response - " + response);
-            WebVideoListObject videoListResp = JsonConvert.DeserializeObject<WebVideoListObject>(response, new JsonSerializerSettings {
-                Error = delegate(object obj, Newtonsoft.Json.Serialization.ErrorEventArgs args) {
-                    Log.W("WebGetVideoList: 获取视频列表失败: wrong response data!");
-                    args.ErrorContext.Handled = true;
-                    return;
+            WebVideoListObject videoListResp;
+            try {
+                videoListResp = JsonConvert.DeserializeObject<WebVideoListObject>(response);
+            } catch(Exception e) {
+                Log.W(string.Format("WebGetVideoList: 获取视频列表失败: wrong response data![@data={0}]", response));
+                maxTryCount--;
+                Thread.Sleep(2000);
+                if(maxTryCount > 0) {
+                    new Thread(Start).Start(); //重新请求
                 }
-            });
+                return;
+            }
             if (!videoListResp.message.Equals("ok")) {
                 Log.W("WebGetVideoList: 获取视频列表失败: wrong response message!");
                 return;
