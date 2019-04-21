@@ -23,10 +23,6 @@ namespace Banishment.Modules {
             //: selecting logic
             Log.I("Watching video.");
             if(Const.videoList.Count > 0) { //有分发视频
-                //if (Const.debug) {
-                //    GoCenter();
-                //    Thread.Sleep(20000);
-                //}
                 GoLocal();
             } else { //离线模式
                 GoCenter();

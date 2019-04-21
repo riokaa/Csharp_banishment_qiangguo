@@ -6,7 +6,7 @@ namespace Banishment.BaseLib {
     class Const {
         public static string aesKey = "4e72acd42edcb859ec49f60fd1106a50";
         public static string author = "板";
-        public static bool debug = true;
+        public static bool debug = false;
         public static int[] score = new int[5] { 0, 0, 0, 0, 0 };
         public static int[] scoreMax = new int[5] { 1, 6, 6, 6, 6 };
         public static bool settingsAutoClose = false;
@@ -21,6 +21,6 @@ namespace Banishment.BaseLib {
         public static string urlVideoList = @"http://api.rayiooo.top/banishment/getVideoList.php";
         public static List<WebVideoObject> videoList;
         public static string version = "v" + Assembly.GetExecutingAssembly().GetName().Version.ToString();
-        public static string versionDate = "2019.4.9";
+        public static string versionDate = "2019.4.21";
     }
 }

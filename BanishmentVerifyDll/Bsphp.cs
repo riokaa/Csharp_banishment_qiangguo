@@ -47,11 +47,10 @@ namespace BanishmentVerifyDll {
             //: http post request
             string response = HttpRequest.Post(BS.reqUrl, param);
 
-            response = Encoding.UTF8.GetString(Convert.FromBase64String(response));
-            //Log.D(string.Format("Bsphp.ApiRequest.Response: {0}.", response));
-
             //: verify data safe
             try {
+                response = Encoding.UTF8.GetString(Convert.FromBase64String(response));
+                //Log.D(string.Format("Bsphp.ApiRequest.Response: {0}.", response));
                 if (!response.StartsWith("{\"response")) {
                     return "";
                 }
@@ -73,8 +72,8 @@ namespace BanishmentVerifyDll {
                 } else {
                     return respJson.response.data; //返回正确数据包
                 }
-            } catch (Exception ex) {
-                //Log.E(ex.Message);
+            } catch (Exception e) {
+                //Log.D(e.Message);
                 return "";
             }
         }
