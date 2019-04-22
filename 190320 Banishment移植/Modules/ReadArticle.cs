@@ -63,13 +63,13 @@ namespace Banishment.Modules {
                 if (BS.vip) {
                     readTime = readTime * _random.Next(60, 150) / 100;
                 }
+            } else if (_mode.Equals("flush amount")) { //刷次数模式
+                if (BS.vip) {
+                    readTime = readTime * _random.Next(60, 100) / 100;
+                    //readTime = readTime + _random.Next(-20, 10) * 1000;
+                }
                 //if (Const.debug)
                 //    readTime = 3000;
-            } else if (_mode.Equals("flush amount")) {
-                readTime = 60000;
-                if (BS.vip) {
-                    readTime = readTime + _random.Next(-20, 10) * 1000;
-                }
             } else {
                 Log.E(string.Format("ReadArticle: wrong mode content! [@mode='{0}']", _mode));
             }

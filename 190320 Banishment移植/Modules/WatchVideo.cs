@@ -30,17 +30,18 @@ namespace Banishment.Modules {
 
             //: sleep until read complete
             int watchTime = 60000 * 3;
-            if (_mode.Equals("flush time")) {
+            if (_mode.Equals("flush time")) { //刷时间
                 if (BS.vip) {
                     watchTime = watchTime * _random.Next(60, 150) / 100;
                 }
+            } else if (_mode.Equals("flush amount")) { //刷次数
+                watchTime = 60000 * 2;
+                if (BS.vip) {
+                    watchTime = watchTime * _random.Next(60, 100) / 100;
+                    //watchTime = watchTime + _random.Next(-20, 10) * 1000;
+                }
                 //if (Const.debug)
                 //    watchTime = 3000;
-            } else if (_mode.Equals("flush amount")) {
-                watchTime = 60000;
-                if (BS.vip) {
-                    watchTime = watchTime + _random.Next(-20, 10) * 1000;
-                }
             } else {
                 Log.E(string.Format("ReadArticle: wrong mode content! [@mode='{0}']", _mode));
             }
@@ -128,7 +129,8 @@ namespace Banishment.Modules {
             Log.I(string.Format("WatchVideo: {0} videos found.", Const.videoList.Count));
             int selectedItemIndex = _random.Next(0, Const.videoList.Count);
             WebVideoObject item = Const.videoList[selectedItemIndex];
-            Const.videoList.RemoveAt(selectedItemIndex);
+            if(this._mode == "flush amount") //如果是刷数量模式则删除防止重复
+                Const.videoList.RemoveAt(selectedItemIndex);
             Log.I(string.Format("Loading video randomly... [@title='{0}']", item.title));
 
             //: load page
