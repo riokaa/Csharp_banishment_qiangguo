@@ -1,5 +1,7 @@
 ﻿using Banishment.BaseLib;
 using System;
+using System.Diagnostics;
+using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -48,7 +50,10 @@ namespace Banishment {
         /// <param name="e"></param>
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e) {
             string errlog = "";
-            if (e.ExceptionObject is Exception error) {
+            if (e.ExceptionObject is FileNotFoundException) {
+                MessageBox.Show("程序文件缺失！即将打开修复程序，请自行选择线路进行修复。", "警告");
+                Process.Start("修复工具.exe");
+            } else if (e.ExceptionObject is Exception error) {
                 errlog = string.Format("出现应用程序未处理的非UI线程异常。\r\n异常类型：{0}\r\n异常消息：{1}\r\n异常信息：{2}",
                      error.GetType().Name, error.Message, error.StackTrace);
             } else {

@@ -16,6 +16,7 @@ namespace Banishment.Modules {
             }
             AutoUpdate();
         }
+
         /// <summary>
         /// 比对v1与v2大小，若相等返回0，否则取v1-v2的正负号乘以1
         /// </summary>
@@ -63,20 +64,18 @@ namespace Banishment.Modules {
                 case 1: //开发版
                     updater = Updater.CreateUpdaterInstance("http://rayiooo.coding.me/Csharp_BanishmentRelease/{0}", "update_c.xml");
                     break;
+                case 2: //未启用的线路2
+                    updater = Updater.CreateUpdaterInstance("http://api.rayiooo.top/banishment/update/{0}", "update_c.xml");
+                    break;
                 default:
                     updater = Updater.CreateUpdaterInstance("http://api.update.rayiooo.top/Banishment/update/{0}", "update_c.xml");
                     break;
             }
-            //   var updater = Updater.CreateUpdaterInstance(
-            //       new UpdateServerInfo[]{ 
-            //           new UpdateServerInfo("http://rayiooo.coding.me/Csharp_BanishmentRelease/{0}", "update_c.xml"),
-            //           new UpdateServerInfo("http://api.update.rayiooo.top/Banishment/update/{0}", "update_c.xml"),
-            //           new UpdateServerInfo("http://api.rayiooo.top/banishment/update/{0}", "update_c.xml")
-	        //});
             
             updater.Error += (s, e) => {
+                MessageBox.Show("更新失败！请尝试以管理员身份运行软件，或者将软件目录移动到C盘以外的盘下再运行！", "提示");
                 Log.E("更新发生了错误：" + updater.Context.Exception.Message);
-                MessageBox.Show(string.Format("更新发生了错误：{0}！可尝试在设置中更换更新源。", updater.Context.Exception.Message), "更新失败");
+                //MessageBox.Show(string.Format("更新发生了错误：{0}！可尝试在设置中更换更新源。", updater.Context.Exception.Message), "更新失败");
             };
             updater.UpdatesFound += (s, e) => {
                 Log.D("发现了新版本：" + updater.Context.UpdateInfo.AppVersion);
@@ -87,7 +86,7 @@ namespace Banishment.Modules {
             updater.MinmumVersionRequired += (s, e) => {
                 MessageBox.Show("当前版本过低无法使用自动更新！请在公告栏中手动下载新版本。", "更新信息");
             };
-            Updater.CheckUpdateSimple();
+            updater.BeginCheckUpdateInProcess();
         }
     }
 }

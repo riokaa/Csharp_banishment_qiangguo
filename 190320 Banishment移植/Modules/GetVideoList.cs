@@ -15,7 +15,7 @@ namespace Banishment.Modules {
             WebVideoListObject videoListResp;
             try {
                 videoListResp = JsonConvert.DeserializeObject<WebVideoListObject>(response);
-            } catch(Exception e) {
+            } catch (Exception) {
                 Log.W(string.Format("WebGetVideoList: 获取视频列表失败: wrong response data![@data={0}]", response));
                 maxTryCount--;
                 Thread.Sleep(2000);
