@@ -36,12 +36,12 @@ namespace Banishment.Modules {
             int watchTime = 60000 * 3;
             if (_mode.Equals("flush time")) { //刷时间
                 if (BS.vip) {
-                    watchTime = watchTime * _random.Next(60, 150) / 100;
+                    watchTime = watchTime * _random.Next(90, 150) / 100;
                 }
             } else if (_mode.Equals("flush amount")) { //刷次数
-                watchTime = 60000 * 2;
+                watchTime = 60000 * 3;
                 if (BS.vip) {
-                    watchTime = watchTime * _random.Next(60, 100) / 100;
+                    watchTime = watchTime * _random.Next(75, 120) / 100;
                     //watchTime = watchTime + _random.Next(-20, 10) * 1000;
                 }
                 //if (Const.debug)

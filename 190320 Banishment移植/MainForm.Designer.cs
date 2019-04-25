@@ -55,9 +55,6 @@
             this.UserBtnChangePwd = new System.Windows.Forms.Button();
             this.UserBtnActivate = new System.Windows.Forms.Button();
             this.UserBtnGetPro = new System.Windows.Forms.Button();
-            this.UserGroupBoxPro = new System.Windows.Forms.GroupBox();
-            this.UserLinkLabelProDetail = new System.Windows.Forms.LinkLabel();
-            this.UserPicProCloud = new System.Windows.Forms.PictureBox();
             this.tabPageAnnounce = new System.Windows.Forms.TabPage();
             this.tabPageSettings = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -65,6 +62,8 @@
             this.SetCheckNoVoice = new System.Windows.Forms.CheckBox();
             this.SetBtnApply = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.SetUpdateSource = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SetCheckAutoShutdown = new System.Windows.Forms.CheckBox();
             this.SetCheckAutoClose = new System.Windows.Forms.CheckBox();
             this.tabPageAbout = new System.Windows.Forms.TabPage();
@@ -74,8 +73,9 @@
             this.NotifyMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.NotifyShow = new System.Windows.Forms.ToolStripMenuItem();
             this.NotifyExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.label4 = new System.Windows.Forms.Label();
-            this.SetUpdateSource = new System.Windows.Forms.ComboBox();
+            this.UserPicProCloud = new System.Windows.Forms.PictureBox();
+            this.UserLinkLabelProDetail = new System.Windows.Forms.LinkLabel();
+            this.UserGroupBoxPro = new System.Windows.Forms.GroupBox();
             this.MainTab.SuspendLayout();
             this.tabPageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitter)).BeginInit();
@@ -105,13 +105,13 @@
             this.UserTable.SuspendLayout();
             this.UserTable2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.UserGroupBoxPro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.UserPicProCloud)).BeginInit();
             this.tabPageSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPageAbout.SuspendLayout();
             this.NotifyMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UserPicProCloud)).BeginInit();
+            this.UserGroupBoxPro.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainTab
@@ -528,42 +528,6 @@
             this.UserBtnGetPro.UseVisualStyleBackColor = true;
             this.UserBtnGetPro.Click += new System.EventHandler(this.UserBtnGetPro_Click);
             // 
-            // UserGroupBoxPro
-            // 
-            this.UserGroupBoxPro.Controls.Add(this.UserLinkLabelProDetail);
-            this.UserGroupBoxPro.Controls.Add(this.UserPicProCloud);
-            this.UserGroupBoxPro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UserGroupBoxPro.Location = new System.Drawing.Point(0, 0);
-            this.UserGroupBoxPro.Name = "UserGroupBoxPro";
-            this.UserGroupBoxPro.Size = new System.Drawing.Size(594, 610);
-            this.UserGroupBoxPro.TabIndex = 0;
-            this.UserGroupBoxPro.TabStop = false;
-            this.UserGroupBoxPro.Text = "Pro";
-            // 
-            // UserLinkLabelProDetail
-            // 
-            this.UserLinkLabelProDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.UserLinkLabelProDetail.AutoSize = true;
-            this.UserLinkLabelProDetail.Location = new System.Drawing.Point(467, 586);
-            this.UserLinkLabelProDetail.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.UserLinkLabelProDetail.Name = "UserLinkLabelProDetail";
-            this.UserLinkLabelProDetail.Size = new System.Drawing.Size(121, 15);
-            this.UserLinkLabelProDetail.TabIndex = 1;
-            this.UserLinkLabelProDetail.TabStop = true;
-            this.UserLinkLabelProDetail.Text = "Pro有哪些功能？";
-            this.UserLinkLabelProDetail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.UserLinkLabelProDetail_LinkClicked);
-            // 
-            // UserPicProCloud
-            // 
-            this.UserPicProCloud.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.UserPicProCloud.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.UserPicProCloud.Location = new System.Drawing.Point(6, 24);
-            this.UserPicProCloud.Name = "UserPicProCloud";
-            this.UserPicProCloud.Size = new System.Drawing.Size(582, 553);
-            this.UserPicProCloud.TabIndex = 0;
-            this.UserPicProCloud.TabStop = false;
-            // 
             // tabPageAnnounce
             // 
             this.tabPageAnnounce.Location = new System.Drawing.Point(4, 25);
@@ -648,6 +612,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "首选项";
             // 
+            // SetUpdateSource
+            // 
+            this.SetUpdateSource.FormattingEnabled = true;
+            this.SetUpdateSource.Items.AddRange(new object[] {
+            "稳定版",
+            "开发版"});
+            this.SetUpdateSource.Location = new System.Drawing.Point(109, 74);
+            this.SetUpdateSource.Name = "SetUpdateSource";
+            this.SetUpdateSource.Size = new System.Drawing.Size(89, 23);
+            this.SetUpdateSource.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(97, 15);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "更新源选择：";
+            // 
             // SetCheckAutoShutdown
             // 
             this.SetCheckAutoShutdown.AutoSize = true;
@@ -730,25 +714,40 @@
             this.NotifyExit.Text = "退出";
             this.NotifyExit.Click += new System.EventHandler(this.NotifyExit_Click);
             // 
-            // label4
+            // UserPicProCloud
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 77);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 15);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "更新源选择：";
+            this.UserPicProCloud.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.UserPicProCloud.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserPicProCloud.Location = new System.Drawing.Point(3, 21);
+            this.UserPicProCloud.Name = "UserPicProCloud";
+            this.UserPicProCloud.Size = new System.Drawing.Size(588, 586);
+            this.UserPicProCloud.TabIndex = 0;
+            this.UserPicProCloud.TabStop = false;
             // 
-            // SetUpdateSource
+            // UserLinkLabelProDetail
             // 
-            this.SetUpdateSource.FormattingEnabled = true;
-            this.SetUpdateSource.Items.AddRange(new object[] {
-            "稳定版",
-            "开发版"});
-            this.SetUpdateSource.Location = new System.Drawing.Point(109, 74);
-            this.SetUpdateSource.Name = "SetUpdateSource";
-            this.SetUpdateSource.Size = new System.Drawing.Size(89, 23);
-            this.SetUpdateSource.TabIndex = 4;
+            this.UserLinkLabelProDetail.AutoSize = true;
+            this.UserLinkLabelProDetail.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.UserLinkLabelProDetail.Location = new System.Drawing.Point(3, 592);
+            this.UserLinkLabelProDetail.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.UserLinkLabelProDetail.Name = "UserLinkLabelProDetail";
+            this.UserLinkLabelProDetail.Size = new System.Drawing.Size(121, 15);
+            this.UserLinkLabelProDetail.TabIndex = 1;
+            this.UserLinkLabelProDetail.TabStop = true;
+            this.UserLinkLabelProDetail.Text = "Pro有哪些功能？";
+            this.UserLinkLabelProDetail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.UserLinkLabelProDetail_LinkClicked);
+            // 
+            // UserGroupBoxPro
+            // 
+            this.UserGroupBoxPro.Controls.Add(this.UserLinkLabelProDetail);
+            this.UserGroupBoxPro.Controls.Add(this.UserPicProCloud);
+            this.UserGroupBoxPro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserGroupBoxPro.Location = new System.Drawing.Point(0, 0);
+            this.UserGroupBoxPro.Name = "UserGroupBoxPro";
+            this.UserGroupBoxPro.Size = new System.Drawing.Size(594, 610);
+            this.UserGroupBoxPro.TabIndex = 0;
+            this.UserGroupBoxPro.TabStop = false;
+            this.UserGroupBoxPro.Text = "Pro";
             // 
             // MainForm
             // 
@@ -791,9 +790,6 @@
             this.UserTable.PerformLayout();
             this.UserTable2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.UserGroupBoxPro.ResumeLayout(false);
-            this.UserGroupBoxPro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.UserPicProCloud)).EndInit();
             this.tabPageSettings.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -802,6 +798,9 @@
             this.tabPageAbout.ResumeLayout(false);
             this.tabPageAbout.PerformLayout();
             this.NotifyMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.UserPicProCloud)).EndInit();
+            this.UserGroupBoxPro.ResumeLayout(false);
+            this.UserGroupBoxPro.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -827,7 +826,6 @@
         public System.Windows.Forms.SplitContainer UserSplitter2;
         private System.Windows.Forms.PictureBox UserImgHead;
         private System.Windows.Forms.TableLayoutPanel UserTable;
-        private System.Windows.Forms.GroupBox UserGroupBoxPro;
         public System.Windows.Forms.TabControl MainTab;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public System.Windows.Forms.Button UserBtnChangePwd;
@@ -851,13 +849,14 @@
         private System.Windows.Forms.ContextMenuStrip NotifyMenu;
         private System.Windows.Forms.ToolStripMenuItem NotifyShow;
         private System.Windows.Forms.ToolStripMenuItem NotifyExit;
-        private System.Windows.Forms.LinkLabel UserLinkLabelProDetail;
-        private System.Windows.Forms.PictureBox UserPicProCloud;
         private System.Windows.Forms.GroupBox groupBox2;
         public System.Windows.Forms.CheckBox SetCheckIcon360;
         public System.Windows.Forms.CheckBox SetCheckNoVoice;
         public System.Windows.Forms.NotifyIcon NotifyIcon;
         private System.Windows.Forms.ComboBox SetUpdateSource;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox UserGroupBoxPro;
+        private System.Windows.Forms.LinkLabel UserLinkLabelProDetail;
+        private System.Windows.Forms.PictureBox UserPicProCloud;
     }
 }

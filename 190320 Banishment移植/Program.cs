@@ -51,7 +51,7 @@ namespace Banishment {
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e) {
             string errlog = "";
             if (e.ExceptionObject is FileNotFoundException e1) {
-                MessageBox.Show("程序文件缺失！即将打开修复程序，请自行选择线路进行修复。", "警告");
+                MessageBox.Show("程序文件缺失！即将打开修复程序，请自行选择线路进行修复。\r\n缺失内容：" + e1.Message, "警告");
                 Process.Start("修复工具.exe");
                 errlog = string.Format("出现文件缺失异常。\r\n异常类型：{0}\r\n异常消息：{1}\r\n异常信息：{2}",
                      e1.GetType().Name, e1.Message, e1.StackTrace);

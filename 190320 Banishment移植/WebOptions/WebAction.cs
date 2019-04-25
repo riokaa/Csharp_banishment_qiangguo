@@ -11,7 +11,7 @@ namespace Banishment.WebOptions {
             Random random = new Random();
             while (true) {
                 if (BS.vip) { //pro
-                    Thread.Sleep(1000 * random.Next(1, 20));
+                    Thread.Sleep(1000 * random.Next(1, 15));
                     WebLib.ScrollTo(0, (random.Next(0, 2) * 2 - 1) * random.Next(20, 500) + 20, 1);
                 } else {
                     Thread.Sleep(1000);

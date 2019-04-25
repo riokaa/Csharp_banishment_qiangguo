@@ -61,11 +61,11 @@ namespace Banishment.Modules {
             int readTime = 60000 * 2;
             if (_mode.Equals("flush time")) {
                 if (BS.vip) {
-                    readTime = readTime * _random.Next(60, 150) / 100;
+                    readTime = readTime * _random.Next(100, 160) / 100;
                 }
             } else if (_mode.Equals("flush amount")) { //刷次数模式
                 if (BS.vip) {
-                    readTime = readTime * _random.Next(60, 100) / 100;
+                    readTime = readTime * _random.Next(90, 135) / 100;
                     //readTime = readTime + _random.Next(-20, 10) * 1000;
                 }
                 //if (Const.debug)
