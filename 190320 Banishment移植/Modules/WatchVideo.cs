@@ -22,10 +22,14 @@ namespace Banishment.Modules {
         public void Start() {
             //: selecting logic
             Log.I("Watching video.");
-            if(Const.videoList.Count > 0) { //有分发视频
-                GoLocal();
-            } else { //离线模式
-                GoCenter();
+            if(_mode == "flush time" && Const.videoListSingle != null) {
+                GoLocalFlushTime();
+            } else {
+                if (Const.videoList.Count > 0) { //有分发视频
+                    GoLocal();
+                } else { //离线模式
+                    GoCenter();
+                }
             }
 
             //: sleep until read complete
@@ -129,14 +133,19 @@ namespace Banishment.Modules {
             Log.I(string.Format("WatchVideo: {0} videos found.", Const.videoList.Count));
             int selectedItemIndex = _random.Next(0, Const.videoList.Count);
             WebVideoObject item = Const.videoList[selectedItemIndex];
-            if(this._mode == "flush amount") //如果是刷数量模式则删除防止重复
-                Const.videoList.RemoveAt(selectedItemIndex);
+            Const.videoList.RemoveAt(selectedItemIndex);
             Log.I(string.Format("Loading video randomly... [@title='{0}']", item.title));
 
             //: load page
             BrowserLoad(item.url);
 
             return;
+        }
+        /// <summary>
+        /// 地方频道刷时长
+        /// </summary>
+        private void GoLocalFlushTime() {
+            BrowserLoad(Const.videoListSingle.url);
         }
     }
 }

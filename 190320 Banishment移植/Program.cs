@@ -38,9 +38,9 @@ namespace Banishment {
             if (Const.debug)
                 return; //debug模式不上传日志
             if (Log.UploadLogFile()) {
-                MessageBox.Show("程序因异常退出，请及时重启软件！异常日志已自动上传。", "Banishment - Error", MessageBoxButtons.OK);
+                MessageBox.Show("程序因异常退出，请及时重启软件！异常日志已自动上传。\r\n" + errlog, "Banishment - Error", MessageBoxButtons.OK);
             } else {
-                MessageBox.Show("程序因异常退出，请及时重启软件！异常日志上传失败。", "Banishment - Error", MessageBoxButtons.OK);
+                MessageBox.Show("程序因异常退出，请及时重启软件！异常日志上传失败。\r\n" + errlog, "Banishment - Error", MessageBoxButtons.OK);
             }
         }
         /// <summary>
@@ -50,9 +50,11 @@ namespace Banishment {
         /// <param name="e"></param>
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e) {
             string errlog = "";
-            if (e.ExceptionObject is FileNotFoundException) {
+            if (e.ExceptionObject is FileNotFoundException e1) {
                 MessageBox.Show("程序文件缺失！即将打开修复程序，请自行选择线路进行修复。", "警告");
                 Process.Start("修复工具.exe");
+                errlog = string.Format("出现文件缺失异常。\r\n异常类型：{0}\r\n异常消息：{1}\r\n异常信息：{2}",
+                     e1.GetType().Name, e1.Message, e1.StackTrace);
             } else if (e.ExceptionObject is Exception error) {
                 errlog = string.Format("出现应用程序未处理的非UI线程异常。\r\n异常类型：{0}\r\n异常消息：{1}\r\n异常信息：{2}",
                      error.GetType().Name, error.Message, error.StackTrace);
@@ -63,9 +65,9 @@ namespace Banishment {
             if (Const.debug)
                 return;
             if (Log.UploadLogFile()) {
-                MessageBox.Show("程序因异常退出，请及时重启软件！异常日志已自动上传。", "Banishment - Error", MessageBoxButtons.OK);
+                MessageBox.Show("程序因异常退出，请及时重启软件！异常日志已自动上传。\r\n" + errlog, "Banishment - Error", MessageBoxButtons.OK);
             } else {
-                MessageBox.Show("程序因异常退出，请及时重启软件！异常日志上传失败。", "Banishment - Error", MessageBoxButtons.OK);
+                MessageBox.Show("程序因异常退出，请及时重启软件！异常日志上传失败。\r\n" + errlog, "Banishment - Error", MessageBoxButtons.OK);
             }
         }
     }

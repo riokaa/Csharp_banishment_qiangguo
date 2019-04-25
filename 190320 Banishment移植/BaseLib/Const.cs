@@ -20,6 +20,7 @@ namespace Banishment.BaseLib {
         public static string urlQGMyPoints = @"https://pc.xuexi.cn/points/my-points.html";
         public static string urlVideoList = @"http://api.rayiooo.top/banishment/getVideoList.php";
         public static List<WebVideoObject> videoList;
+        public static WebVideoObject videoListSingle;
         public static string version = "v" + Assembly.GetExecutingAssembly().GetName().Version.ToString();
         public static string versionDate = "2019.4.21";
     }

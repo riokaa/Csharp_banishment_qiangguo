@@ -29,6 +29,9 @@ namespace Banishment.Modules {
                 return;
             }
             Const.videoList = videoListResp.data;
+            if(Const.videoList.Count > 0) {
+                Const.videoListSingle = Const.videoList[new Random().Next(0, Const.videoList.Count)];
+            }
             Log.I(string.Format("WebGetVideoList: 获取视频列表成功。 [@count={0}]", Const.videoList.Count));
         }
     }
