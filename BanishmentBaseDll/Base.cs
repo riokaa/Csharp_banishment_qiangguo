@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using System.Text;
@@ -9,6 +10,10 @@ namespace BanishmentBaseDll {
             return DateTime.Now.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss");
         }
 
+        /// <summary>
+        /// 获取mac地址
+        /// </summary>
+        /// <returns></returns>
         public static string GetMac() {
             try {
                 NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
@@ -23,12 +28,38 @@ namespace BanishmentBaseDll {
             return "00-00-00-00-00-00";
         }
 
+        /// <summary>
+        /// 获取时间戳（可能是精确到秒）
+        /// </summary>
+        /// <returns></returns>
         public static string GetTimeStamp() {
             DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));
             long timeStamp = (long)(DateTime.Now - startTime).TotalSeconds;
             return timeStamp.ToString();
         }
 
+        /// <summary>
+        /// 在默认浏览器中打开网页
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        public static bool OpenBrowser(string url) {
+            RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"http\shell\open\command\");
+            string s = key.GetValue("").ToString();
+            string browserpath = null;
+            if (s.StartsWith("\"")) {
+                browserpath = s.Substring(1, s.IndexOf('\"', 1) - 1);
+            } else {
+                browserpath = s.Substring(0, s.IndexOf(" "));
+            }
+            return System.Diagnostics.Process.Start(browserpath, url) != null;
+        }
+
+        /// <summary>
+        /// MD5加密
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static string MD5(string str) {
             MD5 md5Hasher = System.Security.Cryptography.MD5.Create();
             byte[] data = md5Hasher.ComputeHash(Encoding.UTF8.GetBytes(str));

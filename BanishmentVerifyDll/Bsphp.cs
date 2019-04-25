@@ -72,7 +72,7 @@ namespace BanishmentVerifyDll {
                 } else {
                     return respJson.response.data; //返回正确数据包
                 }
-            } catch (Exception e) {
+            } catch (Exception) {
                 //Log.D(e.Message);
                 return "";
             }

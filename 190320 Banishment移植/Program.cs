@@ -1,4 +1,5 @@
 ﻿using Banishment.BaseLib;
+using BanishmentBaseDll;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -43,6 +44,7 @@ namespace Banishment {
                 MessageBox.Show("程序因异常退出，请及时重启软件！异常日志上传失败。\r\n" + errlog, "Banishment - Error", MessageBoxButtons.OK);
             }
         }
+
         /// <summary>
         /// 非ui线程异常处理方法
         /// </summary>
@@ -51,8 +53,18 @@ namespace Banishment {
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e) {
             string errlog = "";
             if (e.ExceptionObject is FileNotFoundException e1) {
-                MessageBox.Show("程序文件缺失！即将打开修复程序，请自行选择线路进行修复。\r\n缺失内容：" + e1.Message, "警告");
-                Process.Start("修复工具.exe");
+                if (e1.Message.Contains("CefSharp.Core.dll")) {
+                    var dr = MessageBox.Show("文件CefSharp.Core.dll或其依赖文件缺失！可能是没有安装VC++2015(x86)运行时库。是否打开网页下载安装？", "缺失支持库", MessageBoxButtons.YesNo);
+                    if(dr == DialogResult.Yes) {
+                        //打开网页下载vc++2015
+                        Base.OpenBrowser("https://www.microsoft.com/zh-CN/download/details.aspx?id=48145");
+                        MessageBox.Show("请在打开的页面中：\r\n1. 点击“下载”\r\n2. 选中32位的“vc_redist.x86.exe”下载、安装\r\n3. 再运行本软件", "缺失支持库", MessageBoxButtons.OK);
+                        Environment.Exit(0);
+                    }
+                } else {
+                    MessageBox.Show("程序文件缺失！即将打开修复程序，请自行选择线路进行修复。\r\n缺失内容：" + e1.Message, "警告");
+                    Process.Start("修复工具.exe");
+                }
                 errlog = string.Format("出现文件缺失异常。\r\n异常类型：{0}\r\n异常消息：{1}\r\n异常信息：{2}",
                      e1.GetType().Name, e1.Message, e1.StackTrace);
             } else if (e.ExceptionObject is Exception error) {
