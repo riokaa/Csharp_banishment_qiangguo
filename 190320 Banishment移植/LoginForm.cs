@@ -29,9 +29,13 @@ namespace Banishment {
         public void LoginAuto() {
             if (Settings.Default.User == "" || Settings.Default.Pwd == "")
                 return;
-            this.LoginTextUser.Text = Settings.Default.User;
-            this.LoginTextPwd.Text = Base.AesDecrypt(Settings.Default.Pwd, Const.aesKey);
-            this.LoginBtnLogin_Click(null, new EventArgs());
+            LoginTextUser.Text = Settings.Default.User;
+            try {
+                LoginTextPwd.Text = Base.AesDecrypt(Settings.Default.Pwd, Const.aesKey);
+            } catch (Exception) {
+                LoginTextPwd.Text = "";
+            }
+            LoginBtnLogin_Click(null, new EventArgs());
             if (!(this.IsDisposed || this.Disposing)) {
                 Log.W("个人中心自动登陆失败。");
                 FlushUserInfo.AfterLoginFailed(); //登录失败后处理
