@@ -50,7 +50,7 @@ namespace Banishment.Modules {
                 }
                 return 0;
             }catch (Exception e) {
-                Log.E(string.Format("CheckVersion.CompareVersion.Exception: {0}", e.Message));
+                Log.E(string.Format("CheckVersion.CompareVersion.Exception: {0} [@v1={1}][@v2={2}]", e.Message, v1, v2));
                 return 0;
             }
         }

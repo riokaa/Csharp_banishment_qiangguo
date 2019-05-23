@@ -2,11 +2,13 @@
 using BanishmentVerifyDll;
 using HtmlAgilityPack;
 using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 
 namespace Banishment.Modules {
     class ReadArticle : OptionOnBrowser {
+        public static HashSet<string> seenList = new HashSet<string>(); //已经阅读过的列表
         private string _mode; //刷时间模式和刷数量模式
         private Random _random;
 
@@ -23,6 +25,7 @@ namespace Banishment.Modules {
             BrowserLoad(Const.urlQGMain);
             Log.D("ReadArticle: page loaded.");
 
+
             //: get html and article titles
             string itemClassName = "text-wrap"; //标题的div类名。那个强国前端程序员好闲噢，请不要改名了。
             string html = BrowserGetHtml();
@@ -33,6 +36,9 @@ namespace Banishment.Modules {
                 html = BrowserGetHtml();
                 //Log.D("rehtml: " + html);
             }
+            Thread.Sleep(2000); //再等一下加载
+            html = BrowserGetHtml();
+
             var htmlDoc = new HtmlDocument();
             htmlDoc.LoadHtml(html);
             HtmlNodeCollection nodes = htmlDoc.DocumentNode.SelectNodes(string.Format(@"//div[@class='{0}'][string-length()>10]", itemClassName));
@@ -41,12 +47,19 @@ namespace Banishment.Modules {
                 Log.E("出问题了：没有获取到文章们！");
                 return;
             }
+            //Log.D("ReadArticle.Start: 输出获取到的文章名们Start。");
             //foreach (HtmlNode n in nodes) {
-            //    Log.I(n.InnerText);
+            //    Log.D(n.InnerText);
             //}
+            //Log.D("ReadArticle.Start: 输出获取到的文章名们End。");
+
 
             //: choose an article randomly
             HtmlNode selected = nodes[_random.Next(0, nodes.Count)];
+            while(seenList.Contains(selected.InnerText)){  //不阅读已看过的
+                selected = nodes[_random.Next(0, nodes.Count)];
+            }
+
 
             //: click it by js
             StringBuilder sb = new StringBuilder();
@@ -57,6 +70,7 @@ namespace Banishment.Modules {
             Log.I(string.Format("Loading article randomly... [@title='{0}']", selected.InnerText));
             BrowserWaitLoad();
 
+
             //: sleep until read complete
             int readTime = 60000 * 2;
             if (_mode.Equals("flush time")) {
@@ -66,7 +80,6 @@ namespace Banishment.Modules {
             } else if (_mode.Equals("flush amount")) { //刷次数模式
                 if (BS.vip) {
                     readTime = readTime * _random.Next(90, 135) / 100;
-                    //readTime = readTime + _random.Next(-20, 10) * 1000;
                 }
                 //if (Const.debug)
                 //    readTime = 3000;
@@ -76,12 +89,15 @@ namespace Banishment.Modules {
             Log.I("开始执行阅读 - " + (readTime / 60000.0) + " - 分钟。");
             Log.I("Banishment this world!");
 
+
             //: sleep
             MainForm.self.threadController.ThreadProScrollResume();
             Thread.Sleep(readTime); //睡觉
             MainForm.self.threadController.ThreadProScrollSuspend();
 
+
             //: ending option
+            seenList.Add(selected.InnerText);   //加入看过列表
             Log.I("Article reading complete.");
             return;
         }
