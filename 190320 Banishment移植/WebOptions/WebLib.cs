@@ -6,6 +6,15 @@ using CefSharp.WinForms;
 namespace Banishment.WebOptions {
     class WebLib {
         /// <summary>
+        /// 获取HTTP请求的Referer
+        /// </summary>
+        /// <param name="ishost">Referer为空时是否返回Host（网站首页地址）</param>
+        /// <returns>string</returns>
+        public string GetReferer(bool ishost) {
+            return "";
+        }
+
+        /// <summary>
         /// 光滑的网页滚动操作
         /// </summary>
         /// <param name="x"></param>

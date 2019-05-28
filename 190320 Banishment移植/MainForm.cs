@@ -58,12 +58,14 @@ namespace Banishment {
                 AcceptLanguageList = "zh-CN",
                 Locale = "zh-CN",
                 MultiThreadedMessageLoop = true,
+                UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) " +
+                    "Chrome/74.0.3729.169 Safari/537.36",
             };
             settings.CefCommandLineArgs.Add("disable-gpu", "1");
             settings.CefCommandLineArgs.Add("disable-extensions", "1");
             //settings.CefCommandLineArgs.Add("enable-media-stream", "1");
             Cef.Initialize(settings);
-            MainWeb = new ChromiumWebBrowser("https://pc.xuexi.cn/points/login.html?ref=https://www.xuexi.cn/") {
+            MainWeb = new ChromiumWebBrowser("https://pc.xuexi.cn/points/login.html?ref=https%3A%2F%2Fwww.xuexi.cn%2F") {
                 Dock = DockStyle.Fill,
                 LifeSpanHandler = new OpenPageSelf(),
             };
