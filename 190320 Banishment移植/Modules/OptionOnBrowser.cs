@@ -1,8 +1,6 @@
-﻿using CefSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Banishment.BaseLib;
+using Banishment.WebOptions;
+using CefSharp;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,7 +10,7 @@ namespace Banishment.Modules {
     /// </summary>
     class OptionOnBrowser {
         private bool _htmlIsGot;
-        private bool _jsIsRan;
+        private static bool _jsIsRan;
         private bool _pageIsLoaded;
 
         protected void BrowserEvaluateScript(string js) {
@@ -24,6 +22,22 @@ namespace Banishment.Modules {
             while (!_jsIsRan)
                 Thread.Sleep(1000);
             return;
+        }
+        protected static string BrowserEvaluateScriptWithResponseStatic(string js) {
+            bool ok = false;
+            var browser = MainForm.self.MainWeb;
+            string ret = string.Empty;
+            var task = browser.GetBrowser().MainFrame.EvaluateScriptAsync(js);
+            task.ContinueWith(t => {
+                if (!t.IsFaulted) {
+                    var resp = task.Result;
+                    ret = resp.Success ? (resp.Result.ToString() ?? "null") : resp.Message;
+                }
+                ok = true;
+            });
+            while (!ok)
+                Thread.Sleep(1000);
+            return ret;
         }
         protected string BrowserGetHtml() {
             string html = "";
@@ -53,6 +67,9 @@ namespace Banishment.Modules {
             browser.FrameLoadEnd += LoadEndEventAsync;
             while (!_pageIsLoaded)
                 Thread.Sleep(1000);
+            if (Const.debug) {
+                Log.D(string.Format("OptionOnBrowser.Browser: referer={0}", WebLib.GetReferer(false)));
+            }
             return;
         }
         private void LoadEndEventAsync(object sender, FrameLoadEndEventArgs e) {

@@ -1,17 +1,34 @@
 ﻿using System;
 using System.Text;
+using Banishment.Modules;
 using CefSharp;
 using CefSharp.WinForms;
 
 namespace Banishment.WebOptions {
-    class WebLib {
+    class WebLib : OptionOnBrowser {
         /// <summary>
         /// 获取HTTP请求的Referer
         /// </summary>
         /// <param name="ishost">Referer为空时是否返回Host（网站首页地址）</param>
         /// <returns>string</returns>
-        public string GetReferer(bool ishost) {
-            return "";
+        public static string GetReferer(bool ishost = false) {
+            var browser = MainForm.self.MainWeb;
+            StringBuilder js = new StringBuilder();
+            js.AppendLine("(function () {");
+            //js.AppendLine(" if (ishost === undefined) { ishost = true; }");
+            js.AppendLine(" if (document.referrer) {");
+            js.AppendLine("     return document.referrer;");
+            js.AppendLine(  "} else {");
+            js.AppendLine("     if (" + (ishost ? "true" : "false") + ") {");
+            js.AppendLine("         return window.location.protocol + \"//\" + window.location.host;");
+            js.AppendLine("     } else {");
+            js.AppendLine("         return \"\";");
+            js.AppendLine("     }");
+            js.AppendLine(" }");
+            js.AppendLine("})();");
+            //js.AppendLine(string.Format("alert(get_http_referer({0}));", ishost ? "true" : "false"));
+            //js.AppendLine(string.Format("return get_http_referer({0});", ishost ? "true" : "false"));
+            return BrowserEvaluateScriptWithResponseStatic(js.ToString());
         }
 
         /// <summary>
