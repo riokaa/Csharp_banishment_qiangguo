@@ -22,6 +22,6 @@ namespace Banishment.BaseLib {
         public static List<WebVideoObject> videoList;
         public static WebVideoObject videoListSingle;
         public static string version = "v" + Assembly.GetExecutingAssembly().GetName().Version.ToString();
-        public static string versionDate = "2019.4.21";
+        public static string versionDate = "2019.7.10";
     }
 }

@@ -26,9 +26,10 @@ namespace Banishment.Modules {
         private static int CompareVersion(string v1, string v2) {
             string[] vv1 = v1.Replace("v", "").Split(' ')[0].Split('.');
             string[] vv2 = v2.Replace("v", "").Split(' ')[0].Split('.');
-            
+            Log.D(string.Format("版本: Local {0} - Remote {1}", v1, v2));
+
             try {
-                for(int i=0; i<Math.Min(vv1.Length, vv2.Length); i++) {
+                for(int i = 0; i < Math.Min(vv1.Length, vv2.Length); i++) {
                     if(int.Parse(vv1[i]) > int.Parse(vv2[i])) {
                         return 1;
                     }else if (int.Parse(vv1[i]) < int.Parse(vv2[i])) {
